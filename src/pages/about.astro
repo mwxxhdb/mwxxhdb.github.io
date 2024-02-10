@@ -1,0 +1,38 @@
+---
+import AboutLayout from "../layouts/AboutLayout.astro";
+
+const workingYears = Math.floor(
+  (new Date().getTime() - new Date("2010-06-15").getTime()) /
+    1000 /
+    60 /
+    60 /
+    24 /
+    365.25
+);
+---
+
+<AboutLayout frontmatter={{ title: "牧码牛" }}>
+  坐标济南，{workingYears} 年工作经验，偏向后端的全栈工程师，热爱开源，喜欢尝试新技术。
+  <ul>
+    <li>
+      后端：目前主要使用 Spring Boot + Spring Cloud 和 Quarkus 做微服务开发。
+    </li>
+    <li>
+      前端：使用过 Angular、Vue、React，目前在用 Svelte Kit
+      开发项目。个人兴趣驱使下，在研究
+      <a href="https://ofajs.com/" target="_blank">ofa.js</a>。
+    </li>
+    <li>
+      数据库：多年前用过 Oracle、MySQL，目前主要在用 PostgreSQL 和 MongoDB。
+    </li>
+    <li>实施：近几年一直在用 Docker、Kubernetes 部署微服务。</li>
+  </ul>
+
+  <div>
+    <img
+      src="/assets/dev.svg"
+      class="mx-auto sm:w-1/2"
+      alt="coding dev illustration"
+    />
+  </div>
+</AboutLayout>
