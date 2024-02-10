@@ -129,7 +129,7 @@ async function writeDiscussion(repoOwner, repoName, discussionNumber) {
     }
     result.push('---');
     result.push(...contentLines);
-    result.push(`<script src="https://giscus.app/client.js" data-repo="${repoOwner}/${repoName}" data-mapping="number" data-term="${discussionNumber}" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="dark_dimmed" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async></script>`);
+    result.push(`<script src="https://giscus.app/client.js" data-repo="${repoOwner}/${repoName}" data-mapping="number" data-term="${discussionNumber}" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="transparent_dark" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async></script>`);
 
     fs.writeFileSync(path.join(dir, `${discussionNumber}.md`), result.join('\n'));
 }

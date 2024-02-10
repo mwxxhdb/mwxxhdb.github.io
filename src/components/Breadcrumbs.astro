@@ -19,7 +19,9 @@ breadcrumbList[0] === "tags" &&
     1,
     3,
     `${breadcrumbList[1]} ${
-      Number(breadcrumbList[2]) === 1 ? "" : "(page " + breadcrumbList[2] + ")"
+      Number(breadcrumbList[2]) === 1
+        ? ""
+        : "（第 " + breadcrumbList[2] + " 页）"
     }`
   );
 ---
