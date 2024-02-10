@@ -1,0 +1,10 @@
+{
+  "origins": [
+    "https://giscus.app",
+    "https://mumaniu.cn"
+  ],
+  "originsRegex": [
+    "http://localhost:[0-9]+"
+  ],
+  "defaultCommentOrder": "newest"
+}
