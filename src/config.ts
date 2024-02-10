@@ -5,9 +5,8 @@ export const SITE: Site = {
   author: "牧码牛",
   desc: "牧码牛的博客",
   title: "牧码牛的博客",
-  ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
-  postPerPage: 3,
+  postPerPage: 10,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
 };
 

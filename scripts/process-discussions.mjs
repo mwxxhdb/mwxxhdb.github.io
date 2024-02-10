@@ -110,6 +110,7 @@ async function writeDiscussion(repoOwner, repoName, discussionNumber) {
     if (!frontMatter.modDatetime) frontMatter.modDatetime = discussion.updatedAt;
     if (!frontMatter.tags) frontMatter.tags = discussion.labels.nodes.map(label => label.name);
     if (!frontMatter.featured) frontMatter.featured = `${pinnedNumbers.includes(discussionNumber)}`;
+    if (!frontMatter.description) frontMatter.description = discussion.title;
 
     let result = [];
     result.push('---');
