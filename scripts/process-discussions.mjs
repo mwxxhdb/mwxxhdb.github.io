@@ -21,24 +21,24 @@ function getFrontMatter(lines) {
     let started = false;
     let ended = false;
     for (let i = 0; i < lines.length; i++) {
-        const line = lines[i].trim();
+        const trimedLine = lines[i].trim();
         if (ended) {
-            remaining.push(line);
+            remaining.push(lines[i]);
             continue;
         }
 
         if (started) {
-            if (line === '----->') {
+            if (trimedLine === '----->') {
                 ended = true;
                 continue;
             }
 
-            const [key, value] = line.split(':');
+            const [key, value] = trimedLine.split(':');
             frontMatter[key.trim()] = value.trim();
-        } else if (line === '<!-----') {
+        } else if (trimedLine === '<!-----') {
             started = true;
         } else {
-            remaining.push(line);
+            remaining.push(lines[i]);
         }
     }
 
