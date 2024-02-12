@@ -107,7 +107,8 @@ async function writeDiscussion(repoOwner, repoName, discussionNumber) {
 
     let result = [];
     result.push('---');
-    for (let key of Object.keys(frontMatter)) {
+    const matterKeys = Object.keys(frontMatter).sort();
+    for (let key of matterKeys) {
         const value = frontMatter[key];
         if (typeof value === 'string') {
             result.push(`${key}: ${value}`);
