@@ -14,9 +14,6 @@ if (!fs.existsSync(args[2])) {
     process.exit(1);
 }
 
-const categories = process.env.BLOG_CATEGORIES?.split(',')?.map(it => it.trim()) ?? ['release'];
-console.log('Discussion categories used for blog content:', categories);
-
 function getFrontMatter(lines) {
     const frontMatter = {};
     let remaining = [];
@@ -95,10 +92,6 @@ async function writeDiscussion(repoOwner, repoName, discussionNumber) {
     const pinnedNumbers = res.repository.pinnedDiscussions.nodes.map(node => node.discussion.number);
     const discussion = res.repository.discussion;
     const category = discussion.category.slug;
-    if (!categories.includes(category)) {
-        console.log(`Category ${category} does not in the list, skip adding blog.`);
-        return;
-    }
 
     const dir = path.join('src/content/blog', category);
     fs.mkdirSync(dir, { recursive: true });
@@ -135,10 +128,6 @@ async function writeDiscussion(repoOwner, repoName, discussionNumber) {
 }
 
 function deleteDiscussion(category, discussionNumber) {
-    if (!categories.includes(category)) {
-        console.log(`Category ${category} does not in the list, skip deleting blog.`);
-        return;
-    }
     const filepath = path.join('src/content/blog', category, `${discussionNumber}.md`);
     if (fs.existsSync(filepath)) {
         console.log(`Deleting ${filepath}`);

@@ -9,11 +9,11 @@ permissions:
 
 jobs:
   process-payload:
+    if: contains(fromJson('["release", "memo"]'), github.event.discussion.category.slug)
     name: Process payload
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      BLOG_CATEGORIES: release, memo
     steps:
       - uses: actions/checkout@v3
         name: Checkout
