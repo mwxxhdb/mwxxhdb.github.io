@@ -5,7 +5,7 @@
 [data-display="flex-row"],
 [data-display="flex-col"] {
     --gap-v: attr(data-gap type(<number>), 3);
-    --gap: calc(var(--gap-v) * (var(--gap-v) * var(--gap-v) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+    --gap: calc(var(--gap-v) * var(--spacing) * 1rem);
 
     box-sizing: border-box;
     display: flex;
@@ -31,7 +31,7 @@
 
 [data-width] {
     --width-value: attr(data-width type(<number>), 10);
-    --width: calc(var(--width-value) * (var(--width-value) * var(--width-value) + 1000 * var(--space-base) - 1) / 1000);
+    --width: calc(var(--width-value) * var(--spacing) * 1rem);
     width: var(--width);
 }
 
@@ -45,7 +45,7 @@
 
 [data-min-width] {
     --min-width-value: attr(data-min-width type(<number>), 10);
-    --min-width: calc(var(--min-width-value) * (var(--min-width-value) * var(--min-width-value) + 1000 * var(--space-base) - 1) / 1000);
+    --min-width: calc(var(--min-width-value) * var(--spacing) * 1rem);
     min-width: var(--min-width);
 }
 
@@ -59,7 +59,7 @@
 
 [data-height] {
     --height-value: attr(data-height type(<number>), 10);
-    --height: calc(var(--height-value) * (var(--height-value) * var(--height-value) + 1000 * var(--space-base) - 1) / 1000);
+    --height: calc(var(--height-value) * var(--spacing) * 1rem);
     height: var(--height);
 }
 
@@ -73,7 +73,7 @@
 
 [data-min-height] {
     --min-height-value: attr(data-min-height type(<number>), 10);
-    --min-height: calc(var(--min-height-value) * (var(--min-height-value) * var(--min-height-value) + 1000 * var(--space-base) - 1) / 1000);
+    --min-height: calc(var(--min-height-value) * var(--spacing) * 1rem);
     min-height: var(--min-height);
 }
 
@@ -119,7 +119,7 @@
 [data-p-lg],
 [data-p-xl],
 [data-p-2xl] {
-    padding: calc(var(--pv) * (var(--pv) * var(--pv) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+    padding: calc(var(--pv) * var(--spacing) * 1rem);
 }
 
 [data-px] {
@@ -132,8 +132,8 @@
 [data-px-lg],
 [data-px-xl],
 [data-px-2xl] {
-    padding-left: calc(var(--px) * (var(--px) * var(--px) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
-    padding-right: calc(var(--px) * (var(--px) * var(--px) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+    padding-left: calc(var(--px) * var(--spacing) * 1rem);
+    padding-right: calc(var(--px) * var(--spacing) * 1rem);
 }
 
 [data-py] {
@@ -146,8 +146,8 @@
 [data-py-lg],
 [data-py-xl],
 [data-py-2xl] {
-    padding-top: calc(var(--py) * (var(--py) * var(--py) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
-    padding-bottom: calc(var(--py) * (var(--py) * var(--py) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+    padding-top: calc(var(--py) * var(--spacing) * 1rem);
+    padding-bottom: calc(var(--py) * var(--spacing) * 1rem);
 }
 
 [data-pt] {
@@ -160,7 +160,7 @@
 [data-pt-lg],
 [data-pt-xl],
 [data-pt-2xl] {
-    padding-top: calc(var(--pt) * (var(--pt) * var(--pt) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+    padding-top: calc(var(--pt) * var(--spacing) * 1rem);
 }
 
 [data-pb] {
@@ -173,7 +173,7 @@
 [data-pb-lg],
 [data-pb-xl],
 [data-pb-2xl] {
-    padding-bottom: calc(var(--pb) * (var(--pb) * var(--pb) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+    padding-bottom: calc(var(--pb) * var(--spacing) * 1rem);
 }
 
 [data-pl] {
@@ -186,7 +186,7 @@
 [data-pl-lg],
 [data-pl-xl],
 [data-pl-2xl] {
-    padding-left: calc(var(--pl) * (var(--pl) * var(--pl) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+    padding-left: calc(var(--pl) * var(--spacing) * 1rem);
 }
 
 [data-pr] {
@@ -199,7 +199,7 @@
 [data-pr-lg],
 [data-pr-xl],
 [data-pr-2xl] {
-    padding-right: calc(var(--pr) * (var(--pr) * var(--pr) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+    padding-right: calc(var(--pr) * var(--spacing) * 1rem);
 }
 
 [data-m] {
@@ -212,7 +212,7 @@
 [data-m-lg],
 [data-m-xl],
 [data-m-2xl] {
-    margin: calc(var(--margin-v) * (var(--margin-v) * var(--margin-v) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+    margin: calc(var(--margin-v) * var(--spacing) * 1rem);
 }
 
 [data-z] {
