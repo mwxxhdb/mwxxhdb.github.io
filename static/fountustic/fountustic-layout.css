@@ -1,0 +1,271 @@
+[data-position="fixed"] {
+    position: fixed;
+}
+
+[data-display="flex-row"],
+[data-display="flex-col"] {
+    --gap-v: attr(data-gap type(<number>), 3);
+    --gap: calc(var(--gap-v) * (var(--gap-v) * var(--gap-v) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+
+    box-sizing: border-box;
+    display: flex;
+    min-width: 0;
+    gap: var(--gap);
+
+}
+
+[data-display="flex-row"] {
+    flex-flow: row wrap;
+    align-self: stretch;
+    width: 100%;
+
+    >div {
+        display: block;
+        box-sizing: border-box;
+    }
+}
+
+[data-display="flex-col"] {
+    flex-flow: column wrap;
+}
+
+[data-width] {
+    --width-value: attr(data-width type(<number>), 10);
+    --width: calc(var(--width-value) * (var(--width-value) * var(--width-value) + 1000 * var(--space-base) - 1) / 1000);
+    width: var(--width);
+}
+
+[data-width="full"] {
+    width: 100%;
+}
+
+[data-width="screen"] {
+    width: 100vw;
+}
+
+[data-min-width] {
+    --min-width-value: attr(data-min-width type(<number>), 10);
+    --min-width: calc(var(--min-width-value) * (var(--min-width-value) * var(--min-width-value) + 1000 * var(--space-base) - 1) / 1000);
+    min-width: var(--min-width);
+}
+
+[data-min-width="full"] {
+    min-width: 100%;
+}
+
+[data-min-width="screen"] {
+    min-width: 100vw;
+}
+
+[data-height] {
+    --height-value: attr(data-height type(<number>), 10);
+    --height: calc(var(--height-value) * (var(--height-value) * var(--height-value) + 1000 * var(--space-base) - 1) / 1000);
+    height: var(--height);
+}
+
+[data-height="full"] {
+    height: 100%;
+}
+
+[data-height="screen"] {
+    height: 100vh;
+}
+
+[data-min-height] {
+    --min-height-value: attr(data-min-height type(<number>), 10);
+    --min-height: calc(var(--min-height-value) * (var(--min-height-value) * var(--min-height-value) + 1000 * var(--space-base) - 1) / 1000);
+    min-height: var(--min-height);
+}
+
+[data-min-height="full"] {
+    min-height: 100%;
+}
+
+[data-min-height="screen"] {
+    min-height: 100vh;
+}
+
+[data-span] {
+    --span-v: attr(data-span type(<number>), 24);
+}
+
+[data-span],
+[data-span-sm],
+[data-span-md],
+[data-span-lg],
+[data-span-xl],
+[data-span-2xl] {
+    --width: calc(100% * var(--span-v) / 24 - var(--gap));
+    width: var(--width);
+}
+
+[data-span]:last-child,
+[data-span-sm]:last-child,
+[data-span-md]:last-child,
+[data-span-lg]:last-child,
+[data-span-xl]:last-child,
+[data-span-2xl]:last-child {
+    --width: calc(100% * var(--span-v) / 24);
+    width: var(--width);
+}
+
+[data-p] {
+    --pv: attr(data-p type(<number>), 3);
+}
+
+[data-p],
+[data-p-sm],
+[data-p-md],
+[data-p-lg],
+[data-p-xl],
+[data-p-2xl] {
+    padding: calc(var(--pv) * (var(--pv) * var(--pv) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+}
+
+[data-px] {
+    --px: attr(data-px type(<number>), 3);
+}
+
+[data-px],
+[data-px-sm],
+[data-px-md],
+[data-px-lg],
+[data-px-xl],
+[data-px-2xl] {
+    padding-left: calc(var(--px) * (var(--px) * var(--px) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+    padding-right: calc(var(--px) * (var(--px) * var(--px) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+}
+
+[data-py] {
+    --py: attr(data-py type(<number>), 3);
+}
+
+[data-py],
+[data-py-sm],
+[data-py-md],
+[data-py-lg],
+[data-py-xl],
+[data-py-2xl] {
+    padding-top: calc(var(--py) * (var(--py) * var(--py) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+    padding-bottom: calc(var(--py) * (var(--py) * var(--py) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+}
+
+[data-pt] {
+    --pt: attr(data-pt type(<number>), 3);
+}
+
+[data-pt],
+[data-pt-sm],
+[data-pt-md],
+[data-pt-lg],
+[data-pt-xl],
+[data-pt-2xl] {
+    padding-top: calc(var(--pt) * (var(--pt) * var(--pt) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+}
+
+[data-pb] {
+    --pb: attr(data-pb type(<number>), 3);
+}
+
+[data-pb],
+[data-pb-sm],
+[data-pb-md],
+[data-pb-lg],
+[data-pb-xl],
+[data-pb-2xl] {
+    padding-bottom: calc(var(--pb) * (var(--pb) * var(--pb) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+}
+
+[data-pl] {
+    --pl: attr(data-pl type(<number>), 3);
+}
+
+[data-pl],
+[data-pl-sm],
+[data-pl-md],
+[data-pl-lg],
+[data-pl-xl],
+[data-pl-2xl] {
+    padding-left: calc(var(--pl) * (var(--pl) * var(--pl) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+}
+
+[data-pr] {
+    --pr: attr(data-pr type(<number>), 3);
+}
+
+[data-pr],
+[data-pr-sm],
+[data-pr-md],
+[data-pr-lg],
+[data-pr-xl],
+[data-pr-2xl] {
+    padding-right: calc(var(--pr) * (var(--pr) * var(--pr) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+}
+
+[data-m] {
+    --margin-v: attr(data-m type(<number>), 3);
+}
+
+[data-m],
+[data-m-sm],
+[data-m-md],
+[data-m-lg],
+[data-m-xl],
+[data-m-2xl] {
+    margin: calc(var(--margin-v) * (var(--margin-v) * var(--margin-v) + 1000 * var(--space-base) - 1) / 1000 * 1rem);
+}
+
+[data-z] {
+    --z-index: attr(data-z type(<number>), 0);
+    z-index: var(--z-index);
+}
+
+@media screen and (min-width: 35.5em) {
+    [data-gap-sm] {
+        --gap-v: attr(data-gap-sm type(<number>), 3);
+    }
+
+    [data-span-sm] {
+        --span-v: attr(data-span-sm type(<number>), 24);
+    }
+}
+
+@media screen and (min-width: 48em) {
+    [data-gap-md] {
+        --gap-v: attr(data-gap-md type(<number>), 3);
+    }
+
+    [data-span-md] {
+        --span-v: attr(data-span-md type(<number>), 24);
+    }
+}
+
+@media screen and (min-width: 64em) {
+    [data-gap-lg] {
+        --gap-v: attr(data-gap-lg type(<number>), 3);
+    }
+
+    [data-span-lg] {
+        --span-v: attr(data-span-lg type(<number>), 24);
+    }
+}
+
+@media screen and (min-width: 80em) {
+    [data-gap-xl] {
+        --gap-v: attr(data-gap-xl type(<number>), 3);
+    }
+
+    [data-span-xl] {
+        --span-v: attr(data-span-xl type(<number>), 24);
+    }
+}
+
+@media screen and (min-width: 120em) {
+    [data-gap-2xl] {
+        --gap-v: attr(data-gap-2xl type(<number>), 3);
+    }
+
+    [data-span-2xl] {
+        --span-v: attr(data-span-2xl type(<number>), 24);
+    }
+}

@@ -1,0 +1,12 @@
+[data-transition="all"] {
+    transition-property: all;
+}
+
+[data-duration] {
+    --duration-v: attr(data-duration type(<number>), 300);
+    transition-duration: calc(var(--duration-v) * 1ms);
+}
+
+[data-duration="initial"] {
+    transition-duration: initial;
+}
