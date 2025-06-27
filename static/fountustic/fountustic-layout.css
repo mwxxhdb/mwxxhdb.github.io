@@ -215,6 +215,70 @@
     z-index: var(--z-index);
 }
 
+/* Space utilities for controlling spacing between child elements */
+[data-space-x] {
+    --space-x: attr(data-space-x type(<number>), 3);
+}
+
+[data-space-x],
+[data-space-x-sm],
+[data-space-x-md],
+[data-space-x-lg],
+[data-space-x-xl],
+[data-space-x-2xl] {
+    >*+* {
+        margin-left: calc(var(--space-x) * var(--spacing) * 1rem);
+    }
+}
+
+[data-space-y] {
+    --space-y: attr(data-space-y type(<number>), 3);
+}
+
+[data-space-y],
+[data-space-y-sm],
+[data-space-y-md],
+[data-space-y-lg],
+[data-space-y-xl],
+[data-space-y-2xl] {
+    >*+* {
+        margin-top: calc(var(--space-y) * var(--spacing) * 1rem);
+    }
+}
+
+/* Reverse space utilities */
+[data-space-x-reverse] {
+    --space-x: attr(data-space-x-reverse type(<number>), 3);
+}
+
+[data-space-x-reverse],
+[data-space-x-reverse-sm],
+[data-space-x-reverse-md],
+[data-space-x-reverse-lg],
+[data-space-x-reverse-xl],
+[data-space-x-reverse-2xl] {
+    >*+* {
+        margin-right: calc(var(--space-x) * var(--spacing) * 1rem);
+        margin-left: 0;
+    }
+}
+
+[data-space-y-reverse] {
+    --space-y: attr(data-space-y-reverse type(<number>), 3);
+}
+
+[data-space-y-reverse],
+[data-space-y-reverse-sm],
+[data-space-y-reverse-md],
+[data-space-y-reverse-lg],
+[data-space-y-reverse-xl],
+[data-space-y-reverse-2xl] {
+    >*+* {
+        margin-bottom: calc(var(--space-y) * var(--spacing) * 1rem);
+        margin-top: 0;
+    }
+}
+
 @media screen and (min-width: 35.5em) {
     [data-gap-sm] {
         --gap-v: attr(data-gap-sm type(<number>), 3);
@@ -222,6 +286,22 @@
 
     [data-span-sm] {
         --span-v: attr(data-span-sm type(<number>), 24);
+    }
+
+    [data-space-x-sm] {
+        --space-x: attr(data-space-x-sm type(<number>), 3);
+    }
+
+    [data-space-y-sm] {
+        --space-y: attr(data-space-y-sm type(<number>), 3);
+    }
+
+    [data-space-x-reverse-sm] {
+        --space-x: attr(data-space-x-reverse-sm type(<number>), 3);
+    }
+
+    [data-space-y-reverse-sm] {
+        --space-y: attr(data-space-y-reverse-sm type(<number>), 3);
     }
 }
 
@@ -233,6 +313,22 @@
     [data-span-md] {
         --span-v: attr(data-span-md type(<number>), 24);
     }
+
+    [data-space-x-md] {
+        --space-x: attr(data-space-x-md type(<number>), 3);
+    }
+
+    [data-space-y-md] {
+        --space-y: attr(data-space-y-md type(<number>), 3);
+    }
+
+    [data-space-x-reverse-md] {
+        --space-x: attr(data-space-x-reverse-md type(<number>), 3);
+    }
+
+    [data-space-y-reverse-md] {
+        --space-y: attr(data-space-y-reverse-md type(<number>), 3);
+    }
 }
 
 @media screen and (min-width: 64em) {
@@ -242,6 +338,22 @@
 
     [data-span-lg] {
         --span-v: attr(data-span-lg type(<number>), 24);
+    }
+
+    [data-space-x-lg] {
+        --space-x: attr(data-space-x-lg type(<number>), 3);
+    }
+
+    [data-space-y-lg] {
+        --space-y: attr(data-space-y-lg type(<number>), 3);
+    }
+
+    [data-space-x-reverse-lg] {
+        --space-x: attr(data-space-x-reverse-lg type(<number>), 3);
+    }
+
+    [data-space-y-reverse-lg] {
+        --space-y: attr(data-space-y-reverse-lg type(<number>), 3);
     }
 }
 
@@ -253,6 +365,22 @@
     [data-span-xl] {
         --span-v: attr(data-span-xl type(<number>), 24);
     }
+
+    [data-space-x-xl] {
+        --space-x: attr(data-space-x-xl type(<number>), 3);
+    }
+
+    [data-space-y-xl] {
+        --space-y: attr(data-space-y-xl type(<number>), 3);
+    }
+
+    [data-space-x-reverse-xl] {
+        --space-x: attr(data-space-x-reverse-xl type(<number>), 3);
+    }
+
+    [data-space-y-reverse-xl] {
+        --space-y: attr(data-space-y-reverse-xl type(<number>), 3);
+    }
 }
 
 @media screen and (min-width: 120em) {
@@ -262,5 +390,21 @@
 
     [data-span-2xl] {
         --span-v: attr(data-span-2xl type(<number>), 24);
+    }
+
+    [data-space-x-2xl] {
+        --space-x: attr(data-space-x-2xl type(<number>), 3);
+    }
+
+    [data-space-y-2xl] {
+        --space-y: attr(data-space-y-2xl type(<number>), 3);
+    }
+
+    [data-space-x-reverse-2xl] {
+        --space-x: attr(data-space-x-reverse-2xl type(<number>), 3);
+    }
+
+    [data-space-y-reverse-2xl] {
+        --space-y: attr(data-space-y-reverse-2xl type(<number>), 3);
     }
 }
