@@ -2,7 +2,7 @@
     --text-color: rgba(0, 0, 0, 0.87);
     --text-color-secondary: rgba(0, 0, 0, 0.6);
 
-    --primary-color: #3F51B5;
+    --primary-color: #2d5cf6;
     --primary-color-text: #ffffff;
 
     --surface-0: #ffffff;
@@ -149,23 +149,13 @@
     --primary-800: #232d64;
     --primary-900: #192048;
 
-    --content-padding: 1.25rem;
-    --inline-spacing: 0.5rem;
-    --border-radius: 6px;
-
     --surface-ground: #f9fafb;
-    --surface-section: #ffffff;
-    --surface-card: #ffffff;
-    --surface-overlay: #ffffff;
     --surface-border: #dfe7ef;
     --surface-hover: #f6f9fc;
 
     --focus-ring: 0 0 0 0.2rem #bfdbfe;
 
     --maskbg: rgba(0, 0, 0, 0.4);
-
-    --highlight-bg: #eff6ff;
-    --highlight-text-color: #1d4ed8;
 
     --spacing: 0.25;
 

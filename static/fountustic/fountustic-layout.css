@@ -1,7 +1,3 @@
-[data-position="fixed"] {
-    position: fixed;
-}
-
 [data-display="flex-row"],
 [data-display="flex-col"] {
     --gap-v: attr(data-gap type(<number>), 3);
@@ -19,8 +15,7 @@
     align-self: stretch;
     width: 100%;
 
-    >div {
-        display: block;
+    > {
         box-sizing: border-box;
     }
 }
@@ -122,34 +117,6 @@
     padding: calc(var(--pv) * var(--spacing) * 1rem);
 }
 
-[data-px] {
-    --px: attr(data-px type(<number>), 3);
-}
-
-[data-px],
-[data-px-sm],
-[data-px-md],
-[data-px-lg],
-[data-px-xl],
-[data-px-2xl] {
-    padding-left: calc(var(--px) * var(--spacing) * 1rem);
-    padding-right: calc(var(--px) * var(--spacing) * 1rem);
-}
-
-[data-py] {
-    --py: attr(data-py type(<number>), 3);
-}
-
-[data-py],
-[data-py-sm],
-[data-py-md],
-[data-py-lg],
-[data-py-xl],
-[data-py-2xl] {
-    padding-top: calc(var(--py) * var(--spacing) * 1rem);
-    padding-bottom: calc(var(--py) * var(--spacing) * 1rem);
-}
-
 [data-pt] {
     --pt: attr(data-pt type(<number>), 3);
 }
@@ -200,6 +167,34 @@
 [data-pr-xl],
 [data-pr-2xl] {
     padding-right: calc(var(--pr) * var(--spacing) * 1rem);
+}
+
+[data-px] {
+    --px: attr(data-px type(<number>), 3);
+}
+
+[data-px],
+[data-px-sm],
+[data-px-md],
+[data-px-lg],
+[data-px-xl],
+[data-px-2xl] {
+    padding-left: calc(var(--px) * var(--spacing) * 1rem);
+    padding-right: calc(var(--px) * var(--spacing) * 1rem);
+}
+
+[data-py] {
+    --py: attr(data-py type(<number>), 3);
+}
+
+[data-py],
+[data-py-sm],
+[data-py-md],
+[data-py-lg],
+[data-py-xl],
+[data-py-2xl] {
+    padding-top: calc(var(--py) * var(--spacing) * 1rem);
+    padding-bottom: calc(var(--py) * var(--spacing) * 1rem);
 }
 
 [data-m] {

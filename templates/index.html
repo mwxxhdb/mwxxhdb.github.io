@@ -81,16 +81,16 @@
     </style>
 </head>
 
-<body data-color="surface-50" data-bg="surface-900" data-display="flex-col" data-min-height="screen">
+<body data-display="flex-col" data-color="surface-50" data-bg="surface-900" data-min-height="screen">
     <!-- 顶部导航栏 -->
-    <header id="navbar" data-position="fixed" data-width="full" data-z="50" data-transition="all" data-duration="300">
-        <div data-mx="auto" data-px="4" data-py="3" data-display="flex-row"
-            class="container items-center justify-between">
-            <a href="#" class="flex items-center space-x-2">
-                <img src="img/logo-dark.png" data-width="10" data-height="10" class="rounded-lg" />
-                <!-- <div class="w-10 h-10 bg-gradient-tech rounded-lg flex items-center justify-center">
-                    <span class="font-bold text-xl">码</span>
-                </div> -->
+    <header id="navbar" class="fixed" data-width="full" data-z="50" data-transition="all" data-duration="300"
+        x-data="{ scrolled: false }"
+        x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
+        x-bind:class="{ 'bg-dark/90 glass-effect shadow-lg': scrolled }">
+        <div class="container items-center justify-between" data-display="flex-row" data-mx="auto" data-px="4"
+            data-py="3">
+            <a href="#" class="items-center space-x-2" data-display="flex-row">
+                <img class="rounded-lg" src="img/logo-dark.png" data-width="10" data-height="10" />
                 <span class="text-xl font-bold tracking-tight">牧码牛</span>
             </a>
 
@@ -101,7 +101,8 @@
                 <a href="#projects" class="text-light hover:text-primary transition-colors">项目</a>
                 <a href="#blog" class="text-light hover:text-primary transition-colors">博客</a>
                 <a role="button" href="#contact"
-                    class="bg-primary hover:bg-primary/90 text-white rounded-lg transition-all hover:shadow-lg" data-px="5" data-py="2">联系我</a>
+                    class="bg-primary hover:bg-primary/90 text-white rounded-lg transition-all hover:shadow-lg"
+                    data-px="5" data-py="2">联系我</a>
             </nav>
 
             <!-- 移动端菜单按钮 -->
@@ -112,43 +113,47 @@
 
         <!-- 移动端导航菜单 -->
         <div class="md:hidden hidden bg-dark-light/95 glass-effect" id="mobile-menu">
-            <div class="container" data-mx="auto" data-px="4" data-py="3" class="flex flex-col space-y-4">
+            <div data-mx="auto" data-px="4" data-py="3" data-display="flex-col" data-gap="4" class="container">
                 <a href="#about" class="text-light hover:text-primary transition-colors" data-py="2">关于</a>
                 <a href="#skills" class="text-light hover:text-primary transition-colors" data-py="2">技能</a>
                 <a href="#projects" class="text-light hover:text-primary transition-colors" data-py="2">项目</a>
                 <a href="#blog" class="text-light hover:text-primary transition-colors" data-py="2">博客</a>
                 <a href="#contact"
-                    class="bg-primary hover:bg-primary/90 text-white rounded-lg transition-all text-center" data-px="5" data-py="2">联系我</a>
+                    class="bg-primary hover:bg-primary/90 text-white rounded-lg transition-all text-center" data-px="5"
+                    data-py="2">联系我</a>
             </div>
         </div>
     </header>
 
     <main class="flex-grow">
         <!-- 英雄区域 -->
-        <section data-min-height="screen" class="relative flex items-center justify-center overflow-hidden">
+        <section data-min-height="screen" data-display="flex-row"
+            class="relative items-center justify-center overflow-hidden">
             <!-- 背景装饰 -->
             <div class="absolute inset-0 overflow-hidden">
                 <div
                     class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(22,93,255,0.15),transparent_40%),radial-gradient(circle_at_70%_60%,rgba(114,46,209,0.15),transparent_40%)]">
                 </div>
-                <div class="absolute top-0 left-0 w-full h-full" id="particle-container"></div>
+                <div class="absolute top-0 left-0" id="particle-container" data-width="full" data-height="full"></div>
             </div>
 
-            <div class="container mx-auto px-4 z-10 text-center">
-                <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold leading-tight mb-4 text-shadow-lg">
+            <div class="container text-center" data-mx="auto" data-px="4" data-z="10">
+                <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold leading-tight text-shadow-lg" data-mb="4">
                     你好，我是<span class="text-primary">牧码牛</span>
                 </h1>
-                <p class="text-[clamp(1.2rem,3vw,1.8rem)] text-light-dark mb-8 max-w-3xl mx-auto">
+                <p class="text-[clamp(1.2rem,3vw,1.8rem)] text-light-dark max-w-3xl" data-mb="8" data-mx="auto">
                     <span class="font-code">十五年经验的全栈工程师</span>
                     <span class="typing-cursor">|</span>
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+                <div class="flex flex-col sm:flex-row justify-center" data-gap="4" data-mb="12">
                     <a href="#projects"
-                        class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg transition-all hover:shadow-lg hover:shadow-primary/30 text-lg font-medium">
+                        class="bg-primary hover:bg-primary/90 text-white rounded-lg transition-all hover:shadow-lg hover:shadow-primary/30 text-lg font-medium"
+                        data-px="8" data-py="3">
                         查看我的项目
                     </a>
                     <a href="#contact"
-                        class="bg-transparent border-2 border-light-dark hover:border-primary text-light hover:text-primary px-8 py-3 rounded-lg transition-all text-lg font-medium">
+                        class="bg-transparent border-2 border-light-dark hover:border-primary text-light hover:text-primary rounded-lg transition-all text-lg font-medium"
+                        data-px="8" data-py="3">
                         联系我
                     </a>
                 </div>
@@ -163,11 +168,12 @@
         </section>
 
         <!-- 关于我 -->
-        <section id="about" class="py-24 bg-dark-light/30">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-4">关于<span class="text-primary">我</span></h2>
-                    <div class="w-20 h-1 bg-primary mx-auto"></div>
+        <section id="about" class="bg-dark-light/30" data-py="24">
+            <div class="container" data-mx="auto" data-px="4">
+                <div class="text-center" data-mb="16">
+                    <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold" data-mb="4">关于<span
+                            class="text-primary">我</span></h2>
+                    <div class="bg-primary" data-width="20" data-height="1" data-mx="auto"></div>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -180,49 +186,52 @@
                     </div>
 
                     <div>
-                        <h3 class="text-2xl font-semibold mb-4">你好，我是牧码牛</h3>
-                        <p class="text-light-dark mb-6 leading-relaxed">
+                        <h3 class="text-2xl font-semibold" data-mb="4">你好，我是牧码牛</h3>
+                        <p class="text-light-dark leading-relaxed" data-mb="6">
                             十五年Java开发经验的老程序员，目前专注于后端架构设计和微服务开发。日常使用Linux操作系统，对GoLang和Rust有浓厚兴趣，也尝试过多种前端框架如React、Vue和Svelte。
                         </p>
-                        <p class="text-light-dark mb-6 leading-relaxed">
-                            我的座右铭是"代码如诗"，追求简洁高效的代码风格。工作之余，我喜欢研究新技术，开发开源项目，也会在博客分享我的技术心得。
-                        </p>
+                        <p class="text-light-dark leading-relaxed" data-mb="6">
+                            我的座右铭是"代码如诗"，追求简洁高效的代码风格。工作之余，我喜欢研究新技术，开发开源项目，也会在博客分享我的技术心得。</p>
 
-                        <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="grid grid-cols-2" data-mb="8" data-gap="4">
                             <div class="flex items-center">
-                                <i class="fa fa-code text-primary mr-3"></i>
+                                <i class="fa fa-code text-primary" data-mr="3"></i>
                                 <span>15年编程经验</span>
                             </div>
                             <div class="flex items-center">
-                                <i class="fa fa-coffee text-primary mr-3"></i>
+                                <i class="fa fa-coffee text-primary" data-mr="3"></i>
                                 <span>开源爱好者</span>
                             </div>
                             <div class="flex items-center">
-                                <i class="fa fa-book text-primary mr-3"></i>
+                                <i class="fa fa-book text-primary" data-mr="3"></i>
                                 <span>技术博主</span>
                             </div>
                             <div class="flex items-center">
-                                <i class="fa fa-users text-primary mr-3"></i>
+                                <i class="fa fa-users text-primary" data-mr="3"></i>
                                 <span>团队技术顾问</span>
                             </div>
                         </div>
 
-                        <div class="flex flex-wrap gap-3">
+                        <div class="flex flex-wrap" data-gap="3">
                             <a href="#"
-                                class="bg-dark hover:bg-dark-light transition-colors px-4 py-2 rounded-lg flex items-center">
-                                <i class="fa fa-github mr-2"></i> GitHub
+                                class="bg-dark hover:bg-dark-light transition-colors rounded-lg flex items-center"
+                                data-px="4" data-py="2">
+                                <i class="fa fa-github" data-mr="2"></i> GitHub
                             </a>
                             <a href="#"
-                                class="bg-dark hover:bg-dark-light transition-colors px-4 py-2 rounded-lg flex items-center">
-                                <i class="fa fa-twitter mr-2"></i> Twitter
+                                class="bg-dark hover:bg-dark-light transition-colors rounded-lg flex items-center"
+                                data-px="4" data-py="2">
+                                <i class="fa fa-twitter" data-mr="2"></i> Twitter
                             </a>
                             <a href="#"
-                                class="bg-dark hover:bg-dark-light transition-colors px-4 py-2 rounded-lg flex items-center">
-                                <i class="fa fa-linkedin mr-2"></i> LinkedIn
+                                class="bg-dark hover:bg-dark-light transition-colors rounded-lg flex items-center"
+                                data-px="4" data-py="2">
+                                <i class="fa fa-linkedin" data-mr="2"></i> LinkedIn
                             </a>
                             <a href="#"
-                                class="bg-dark hover:bg-dark-light transition-colors px-4 py-2 rounded-lg flex items-center">
-                                <i class="fa fa-medium mr-2"></i> Medium
+                                class="bg-dark hover:bg-dark-light transition-colors rounded-lg flex items-center"
+                                data-px="4" data-py="2">
+                                <i class="fa fa-medium" data-mr="2"></i> Medium
                             </a>
                         </div>
                     </div>
@@ -231,70 +240,72 @@
         </section>
 
         <!-- 技能区域 -->
-        <section id="skills" class="py-24">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-4">我的<span class="text-primary">技能</span></h2>
-                    <div class="w-20 h-1 bg-primary mx-auto"></div>
+        <section id="skills" data-py="24">
+            <div class="container" data-mx="auto" data-px="4">
+                <div class="text-center" data-mb="16">
+                    <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold" data-mb="4">
+                        我的<span class="text-primary">技能</span>
+                    </h2>
+                    <div class="bg-primary" data-width="20" data-height="1" data-mx="auto"></div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-12">
+                <div class="grid md:grid-cols-2" data-gap="12">
                     <div>
-                        <h3 class="text-2xl font-semibold mb-6">技术栈</h3>
+                        <h3 class="text-2xl font-semibold" data-mb="6">技术栈</h3>
 
                         <div class="space-y-6">
                             <div>
-                                <div class="flex justify-between mb-2">
+                                <div class="flex justify-between" data-mb="2">
                                     <span class="font-medium">Java / Quarkus / Spring</span>
                                     <span class="text-primary">95%</span>
                                 </div>
-                                <div class="w-full bg-dark-light rounded-full h-2">
+                                <div class="w-full bg-dark-light rounded-full" data-height="2">
                                     <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
                                 </div>
                             </div>
 
                             <div>
-                                <div class="flex justify-between mb-2">
+                                <div class="flex justify-between" data-mb="2">
                                     <span class="font-medium">Linux / Shell Scripting</span>
                                     <span class="text-primary">90%</span>
                                 </div>
-                                <div class="w-full bg-dark-light rounded-full h-2">
-                                    <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                                <div class="w-full bg-dark-light rounded-full" data-height="2">
+                                    <div class="bg-primary rounded-full" style="width: 90%" data-height="2"></div>
                                 </div>
                             </div>
 
                             <div>
-                                <div class="flex justify-between mb-2">
+                                <div class="flex justify-between" data-mb="2">
                                     <span class="font-medium">GoLang / Rust</span>
                                     <span class="text-primary">75%</span>
                                 </div>
-                                <div class="w-full bg-dark-light rounded-full h-2">
-                                    <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                                <div class="w-full bg-dark-light rounded-full" data-height="2">
+                                    <div class="bg-primary rounded-full" style="width: 75%" data-height="2"></div>
                                 </div>
                             </div>
 
                             <div>
-                                <div class="flex justify-between mb-2">
+                                <div class="flex justify-between" data-mb="2">
                                     <span class="font-medium">React / Vue / Svelte</span>
                                     <span class="text-primary">70%</span>
                                 </div>
-                                <div class="w-full bg-dark-light rounded-full h-2">
-                                    <div class="bg-primary h-2 rounded-full" style="width: 70%"></div>
+                                <div class="w-full bg-dark-light rounded-full" data-height="2">
+                                    <div class="bg-primary rounded-full" style="width: 70%" data-height="2"></div>
                                 </div>
                             </div>
 
                             <div>
-                                <div class="flex justify-between mb-2">
+                                <div class="flex justify-between" data-mb="2">
                                     <span class="font-medium">微服务架构</span>
                                     <span class="text-primary">85%</span>
                                 </div>
-                                <div class="w-full bg-dark-light rounded-full h-2">
-                                    <div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+                                <div class="w-full bg-dark-light rounded-full" data-height="2">
+                                    <div class="bg-primary rounded-full" style="width: 85%" data-height="2"></div>
                                 </div>
                             </div>
 
                             <div>
-                                <div class="flex justify-between mb-2">
+                                <div class="flex justify-between" data-mb="2">
                                     <span class="font-medium">DevOps / CI/CD</span>
                                     <span class="text-primary">80%</span>
                                 </div>
@@ -306,22 +317,22 @@
                     </div>
 
                     <div>
-                        <h3 class="text-2xl font-semibold mb-6">专业领域</h3>
+                        <h3 class="text-2xl font-semibold" data-mb="6">专业领域</h3>
 
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-dark-light/30 p-6 rounded-xl hover-scale">
-                                <div class="text-primary text-3xl mb-4">
+                        <div class="grid grid-cols-2" data-gap="4">
+                            <div class="bg-dark-light/30 rounded-xl hover-scale" data-p="6">
+                                <div class="text-primary text-3xl" data-mb="4">
                                     <i class="fa fa-server"></i>
                                 </div>
-                                <h4 class="text-xl font-medium mb-2">后端开发</h4>
+                                <h4 class="text-xl font-medium" data-mb="2">后端开发</h4>
                                 <p class="text-light-dark">设计和实现高性能、可扩展的后端系统和API</p>
                             </div>
 
                             <div class="bg-dark-light/30 p-6 rounded-xl hover-scale">
-                                <div class="text-primary text-3xl mb-4">
+                                <div class="text-primary text-3xl" data-mb="4">
                                     <i class="fa fa-cubes"></i>
                                 </div>
-                                <h4 class="text-xl font-medium mb-2">微服务架构</h4>
+                                <h4 class="text-xl font-medium" data-mb="2">微服务架构</h4>
                                 <p class="text-light-dark">使用Quarkus、Spring Cloud等框架构建微服务平台</p>
                             </div>
 
@@ -626,7 +637,7 @@
                                     </div>
                                     <div>
                                         <h4 class="font-medium mb-1">GitHub</h4>
-                                        <p class="text-light-dark">github.com/mumaniu</p>
+                                        <p class="text-light-dark">github.com/mwxxhdb</p>
                                     </div>
                                 </div>
 
@@ -704,7 +715,7 @@
                 </div>
 
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                    <h4 class="text-lg font-semibold" data-mb="4">快速链接</h4>
                     <ul class="space-y-2">
                         <li><a href="#about" class="text-light-dark hover:text-primary transition-colors">关于我</a></li>
                         <li><a href="#skills" class="text-light-dark hover:text-primary transition-colors">技能</a></li>
@@ -725,25 +736,25 @@
                 </div>
 
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">联系方式</h4>
+                    <h4 class="text-lg font-semibold" data-mb="4">联系方式</h4>
                     <ul class="space-y-2">
                         <li class="flex items-center">
-                            <i class="fa fa-envelope text-primary mr-2"></i>
+                            <i class="fa fa-envelope text-primary" data-mr="2"></i>
                             <a href="mailto:contact@mumaniu.com"
                                 class="text-light-dark hover:text-primary transition-colors">contact@mumaniu.com</a>
                         </li>
                         <li class="flex items-center">
-                            <i class="fa fa-github text-primary mr-2"></i>
-                            <a href="https://github.com/mumaniu"
-                                class="text-light-dark hover:text-primary transition-colors">github.com/mumaniu</a>
+                            <i class="fa fa-github text-primary" data-mr="2"></i>
+                            <a href="https://github.com/mwxxhdb"
+                                class="text-light-dark hover:text-primary transition-colors">github.com/</a>
                         </li>
                         <li class="flex items-center">
-                            <i class="fa fa-twitter text-primary mr-2"></i>
+                            <i class="fa fa-twitter text-primary" data-mr="2"></i>
                             <a href="https://twitter.com/mumaniu_dev"
                                 class="text-light-dark hover:text-primary transition-colors">@mumaniu_dev</a>
                         </li>
                         <li class="flex items-center">
-                            <i class="fa fa-linkedin text-primary mr-2"></i>
+                            <i class="fa fa-linkedin text-primary" data-mr="2"></i>
                             <a href="https://linkedin.com/in/mumaniu"
                                 class="text-light-dark hover:text-primary transition-colors">linkedin.com/in/mumaniu</a>
                         </li>
@@ -751,7 +762,7 @@
                 </div>
             </div>
 
-            <div class="border-t border-light-dark/20 mt-12 pt-8 text-center text-light-dark">
+            <div class="border-t border-light-dark/20" data-mt="12" data-pt="8" class="text-center text-light-dark">
                 <p>© 2025 牧码牛. 保留所有权利.</p>
             </div>
         </div>
@@ -759,16 +770,6 @@
 
     <!-- JavaScript -->
     <script>
-        // 导航栏滚动效果
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-dark/90', 'glass-effect', 'shadow-lg');
-            } else {
-                navbar.classList.remove('bg-dark/90', 'glass-effect', 'shadow-lg');
-            }
-        });
-
         // 移动端菜单切换
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
