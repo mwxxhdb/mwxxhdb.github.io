@@ -27,7 +27,7 @@ f-app {
 f-header {
     flex-direction: row;
     align-items: center;
-    padding: var(--space-1) var(--space-3);
+    padding: var(--spacing) var(--space-3);
     border-bottom: var(--header-border-style, solid) var(--border-1) var(--header-border-color, var(--border-primary));
 }
 
@@ -67,7 +67,7 @@ f-content {
 
 f-list {
     flex-direction: column;
-    gap: var(--space-1);
+    gap: var(--spacing);
 
     &[data-hover]:not([data-hover="false"]) {
         >f-list-item[data-active] {
@@ -121,17 +121,18 @@ f-text {
     }
 }
 
+a[role="button"],
 button {
     border-width: var(--border-1);
     border-radius: var(--radius-md);
     padding: var(--button-md-padding);
-    background-color: var(--surface-primary);
+    background-color: var(--surface-0);
     color: var(--text-primary);
     height: var(--button-md-height);
     transition: all 0.1s;
 
     &:active {
-        box-shadow: 0 0 0 var(--space-1) color-mix(in srgb, var(--text-primary) 10%, transparent);
+        box-shadow: 0 0 0 var(--spacing) color-mix(in srgb, var(--text-primary) 10%, transparent);
         transform: translateY(var(--button-active-offset));
     }
 
@@ -186,7 +187,7 @@ button {
 
     &[data-variant="link"]:hover {
         text-decoration: underline;
-        text-underline-offset: var(--space-1);
+        text-underline-offset: var(--spacing);
     }
 
     &[data-variant="dashed"] {

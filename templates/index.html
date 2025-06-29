@@ -82,20 +82,20 @@
 
 <body data-display="flex-col" data-color="surface-50" data-bg="surface-900" data-min-height="screen">
     <!-- 顶部导航栏 -->
-    <header id="navbar" class="fixed" data-width="full" data-z="50" data-transition="all" data-duration="300"
+    <header id="navbar" data-position="fixed" data-width="full" data-z="50" data-transition="all" data-duration="300"
         x-data="{ scrolled: false }"
         x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
         x-bind:class="{ 'bg-dark/90 glass-effect shadow-lg': scrolled }">
-        <div class="container" data-display="flex-row" data-mx="auto" data-px="4" data-py="3" data-align-items="center"
-            data-justify-content="between">
-            <a href="#" data-display="flex-row" data-space-x="2" data-align-items="center">
+        <div data-display="flex-row" data-mx="auto" data-px="4" data-py="3" data-align-items="center"
+            data-justify-content="between" data-width="full">
+            <a href="#" data-display="flex-row" data-gap="3" data-align-items="center">
                 <img class="rounded-lg" src="img/logo-dark.png" data-width="10" data-height="10" />
                 <span class="text-xl font-bold tracking-tight">牧码牛</span>
             </a>
 
             <!-- 桌面端导航 -->
-            <nav class="hidden md:flex items-center" data-space-x="8">
-                <a href="#about" class="text-light hover:text-primary transition-colors">关于</a>
+            <nav class="hidden md:flex items-center" data-gap="8">
+                <a role="button" href="#about" data-variant="link">关于</a>
                 <a href="#skills" class="text-light hover:text-primary transition-colors">技能</a>
                 <a href="#projects" class="text-light hover:text-primary transition-colors">项目</a>
                 <a href="#blog" class="text-light hover:text-primary transition-colors">博客</a>
@@ -112,7 +112,7 @@
 
         <!-- 移动端导航菜单 -->
         <div class="md:hidden hidden bg-dark-light/95 glass-effect" id="mobile-menu">
-            <div data-mx="auto" data-px="4" data-py="3" data-display="flex-col" data-gap="4" class="container">
+            <div data-mx="auto" data-px="4" data-py="3" data-display="flex-col" data-gap="4">
                 <a href="#about" class="text-light hover:text-primary transition-colors" data-py="2">关于</a>
                 <a href="#skills" class="text-light hover:text-primary transition-colors" data-py="2">技能</a>
                 <a href="#projects" class="text-light hover:text-primary transition-colors" data-py="2">项目</a>
@@ -124,19 +124,20 @@
         </div>
     </header>
 
-    <main class="flex-grow">
+    <main data-flex-grow="1">
         <!-- 英雄区域 -->
-        <section data-min-height="screen" data-display="flex-row"
-            class="relative items-center justify-center overflow-hidden">
+        <section data-min-height="screen" data-display="flex-row" class="overflow-hidden" data-position="relative"
+            data-align-items="center" data-justify-content="center">
             <!-- 背景装饰 -->
-            <div class="absolute inset-0 overflow-hidden">
-                <div
-                    class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(22,93,255,0.15),transparent_40%),radial-gradient(circle_at_70%_60%,rgba(114,46,209,0.15),transparent_40%)]">
+            <div class="inset-0 overflow-hidden" data-position="absolute">
+                <div class="top-0 left-0 bg-[radial-gradient(circle_at_30%_20%,rgba(22,93,255,0.15),transparent_40%),radial-gradient(circle_at_70%_60%,rgba(114,46,209,0.15),transparent_40%)]"
+                    data-position="absolute" data-width="full" data-height="full">
                 </div>
-                <div class="absolute top-0 left-0" id="particle-container" data-width="full" data-height="full"></div>
+                <div class="top-0 left-0" id="particle-container" data-position="absolute" data-width="full"
+                    data-height="full"></div>
             </div>
 
-            <div class="container text-center" data-mx="auto" data-px="4" data-z="10">
+            <div class="text-center" data-mx="auto" data-px="4" data-z="10">
                 <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold leading-tight text-shadow-lg" data-mb="4">
                     你好，我是<span class="text-primary">牧码牛</span>
                 </h1>
@@ -168,7 +169,7 @@
 
         <!-- 关于我 -->
         <section id="about" class="bg-dark-light/30" data-py="24">
-            <div class="container" data-mx="auto" data-px="4">
+            <div data-mx="auto" data-px="4">
                 <div class="text-center" data-mb="16">
                     <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold" data-mb="4">关于<span
                             class="text-primary">我</span></h2>
@@ -240,7 +241,7 @@
 
         <!-- 技能区域 -->
         <section id="skills" data-py="24">
-            <div class="container" data-mx="auto" data-px="4">
+            <div data-mx="auto" data-px="4">
                 <div class="text-center" data-mb="16">
                     <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold" data-mb="4">
                         我的<span class="text-primary">技能</span>
@@ -358,7 +359,7 @@
 
         <!-- 项目区域 -->
         <section id="projects" data-py="24" class="bg-dark-light/30">
-            <div class="container" data-mx="auto" data-px="4">
+            <div data-mx="auto" data-px="4">
                 <div class="text-center" data-mb="16">
                     <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold" data-mb="4">我的<span
                             class="text-primary">项目</span></h2>
@@ -480,7 +481,7 @@
 
         <!-- 博客预览 -->
         <section id="blog" data-py="24">
-            <div class="container" data-mx="auto" data-px="4">
+            <div data-mx="auto" data-px="4">
                 <div class="text-center" data-mb="16">
                     <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold" data-mb="4">我的<span
                             class="text-primary">博客</span></h2>
@@ -573,7 +574,7 @@
 
         <!-- 联系区域 -->
         <section id="contact" class="bg-dark-light/30" data-py="24">
-            <div class="container" data-mx="auto" data-px="4">
+            <div data-mx="auto" data-px="4">
                 <div class="text-center" data-mb="16">
                     <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold" data-mb="4">联系<span
                             class="text-primary">我</span></h2>
@@ -696,7 +697,7 @@
 
     <!-- 页脚 -->
     <footer class="bg-dark" data-py="12">
-        <div class="container" data-mx="auto" data-px="4">
+        <div data-mx="auto" data-px="4">
             <div class="grid md:grid-cols-4" data-gap="8">
                 <div>
                     <a href="#" class="flex items-center" data-space-x="2" data-mb="4">
