@@ -13,7 +13,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <!-- Unpoly CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/unpoly@3.10.2/unpoly.min.css">
     <link rel="stylesheet" href="fountustic/fountustic.css">
     <link rel="stylesheet" href="fountustic/fountustic-theme-default.css">
@@ -702,20 +701,20 @@
     </main>
 
     <!-- 页脚 -->
-    <footer class="bg-dark py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
+    <footer class="bg-dark" data-py="12">
+        <div class="container" data-mx="auto" data-px="4">
+            <div class="grid md:grid-cols-4" data-gap="8">
                 <div>
-                    <a href="#" class="flex items-center space-x-2 mb-4">
+                    <a href="#" class="flex items-center" data-space-x="2" data-mb="4">
                         <div class="w-10 h-10 bg-gradient-tech rounded-lg flex items-center justify-center">
                             <span class="font-code font-bold text-xl">MN</span>
                         </div>
                         <span class="text-xl font-bold tracking-tight">牧码牛</span>
                     </a>
-                    <p class="text-light-dark mb-4">
+                    <p class="text-light-dark" data-mb="4">
                         十五年经验的全栈工程师，专注于Java后端开发和微服务架构。
                     </p>
-                    <div class="flex space-x-4">
+                    <div class="flex" data-space-x="4">
                         <a href="#" class="text-light-dark hover:text-primary transition-colors">
                             <i class="fa fa-github text-xl"></i>
                         </a>
@@ -743,8 +742,8 @@
                 </div>
 
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">项目</h4>
-                    <ul class="space-y-2">
+                    <h4 class="text-lg font-semibold" data-mb="4">项目</h4>
+                    <ul data-space-y="2">
                         <li><a href="#" class="text-light-dark hover:text-primary transition-colors">纯CSS UI控件库</a></li>
                         <li><a href="#" class="text-light-dark hover:text-primary transition-colors">Quarkus微服务平台</a>
                         </li>
@@ -887,10 +886,10 @@
             new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: ['Java', 'Linux', 'Go', 'Rust', '前端', '微服务', 'DevOps'],
+                    labels: ['Java', 'Linux', 'Bash', '前端', '微服务', 'DevOps'],
                     datasets: [{
                         label: '技能水平',
-                        data: [95, 90, 75, 70, 70, 85, 80],
+                        data: [95, 93, 85, 80, 85, 92],
                         backgroundColor: 'rgba(22, 93, 255, 0.2)',
                         borderColor: 'rgba(22, 93, 255, 1)',
                         pointBackgroundColor: 'rgba(22, 93, 255, 1)',

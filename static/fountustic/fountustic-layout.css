@@ -24,6 +24,118 @@
     flex-flow: column wrap;
 }
 
+[data-display="inline-grid"] {
+    display: inline-grid;
+}
+
+[data-grid-cols] {
+    --grid-cols: attr(data-grid-cols type(<number>), 1);
+    grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+
+    &[data-grid-cols="none"] {
+        grid-template-columns: none;
+    }
+
+    &[data-grid-cols="subgrid"] {
+        grid-template-columns: subgrid;
+    }
+
+    &:not([data-display="inline-grid"]) {
+        display: grid;
+    }
+}
+
+[data-grid-rows] {
+    --grid-rows: attr(data-grid-rows type(<number>), 1);
+    grid-template-rows: repeat(var(--grid-rows), minmax(0, 1fr));
+
+    &[data-grid-rows="none"] {
+        grid-template-rows: none;
+    }
+
+    &[data-grid-rows="subgrid"] {
+        grid-template-rows: subgrid;
+    }
+
+    &:not([data-display="inline-grid"]) {
+        display: grid;
+    }
+}
+
+[data-col-span] {
+    --col-span: attr(data-col-span type(<number>), 1);
+    grid-column: span var(--col-span) / span var(--col-span);
+
+    &[data-col-span="full"] {
+        grid-column: 1 / -1;
+    }
+}
+
+[data-col-start] {
+    --col-start: attr(data-col-start type(<number>), 1);
+    grid-column-start: var(--col-start);
+
+    &[data-col-start="auto"] {
+        grid-column-start: auto;
+    }
+}
+
+[data-col-end] {
+    --col-end: attr(data-col-end type(<number>), 1);
+    grid-column-end: var(--col-end);
+
+    &[data-col-end="auto"] {
+        grid-column-end: auto;
+    }
+}
+
+[data-row-span] {
+    --row-span: attr(data-row-span type(<number>), 1);
+    grid-row: span var(--row-span) / span var(--row-span);
+
+    &[data-row-span="full"] {
+        grid-row: 1 / -1;
+    }
+}
+
+[data-row-start] {
+    --row-start: attr(data-row-start type(<number>), 1);
+    grid-row-start: var(--row-start);
+
+    &[data-row-start="auto"] {
+        grid-row-start: auto;
+    }
+}
+
+[data-row-end] {
+    --row-end: attr(data-row-end type(<number>), 1);
+    grid-row-end: var(--row-end);
+
+    &[data-row-end="auto"] {
+        grid-row-end: auto;
+    }
+}
+
+[data-grid-flow="row"] {
+    grid-auto-flow: row;
+}
+
+[data-grid-flow="col"] {
+    grid-auto-flow: column;
+}
+
+[data-grid-flow="dense"] {
+    grid-auto-flow: dense;
+}
+
+[data-grid-flow="row dense"] {
+    grid-auto-flow: row dense;
+}
+
+[data-grid-flow="col dense"] {
+    grid-auto-flow: column dense;
+}
+
 [data-width] {
     --width-value: attr(data-width type(<number>), 10);
     --width: calc(var(--width-value) * var(--spacing) * 1rem);
@@ -78,6 +190,12 @@
 
 [data-min-height="screen"] {
     min-height: 100vh;
+}
+
+[data-gap] {
+    --gap-v: attr(data-gap type(<number>), 3);
+    --gap: calc(var(--gap-v) * var(--spacing) * 1rem);
+    gap: var(--gap);
 }
 
 [data-span] {
@@ -210,6 +328,93 @@
     margin: calc(var(--margin-v) * var(--spacing) * 1rem);
 }
 
+
+[data-mt],
+[data-mt-sm],
+[data-mt-md],
+[data-mt-lg],
+[data-mt-xl],
+[data-mt-2xl] {
+    margin-top: calc(var(--mt) * var(--spacing) * 1rem);
+}
+
+[data-mb] {
+    --mb: attr(data-mb type(<number>), 3);
+}
+
+[data-mb],
+[data-mb-sm],
+[data-mb-md],
+[data-mb-lg],
+[data-mb-xl],
+[data-mb-2xl] {
+    margin-bottom: calc(var(--mb) * var(--spacing) * 1rem);
+}
+
+[data-ml] {
+    --ml: attr(data-ml type(<number>), 3);
+}
+
+[data-ml],
+[data-ml-sm],
+[data-ml-md],
+[data-ml-lg],
+[data-ml-xl],
+[data-ml-2xl] {
+    margin-left: calc(var(--ml) * var(--spacing) * 1rem);
+}
+
+[data-mr] {
+    --mr: attr(data-mr type(<number>), 3);
+}
+
+[data-mr],
+[data-mr-sm],
+[data-mr-md],
+[data-mr-lg],
+[data-mr-xl],
+[data-mr-2xl] {
+    margin-right: calc(var(--mr) * var(--spacing) * 1rem);
+}
+
+[data-mx] {
+    --mx: attr(data-mx type(<number>), 3);
+}
+
+[data-mx],
+[data-mx-sm],
+[data-mx-md],
+[data-mx-lg],
+[data-mx-xl],
+[data-mx-2xl] {
+    margin-left: calc(var(--mx) * var(--spacing) * 1rem);
+    margin-right: calc(var(--mx) * var(--spacing) * 1rem);
+}
+
+[data-mx="auto"] {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+[data-my] {
+    --my: attr(data-my type(<number>), 3);
+}
+
+[data-my],
+[data-my-sm],
+[data-my-md],
+[data-my-lg],
+[data-my-xl],
+[data-my-2xl] {
+    margin-top: calc(var(--my) * var(--spacing) * 1rem);
+    margin-bottom: calc(var(--my) * var(--spacing) * 1rem);
+}
+
+[data-my="auto"] {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 [data-z] {
     --z-index: attr(data-z type(<number>), 0);
     z-index: var(--z-index);
@@ -284,6 +489,70 @@
         --gap-v: attr(data-gap-sm type(<number>), 3);
     }
 
+    [data-p-sm] {
+        --pv: attr(data-p-sm type(<number>), 3);
+    }
+
+    [data-pt-sm] {
+        --pt: attr(data-pt-sm type(<number>), 3);
+    }
+
+    [data-pb-sm] {
+        --pb: attr(data-pb-sm type(<number>), 3);
+    }
+
+    [data-pl-sm] {
+        --pl: attr(data-pl-sm type(<number>), 3);
+    }
+
+    [data-pr-sm] {
+        --pr: attr(data-pr-sm type(<number>), 3);
+    }
+
+    [data-px-sm] {
+        --px: attr(data-px-sm type(<number>), 3);
+    }
+
+    [data-py-sm] {
+        --py: attr(data-py-sm type(<number>), 3);
+    }
+
+    [data-m-sm] {
+        --margin-v: attr(data-m-sm type(<number>), 3);
+    }
+
+    [data-mt-sm] {
+        --mt: attr(data-mt-sm type(<number>), 3);
+    }
+
+    [data-mb-sm] {
+        --mb: attr(data-mb-sm type(<number>), 3);
+    }
+
+    [data-ml-sm] {
+        --ml: attr(data-ml-sm type(<number>), 3);
+    }
+
+    [data-mr-sm] {
+        --mr: attr(data-mr-sm type(<number>), 3);
+    }
+
+    [data-mx-sm] {
+        --mx: attr(data-mx-sm type(<number>), 3);
+    }
+
+    [data-mx-sm="auto"] {
+        --mx: auto;
+    }
+
+    [data-my-sm] {
+        --my: attr(data-my-sm type(<number>), 3);
+    }
+
+    [data-my-sm="auto"] {
+        --my: auto;
+    }
+
     [data-span-sm] {
         --span-v: attr(data-span-sm type(<number>), 24);
     }
@@ -310,6 +579,70 @@
         --gap-v: attr(data-gap-md type(<number>), 3);
     }
 
+    [data-p-md] {
+        --pv: attr(data-p-md type(<number>), 3);
+    }
+
+    [data-pt-md] {
+        --pt: attr(data-pt-md type(<number>), 3);
+    }
+
+    [data-pb-md] {
+        --pb: attr(data-pb-md type(<number>), 3);
+    }
+
+    [data-pl-md] {
+        --pl: attr(data-pl-md type(<number>), 3);
+    }
+
+    [data-pr-md] {
+        --pr: attr(data-pr-md type(<number>), 3);
+    }
+
+    [data-px-md] {
+        --px: attr(data-px-md type(<number>), 3);
+    }
+
+    [data-py-md] {
+        --py: attr(data-py-md type(<number>), 3);
+    }
+
+    [data-m-md] {
+        --margin-v: attr(data-m-md type(<number>), 3);
+    }
+
+    [data-mt-md] {
+        --mt: attr(data-mt-md type(<number>), 3);
+    }
+
+    [data-mb-md] {
+        --mb: attr(data-mb-md type(<number>), 3);
+    }
+
+    [data-ml-md] {
+        --ml: attr(data-ml-md type(<number>), 3);
+    }
+
+    [data-mr-md] {
+        --mr: attr(data-mr-md type(<number>), 3);
+    }
+
+    [data-mx-md] {
+        --mx: attr(data-mx-md type(<number>), 3);
+    }
+
+    [data-mx-md="auto"] {
+        --mx: auto;
+    }
+
+    [data-my-md] {
+        --my: attr(data-my-md type(<number>), 3);
+    }
+
+    [data-my-md="auto"] {
+        --my: auto;
+    }
+
     [data-span-md] {
         --span-v: attr(data-span-md type(<number>), 24);
     }
@@ -334,6 +667,70 @@
 @media screen and (min-width: 64em) {
     [data-gap-lg] {
         --gap-v: attr(data-gap-lg type(<number>), 3);
+    }
+
+    [data-p-lg] {
+        --pv: attr(data-p-lg type(<number>), 3);
+    }
+
+    [data-pt-lg] {
+        --pt: attr(data-pt-lg type(<number>), 3);
+    }
+
+    [data-pb-lg] {
+        --pb: attr(data-pb-lg type(<number>), 3);
+    }
+
+    [data-pl-lg] {
+        --pl: attr(data-pl-lg type(<number>), 3);
+    }
+
+    [data-pr-lg] {
+        --pr: attr(data-pr-lg type(<number>), 3);
+    }
+
+    [data-px-lg] {
+        --px: attr(data-px-lg type(<number>), 3);
+    }
+
+    [data-py-lg] {
+        --py: attr(data-py-lg type(<number>), 3);
+    }
+
+    [data-m-lg] {
+        --margin-v: attr(data-m-lg type(<number>), 3);
+    }
+
+    [data-mt-lg] {
+        --mt: attr(data-mt-lg type(<number>), 3);
+    }
+
+    [data-mb-lg] {
+        --mb: attr(data-mb-lg type(<number>), 3);
+    }
+
+    [data-ml-lg] {
+        --ml: attr(data-ml-lg type(<number>), 3);
+    }
+
+    [data-mr-lg] {
+        --mr: attr(data-mr-lg type(<number>), 3);
+    }
+
+    [data-mx-lg] {
+        --mx: attr(data-mx-lg type(<number>), 3);
+    }
+
+    [data-mx-lg="auto"] {
+        --mx: auto;
+    }
+
+    [data-my-lg] {
+        --my: attr(data-my-lg type(<number>), 3);
+    }
+
+    [data-my-lg="auto"] {
+        --my: auto;
     }
 
     [data-span-lg] {
