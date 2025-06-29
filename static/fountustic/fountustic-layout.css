@@ -136,61 +136,311 @@
     grid-auto-flow: column dense;
 }
 
+[data-justify-content="start"] {
+    justify-content: flex-start;
+}
+
+[data-justify-content="end"] {
+    justify-content: flex-end;
+}
+
+[data-justify-content="center"] {
+    justify-content: center;
+}
+
+[data-justify-content="between"] {
+    justify-content: space-between;
+}
+
+[data-justify-content="around"] {
+    justify-content: space-around;
+}
+
+[data-justify-content="evenly"] {
+    justify-content: space-evenly;
+}
+
+[data-justify-content="stretch"] {
+    justify-content: stretch;
+}
+
+[data-justify-content="normal"] {
+    justify-content: normal;
+}
+
+[data-justify-items="start"] {
+    justify-items: flex-start;
+}
+
+[data-justify-items="end"] {
+    justify-items: flex-end;
+}
+
+[data-justify-items="center"] {
+    justify-items: center;
+}
+
+[data-justify-items="stretch"] {
+    justify-items: stretch;
+}
+
+[data-justify-items="normal"] {
+    justify-items: normal;
+}
+
+[data-justify-self="start"] {
+    justify-self: flex-start;
+}
+
+[data-justify-self="end"] {
+    justify-self: flex-end;
+}
+
+[data-justify-self="center"] {
+    justify-self: center;
+}
+
+[data-justify-self="stretch"] {
+    justify-self: stretch;
+}
+
+[data-justify-self="auto"] {
+    justify-self: auto;
+}
+
+[data-align-content="start"] {
+    align-content: flex-start;
+}
+
+[data-align-content="end"] {
+    align-content: flex-end;
+}
+
+[data-align-content="center"] {
+    align-content: center;
+}
+
+[data-align-content="between"] {
+    align-content: space-between;
+}
+
+[data-align-content="around"] {
+    align-content: space-around;
+}
+
+[data-align-content="evenly"] {
+    align-content: space-evenly;
+}
+
+[data-align-content="stretch"] {
+    align-content: stretch;
+}
+
+[data-align-content="normal"] {
+    align-content: normal;
+}
+
+[data-align-items="start"] {
+    align-items: flex-start;
+}
+
+[data-align-items="end"] {
+    align-items: flex-end;
+}
+
+[data-align-items="center"] {
+    align-items: center;
+}
+
+[data-align-items="baseline"] {
+    align-items: baseline;
+}
+
+[data-align-items="last baseline"] {
+    align-items: last baseline;
+}
+
+[data-align-items="stretch"] {
+    align-items: stretch;
+}
+
+[data-align-self="start"] {
+    align-self: flex-start;
+}
+
+[data-align-self="end"] {
+    align-self: flex-end;
+}
+
+[data-align-self="center"] {
+    align-self: center;
+}
+
+[data-align-self="baseline"] {
+    align-self: baseline;
+}
+
+[data-align-self="last baseline"] {
+    align-self: last baseline;
+}
+
+[data-align-self="stretch"] {
+    align-self: stretch;
+}
+
+[data-align-self="auto"] {
+    align-self: auto;
+}
+
+[data-place-content="start"] {
+    place-content: start;
+}
+
+[data-place-content="end"] {
+    place-content: end;
+}
+
+[data-place-content="center"] {
+    place-content: center;
+}
+
+[data-place-content="between"] {
+    place-content: space-between;
+}
+
+[data-place-content="around"] {
+    place-content: space-around;
+}
+
+[data-place-content="evenly"] {
+    place-content: space-evenly;
+}
+
+[data-place-content="stretch"] {
+    place-content: stretch;
+}
+
+[data-place-item="start"] {
+    place-items: start;
+}
+
+[data-place-item="end"] {
+    place-items: end;
+}
+
+[data-place-item="center"] {
+    place-items: center;
+}
+
+[data-place-item="stretch"] {
+    place-items: stretch;
+}
+
+[data-place-self="start"] {
+    place-self: start;
+}
+
+[data-place-self="end"] {
+    place-self: end;
+}
+
+[data-place-self="center"] {
+    place-self: center;
+}
+
+[data-place-self="stretch"] {
+    place-self: stretch;
+}
+
+[data-place-self="auto"] {
+    place-self: auto;
+}
+
 [data-width] {
     --width-value: attr(data-width type(<number>), 10);
     --width: calc(var(--width-value) * var(--spacing) * 1rem);
     width: var(--width);
-}
 
-[data-width="full"] {
-    width: 100%;
-}
+    &[data-width="full"] {
+        width: 100%;
+    }
 
-[data-width="screen"] {
-    width: 100vw;
+    &[data-width="screen"] {
+        width: 100vw;
+    }
 }
 
 [data-min-width] {
     --min-width-value: attr(data-min-width type(<number>), 10);
     --min-width: calc(var(--min-width-value) * var(--spacing) * 1rem);
     min-width: var(--min-width);
+
+    &[data-min-width="full"] {
+        min-width: 100%;
+    }
+
+    &[data-min-width="screen"] {
+        min-width: 100vw;
+    }
 }
 
-[data-min-width="full"] {
-    min-width: 100%;
+[data-max-width] {
+    --max-width-value: attr(data-max-width type(<number>), 10);
+    --max-width: calc(var(--max-width-value) * var(--spacing) * 1rem);
+    max-width: var(--max-width);
+
+    &[data-max-width="full"] {
+        max-width: 100%;
+    }
+
+    &[data-max-width="screen"] {
+        max-width: 100vw;
+    }
 }
 
-[data-min-width="screen"] {
-    min-width: 100vw;
-}
 
 [data-height] {
     --height-value: attr(data-height type(<number>), 10);
     --height: calc(var(--height-value) * var(--spacing) * 1rem);
     height: var(--height);
-}
 
-[data-height="full"] {
-    height: 100%;
-}
+    &[data-height="full"] {
+        height: 100%;
+    }
 
-[data-height="screen"] {
-    height: 100vh;
+    &[data-height="screen"] {
+        height: 100vh;
+    }
 }
 
 [data-min-height] {
     --min-height-value: attr(data-min-height type(<number>), 10);
     --min-height: calc(var(--min-height-value) * var(--spacing) * 1rem);
     min-height: var(--min-height);
+
+    &[data-min-height="full"] {
+        min-height: 100%;
+    }
+
+    &[data-min-height="screen"] {
+        min-height: 100vh;
+    }
 }
 
-[data-min-height="full"] {
-    min-height: 100%;
+[data-max-height] {
+    --max-height-value: attr(data-max-height type(<number>), 10);
+    --max-height: calc(var(--max-height-value) * var(--spacing) * 1rem);
+    max-height: var(--max-height);
+
+    &[data-max-height="full"] {
+        max-height: 100%;
+    }
+
+    &[data-max-height="screen"] {
+        max-height: 100vh;
+    }
 }
 
-[data-min-height="screen"] {
-    min-height: 100vh;
-}
 
 [data-gap] {
     --gap-v: attr(data-gap type(<number>), 3);
