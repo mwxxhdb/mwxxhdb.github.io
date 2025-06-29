@@ -86,9 +86,9 @@
         x-data="{ scrolled: false }"
         x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
         x-bind:class="{ 'bg-dark/90 glass-effect shadow-lg': scrolled }">
-        <div class="container items-center justify-between" data-display="flex-row" data-mx="auto" data-px="4"
-            data-py="3">
-            <a href="#" class="items-center" data-display="flex-row" data-space-x="2">
+        <div class="container" data-display="flex-row" data-mx="auto" data-px="4" data-py="3" data-align-items="center"
+            data-justify-content="between">
+            <a href="#" data-display="flex-row" data-space-x="2" data-align-items="center">
                 <img class="rounded-lg" src="img/logo-dark.png" data-width="10" data-height="10" />
                 <span class="text-xl font-bold tracking-tight">牧码牛</span>
             </a>
@@ -350,12 +350,6 @@
                                 <h4 class="text-xl font-medium mb-2">DevOps</h4>
                                 <p class="text-light-dark">自动化部署流程，容器化和云原生技术</p>
                             </div>
-                        </div>
-
-                        <!-- 技能图表 -->
-                        <div class="bg-dark-light/30 rounded-xl" data-mt="8" data-p="6">
-                            <h4 class="text-xl font-medium" data-mb="4">技术使用时间分布</h4>
-                            <canvas id="skillChart" height="200"></canvas>
                         </div>
                     </div>
                 </div>
@@ -878,55 +872,6 @@
 
         // 初始化粒子
         createParticles();
-
-        // 技能图表
-        window.addEventListener('load', () => {
-            const ctx = document.getElementById('skillChart').getContext('2d');
-
-            new Chart(ctx, {
-                type: 'radar',
-                data: {
-                    labels: ['Java', 'Linux', 'Bash', '前端', '微服务', 'DevOps'],
-                    datasets: [{
-                        label: '技能水平',
-                        data: [95, 93, 85, 89, 92, 92],
-                        backgroundColor: 'rgba(22, 93, 255, 0.2)',
-                        borderColor: 'rgba(22, 93, 255, 1)',
-                        pointBackgroundColor: 'rgba(22, 93, 255, 1)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgba(22, 93, 255, 1)'
-                    }]
-                },
-                options: {
-                    scales: {
-                        r: {
-                            angleLines: {
-                                color: 'rgba(201, 205, 212, 0.1)'
-                            },
-                            grid: {
-                                color: 'rgba(201, 205, 212, 0.1)'
-                            },
-                            pointLabels: {
-                                color: 'rgba(242, 243, 245, 0.7)',
-                                font: {
-                                    family: 'Inter'
-                                }
-                            },
-                            ticks: {
-                                backdropColor: 'transparent',
-                                color: 'rgba(242, 243, 245, 0.5)'
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    }
-                }
-            });
-        });
     </script>
 </body>
 
