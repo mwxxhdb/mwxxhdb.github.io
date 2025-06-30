@@ -123,6 +123,7 @@ f-text {
 
 a[role="button"],
 button {
+    text-decoration: none;
     border-width: var(--border-1);
     border-radius: var(--radius-md);
     padding: var(--button-md-padding);
@@ -143,6 +144,7 @@ button {
 
     &:hover {
         cursor: pointer;
+        color: var(--primary-300);
 
         &[data-variant="outlined"],
         &[data-variant="dashed"],
@@ -187,7 +189,7 @@ button {
 
     &[data-variant="link"]:hover {
         text-decoration: underline;
-        text-underline-offset: var(--spacing);
+        text-underline-offset: calc(var(--spacing) * 1rem);
     }
 
     &[data-variant="dashed"] {
@@ -208,17 +210,17 @@ button {
     }
 
     &[data-color="primary"] {
-        color: var(--color-primary-700);
+        color: var(--primary-500);
 
         &:hover:not([data-variant="link"]) {
             background-color: color-mix(in srgb,
-                    var(--color-primary-700) 10%,
+                    var(--primary-700) 10%,
                     transparent);
         }
 
         &[data-variant="solid"] {
             color: var(--text-inverted);
-            background-color: var(--color-primary-700);
+            background-color: var(--primary-500);
 
             &:hover {
                 background-color: color-mix(in srgb,
