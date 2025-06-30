@@ -58,23 +58,163 @@ fountustic-css/
 
 ### 1. 间距系统
 ```css
-/* 基于 4px 基准的间距系统 */
+/* 基于单一基准变量的灵活间距系统 */
 :root {
-  --space-0: 0;
-  --space-1: 0.25rem;  /* 4px */
-  --space-2: 0.5rem;   /* 8px */
-  --space-3: 0.75rem;  /* 12px */
-  --space-4: 1rem;     /* 16px */
-  --space-6: 1.5rem;   /* 24px */
-  --space-8: 2rem;     /* 32px */
-  --space-12: 3rem;    /* 48px */
-  --space-16: 4rem;    /* 64px */
+  --spacing: 0.25;  /* 基准单位，对应 4px (0.25rem) */
 }
 
-/* 使用方式 */
-[data-p="4"] { padding: var(--space-4); }
+/* 动态计算间距 - 支持任意数值和负数 */
+[data-p] {
+  --p-value: attr(data-p type(<number>), 0);
+  padding: calc(var(--p-value) * var(--spacing) * 1rem);
+}
+
+[data-m] {
+  --m-value: attr(data-m type(<number>), 0);
+  margin: calc(var(--m-value) * var(--spacing) * 1rem);
+}
+
+/* 方向性间距 */
+[data-px] {
+  --px-value: attr(data-px type(<number>), 0);
+  padding-left: calc(var(--px-value) * var(--spacing) * 1rem);
+  padding-right: calc(var(--px-value) * var(--spacing) * 1rem);
+}
+
+[data-py] {
+  --py-value: attr(data-py type(<number>), 0);
+  padding-top: calc(var(--py-value) * var(--spacing) * 1rem);
+  padding-bottom: calc(var(--py-value) * var(--spacing) * 1rem);
+}
+
+[data-mx] {
+  --mx-value: attr(data-mx type(<number>), 0);
+  margin-left: calc(var(--mx-value) * var(--spacing) * 1rem);
+  margin-right: calc(var(--mx-value) * var(--spacing) * 1rem);
+}
+
+[data-my] {
+  --my-value: attr(data-my type(<number>), 0);
+  margin-top: calc(var(--my-value) * var(--spacing) * 1rem);
+  margin-bottom: calc(var(--my-value) * var(--spacing) * 1rem);
+}
+
+/* 单向间距 - 支持负数 */
+[data-mt] {
+  --mt-value: attr(data-mt type(<number>), 0);
+  margin-top: calc(var(--mt-value) * var(--spacing) * 1rem);
+}
+
+[data-mr] {
+  --mr-value: attr(data-mr type(<number>), 0);
+  margin-right: calc(var(--mr-value) * var(--spacing) * 1rem);
+}
+
+[data-mb] {
+  --mb-value: attr(data-mb type(<number>), 0);
+  margin-bottom: calc(var(--mb-value) * var(--spacing) * 1rem);
+}
+
+[data-ml] {
+  --ml-value: attr(data-ml type(<number>), 0);
+  margin-left: calc(var(--ml-value) * var(--spacing) * 1rem);
+}
+
+/* 子元素间距 */
+[data-space-x] {
+  --space-x-value: attr(data-space-x type(<number>), 0);
+}
+
+[data-space-x] > * + * {
+  margin-left: calc(var(--space-x-value) * var(--spacing) * 1rem);
+}
+
+[data-space-y] {
+  --space-y-value: attr(data-space-y type(<number>), 0);
+}
+
+[data-space-y] > * + * {
+  margin-top: calc(var(--space-y-value) * var(--spacing) * 1rem);
+}
+
+/* 特殊值支持 */
 [data-m="auto"] { margin: auto; }
-[data-space-x="2"] > * + * { margin-left: var(--space-2); }
+[data-mx="auto"] { margin-left: auto; margin-right: auto; }
+[data-my="auto"] { margin-top: auto; margin-bottom: auto; }
+[data-mt="auto"] { margin-top: auto; }
+[data-mr="auto"] { margin-right: auto; }
+[data-mb="auto"] { margin-bottom: auto; }
+[data-ml="auto"] { margin-left: auto; }
+
+/* 使用示例 */
+/* 
+<div data-p="4">内边距 16px (4 * 0.25 * 16px)</div>
+<div data-m="8">外边距 32px (8 * 0.25 * 16px)</div>
+<div data-mt="-2">负上边距 -8px (-2 * 0.25 * 16px)</div>
+<div data-px="6" data-py="3">水平24px 垂直12px内边距</div>
+<div data-space-x="4">子元素水平间距16px</div>
+<div data-mx="auto">水平居中</div>
+<div data-p="1.5">内边距 6px (1.5 * 0.25 * 16px)</div>
+*/
+
+/* 支持百分比间距（基于父元素） */
+[data-p-percent] {
+  --p-percent: attr(data-p-percent type(<number>), 0);
+  padding: calc(var(--p-percent) * 1%);
+}
+
+[data-m-percent] {
+  --m-percent: attr(data-m-percent type(<number>), 0);
+  margin: calc(var(--m-percent) * 1%);
+}
+
+/* 响应式间距 */
+@media (min-width: 768px) {
+  [data-p-md] {
+    --p-md-value: attr(data-p-md type(<number>), 0);
+    padding: calc(var(--p-md-value) * var(--spacing) * 1rem);
+  }
+  
+  [data-m-md] {
+    --m-md-value: attr(data-m-md type(<number>), 0);
+    margin: calc(var(--m-md-value) * var(--spacing) * 1rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  [data-p-lg] {
+    --p-lg-value: attr(data-p-lg type(<number>), 0);
+    padding: calc(var(--p-lg-value) * var(--spacing) * 1rem);
+  }
+  
+  [data-m-lg] {
+    --m-lg-value: attr(data-m-lg type(<number>), 0);
+    margin: calc(var(--m-lg-value) * var(--spacing) * 1rem);
+  }
+}
+
+/* 容器查询间距 */
+@container (min-width: 500px) {
+  [data-p-container] {
+    --p-container-value: attr(data-p-container type(<number>), 0);
+    padding: calc(var(--p-container-value) * var(--spacing) * 1rem);
+  }
+}
+
+/* 间距动画 */
+[data-spacing-transition] {
+  transition: padding 0.3s ease, margin 0.3s ease;
+}
+
+/* 调试模式 - 显示间距 */
+[data-debug-spacing="true"] [data-p] {
+  background: rgba(255, 0, 0, 0.1);
+  outline: 1px dashed red;
+}
+
+[data-debug-spacing="true"] [data-m] {
+  outline: 1px dashed blue;
+}
 ```
 
 ### 2. 颜色系统
@@ -140,7 +280,7 @@ button[data-variant="solid"] {
   color: white;
   border: none;
   border-radius: var(--radius-md);
-  padding: var(--space-2) var(--space-4);
+  padding: calc(2 * var(--spacing) * 1rem) calc(4 * var(--spacing) * 1rem);
   transition: all 0.2s ease;
 }
 
