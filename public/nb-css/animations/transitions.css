@@ -1,0 +1,235 @@
+/* NB CSS 过渡动画 */
+
+/* 基础过渡 */
+[data-transition="none"] {
+    transition: none;
+}
+
+[data-transition="all"] {
+    transition: all var(--duration-normal) ease;
+}
+
+[data-transition="fast"] {
+    transition: all var(--duration-fast) ease;
+}
+
+[data-transition="normal"] {
+    transition: all var(--duration-normal) ease;
+}
+
+[data-transition="slow"] {
+    transition: all var(--duration-slow) ease;
+}
+
+/* 特定属性过渡 */
+[data-transition="colors"] {
+    transition: color var(--duration-normal) ease,
+        background-color var(--duration-normal) ease,
+        border-color var(--duration-normal) ease;
+}
+
+[data-transition="opacity"] {
+    transition: opacity var(--duration-normal) ease;
+}
+
+[data-transition="shadow"] {
+    transition: box-shadow var(--duration-normal) ease;
+}
+
+[data-transition="transform"] {
+    transition: transform var(--duration-normal) ease;
+}
+
+/* 悬停效果 */
+[data-hover="scale"]:hover {
+    transform: scale(1.05);
+}
+
+[data-hover="scale-sm"]:hover {
+    transform: scale(1.02);
+}
+
+[data-hover="scale-lg"]:hover {
+    transform: scale(1.1);
+}
+
+[data-hover="lift"]:hover {
+    transform: translateY(-2px);
+}
+
+[data-hover="lift-sm"]:hover {
+    transform: translateY(-1px);
+}
+
+[data-hover="lift-lg"]:hover {
+    transform: translateY(-4px);
+}
+
+[data-hover="rotate"]:hover {
+    transform: rotate(3deg);
+}
+
+[data-hover="glow"]:hover {
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+[data-hover="shadow"]:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+[data-hover="opacity"]:hover {
+    opacity: 0.8;
+}
+
+[data-hover="brightness"]:hover {
+    filter: brightness(1.1);
+}
+
+/* 焦点效果 */
+[data-focus="ring"]:focus,
+[data-focus="ring"]:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+[data-focus="ring-sm"]:focus,
+[data-focus="ring-sm"]:focus-visible {
+    outline: 1px solid var(--color-primary);
+    outline-offset: 1px;
+}
+
+[data-focus="ring-lg"]:focus,
+[data-focus="ring-lg"]:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+[data-focus="glow"]:focus,
+[data-focus="glow"]:focus-visible {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+/* 激活效果 */
+[data-active="pressed"]:active {
+    transform: scale(0.98);
+}
+
+[data-active="lift"]:active {
+    transform: translateY(1px);
+}
+
+[data-active="shadow"]:active {
+    box-shadow: var(--shadow-sm);
+}
+
+/* 加载状态 */
+[data-loading="true"] {
+    position: relative;
+    overflow: hidden;
+}
+
+[data-loading="true"]::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    animation: loading-shimmer 1.5s infinite;
+}
+
+/* 脉冲效果 */
+[data-pulse="true"] {
+    animation: pulse 2s infinite;
+}
+
+/* 弹跳效果 */
+[data-bounce="true"] {
+    animation: bounce 1s infinite;
+}
+
+/* 摇摆效果 */
+[data-shake="true"] {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* 淡入效果 */
+[data-fade-in="true"] {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* 滑入效果 */
+[data-slide-in="left"] {
+    animation: slideInLeft 0.5s ease-out;
+}
+
+[data-slide-in="right"] {
+    animation: slideInRight 0.5s ease-out;
+}
+
+[data-slide-in="up"] {
+    animation: slideInUp 0.5s ease-out;
+}
+
+[data-slide-in="down"] {
+    animation: slideInDown 0.5s ease-out;
+}
+
+/* 旋转效果 */
+[data-spin="true"] {
+    animation: spin 1s linear infinite;
+}
+
+/* 缓动函数 */
+[data-ease="linear"] {
+    transition-timing-function: linear;
+}
+
+[data-ease="in"] {
+    transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+[data-ease="out"] {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+[data-ease="in-out"] {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 延迟 */
+[data-delay="75"] {
+    transition-delay: 75ms;
+}
+
+[data-delay="100"] {
+    transition-delay: 100ms;
+}
+
+[data-delay="150"] {
+    transition-delay: 150ms;
+}
+
+[data-delay="200"] {
+    transition-delay: 200ms;
+}
+
+[data-delay="300"] {
+    transition-delay: 300ms;
+}
+
+[data-delay="500"] {
+    transition-delay: 500ms;
+}
+
+[data-delay="700"] {
+    transition-delay: 700ms;
+}
+
+[data-delay="1000"] {
+    transition-delay: 1000ms;
+}

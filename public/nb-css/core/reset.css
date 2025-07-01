@@ -1,0 +1,80 @@
+/* NB CSS Reset - 现代化 CSS 重置 */
+
+/* 使用现代盒模型 */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 移除默认边距 */
+* {
+    margin: 0;
+}
+
+/* 改善媒体元素的默认样式 */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 移除表单元素的默认样式 */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 避免文本溢出 */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* 改善行高和字体渲染 */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 移除列表样式 */
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+}
+
+/* 改善表格样式 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 移除按钮默认样式 */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* 移除链接默认样式 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 隐藏的元素 */
+[hidden] {
+    display: none !important;
+}

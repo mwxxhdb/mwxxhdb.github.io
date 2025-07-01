@@ -1,0 +1,247 @@
+/* NB CSS 卡片组件 */
+
+/* 基础卡片样式 */
+[data-card] {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--duration-normal) ease;
+}
+
+/* 卡片阴影 */
+[data-shadow="sm"] {
+    box-shadow: var(--shadow-sm);
+}
+
+[data-shadow="md"] {
+    box-shadow: var(--shadow-md);
+}
+
+[data-shadow="lg"] {
+    box-shadow: var(--shadow-lg);
+}
+
+[data-shadow="xl"] {
+    box-shadow: var(--shadow-xl);
+}
+
+/* 卡片悬停效果 */
+[data-hover="lift"]:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+[data-hover="scale"]:hover {
+    transform: scale(1.02);
+}
+
+[data-hover="glow"]:hover {
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+[data-hover="shadow"]:hover {
+    box-shadow: var(--shadow-xl);
+}
+
+/* 卡片头部 */
+[data-card-header] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(4 * var(--spacing) * 1rem) calc(6 * var(--spacing) * 1rem);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--neutral-50);
+}
+
+[data-card-header] h1,
+[data-card-header] h2,
+[data-card-header] h3,
+[data-card-header] h4,
+[data-card-header] h5,
+[data-card-header] h6 {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* 卡片主体 */
+[data-card-body] {
+    flex: 1;
+    padding: calc(6 * var(--spacing) * 1rem);
+}
+
+/* 卡片底部 */
+[data-card-footer] {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: calc(4 * var(--spacing) * 1rem) calc(6 * var(--spacing) * 1rem);
+    border-top: 1px solid var(--color-border);
+    background: var(--neutral-50);
+    --gap-value: attr(data-gap type(<number>), 2);
+    gap: calc(var(--gap-value) * var(--spacing) * 1rem);
+}
+
+[data-card-footer][data-justify="start"] {
+    justify-content: flex-start;
+}
+
+[data-card-footer][data-justify="center"] {
+    justify-content: center;
+}
+
+[data-card-footer][data-justify="between"] {
+    justify-content: space-between;
+}
+
+[data-card-footer][data-justify="around"] {
+    justify-content: space-around;
+}
+
+[data-card-footer][data-justify="evenly"] {
+    justify-content: space-evenly;
+}
+
+/* 卡片图片 */
+[data-card-image] {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+[data-card-image][data-height="sm"] {
+    height: 12rem;
+}
+
+[data-card-image][data-height="md"] {
+    height: 16rem;
+}
+
+[data-card-image][data-height="lg"] {
+    height: 20rem;
+}
+
+[data-card-image][data-height="xl"] {
+    height: 24rem;
+}
+
+/* 无边框卡片 */
+[data-card][data-variant="borderless"] {
+    border: none;
+}
+
+/* 简洁卡片 */
+[data-card][data-variant="minimal"] {
+    border: none;
+    box-shadow: none;
+    background: transparent;
+}
+
+/* 卡片尺寸 */
+[data-card][data-size="sm"] [data-card-header],
+[data-card][data-size="sm"] [data-card-footer] {
+    padding: calc(3 * var(--spacing) * 1rem) calc(4 * var(--spacing) * 1rem);
+}
+
+[data-card][data-size="sm"] [data-card-body] {
+    padding: calc(4 * var(--spacing) * 1rem);
+}
+
+[data-card][data-size="lg"] [data-card-header],
+[data-card][data-size="lg"] [data-card-footer] {
+    padding: calc(6 * var(--spacing) * 1rem) calc(8 * var(--spacing) * 1rem);
+}
+
+[data-card][data-size="lg"] [data-card-body] {
+    padding: calc(8 * var(--spacing) * 1rem);
+}
+
+/* 水平卡片 */
+[data-card][data-layout="horizontal"] {
+    flex-direction: row;
+}
+
+[data-card][data-layout="horizontal"] [data-card-image] {
+    width: 200px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+[data-card][data-layout="horizontal"] [data-card-content] {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* 卡片组 */
+[data-card-group] {
+    display: grid;
+    --gap-value: attr(data-gap type(<number>), 4);
+    gap: calc(var(--gap-value) * var(--spacing) * 1rem);
+    --cols-value: attr(data-cols type(<number>), 1);
+    grid-template-columns: repeat(var(--cols-value), 1fr);
+}
+
+/* 响应式卡片组 */
+@media (min-width: 768px) {
+    [data-card-group][data-cols-md] {
+        --cols-md-value: attr(data-cols-md type(<number>), 2);
+        grid-template-columns: repeat(var(--cols-md-value), 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    [data-card-group][data-cols-lg] {
+        --cols-lg-value: attr(data-cols-lg type(<number>), 3);
+        grid-template-columns: repeat(var(--cols-lg-value), 1fr);
+    }
+}
+
+/* 可点击卡片 */
+[data-card][data-clickable="true"] {
+    cursor: pointer;
+    transition: all var(--duration-fast) ease;
+}
+
+[data-card][data-clickable="true"]:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+/* 选中状态 */
+[data-card][data-selected="true"] {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+/* 加载状态 */
+[data-card][data-loading="true"] {
+    position: relative;
+    overflow: hidden;
+}
+
+[data-card][data-loading="true"]::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}

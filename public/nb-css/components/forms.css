@@ -1,0 +1,224 @@
+/* NB CSS 表单组件 */
+
+/* 表单布局 */
+[data-form] {
+    display: flex;
+    flex-direction: column;
+    --gap-value: attr(data-gap type(<number>), 4);
+    gap: calc(var(--gap-value) * var(--spacing) * 1rem);
+}
+
+[data-form][data-layout="horizontal"] {
+    flex-direction: row;
+    align-items: end;
+}
+
+/* 字段容器 */
+[data-field] {
+    display: flex;
+    flex-direction: column;
+    --gap-value: attr(data-gap type(<number>), 1);
+    gap: calc(var(--gap-value) * var(--spacing) * 1rem);
+}
+
+[data-field][data-layout="horizontal"] {
+    flex-direction: row;
+    align-items: center;
+}
+
+/* 标签样式 */
+[data-field] label {
+    font-weight: 500;
+    font-size: var(--text-sm);
+    color: var(--color-foreground);
+}
+
+[data-field] label[data-required]::after {
+    content: " *";
+    color: var(--color-danger);
+}
+
+/* 输入框基础样式 */
+input,
+textarea,
+select {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-background);
+    color: var(--color-foreground);
+    transition: all var(--duration-fast) ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 10%, transparent);
+}
+
+/* 输入框尺寸 */
+[data-size="sm"],
+input[data-size="sm"],
+textarea[data-size="sm"],
+select[data-size="sm"] {
+    padding: calc(1.5 * var(--spacing) * 1rem) calc(3 * var(--spacing) * 1rem);
+    font-size: var(--text-sm);
+    min-height: 2rem;
+}
+
+[data-size="md"],
+input[data-size="md"],
+textarea[data-size="md"],
+select[data-size="md"] {
+    padding: calc(2 * var(--spacing) * 1rem) calc(3 * var(--spacing) * 1rem);
+    font-size: var(--text-sm);
+    min-height: 2.5rem;
+}
+
+[data-size="lg"],
+input[data-size="lg"],
+textarea[data-size="lg"],
+select[data-size="lg"] {
+    padding: calc(2.5 * var(--spacing) * 1rem) calc(4 * var(--spacing) * 1rem);
+    font-size: var(--text-base);
+    min-height: 3rem;
+}
+
+/* 默认尺寸 */
+input:not([data-size]),
+textarea:not([data-size]),
+select:not([data-size]) {
+    padding: calc(2 * var(--spacing) * 1rem) calc(3 * var(--spacing) * 1rem);
+    font-size: var(--text-sm);
+    min-height: 2.5rem;
+}
+
+/* Textarea 特殊样式 */
+textarea {
+    min-height: 6rem;
+    resize: vertical;
+}
+
+/* 输入框状态 */
+[data-state="error"],
+input[data-state="error"],
+textarea[data-state="error"],
+select[data-state="error"] {
+    border-color: var(--color-danger);
+}
+
+[data-state="error"]:focus,
+input[data-state="error"]:focus,
+textarea[data-state="error"]:focus,
+select[data-state="error"]:focus {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-danger) 10%, transparent);
+}
+
+[data-state="success"],
+input[data-state="success"],
+textarea[data-state="success"],
+select[data-state="success"] {
+    border-color: var(--color-success);
+}
+
+[data-state="success"]:focus,
+input[data-state="success"]:focus,
+textarea[data-state="success"]:focus,
+select[data-state="success"]:focus {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-success) 10%, transparent);
+}
+
+/* 禁用状态 */
+input:disabled,
+textarea:disabled,
+select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--neutral-50);
+}
+
+/* 帮助文本 */
+[data-help] {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+}
+
+/* 错误文本 */
+[data-error] {
+    font-size: var(--text-xs);
+    color: var(--color-danger);
+}
+
+/* 成功文本 */
+[data-success] {
+    font-size: var(--text-xs);
+    color: var(--color-success);
+}
+
+/* 复选框和单选框 */
+input[type="checkbox"],
+input[type="radio"] {
+    width: auto;
+    margin-right: calc(2 * var(--spacing) * 1rem);
+}
+
+/* 输入组 */
+[data-input-group] {
+    display: flex;
+    align-items: stretch;
+}
+
+[data-input-group] input {
+    border-radius: 0;
+    border-right-width: 0;
+}
+
+[data-input-group] input:first-child {
+    border-top-left-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md);
+}
+
+[data-input-group] input:last-child {
+    border-top-right-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+    border-right-width: 1px;
+}
+
+[data-input-group] [data-addon] {
+    display: flex;
+    align-items: center;
+    padding: calc(2 * var(--spacing) * 1rem) calc(3 * var(--spacing) * 1rem);
+    background: var(--neutral-50);
+    border: 1px solid var(--color-border);
+    color: var(--color-muted);
+    font-size: var(--text-sm);
+}
+
+[data-input-group] [data-addon]:first-child {
+    border-top-left-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md);
+    border-right-width: 0;
+}
+
+[data-input-group] [data-addon]:last-child {
+    border-top-right-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+    border-left-width: 0;
+}
+
+/* 全宽表单元素 */
+[data-full-width="true"] {
+    width: 100%;
+}
+
+/* 表单验证样式 */
+[data-field]:has(input:invalid) label {
+    color: var(--color-danger);
+}
+
+[data-field]:has(input:valid) label {
+    color: var(--color-success);
+}

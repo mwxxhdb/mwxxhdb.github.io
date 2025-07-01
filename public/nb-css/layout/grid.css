@@ -1,0 +1,361 @@
+/* NB CSS Grid 系统 */
+
+/* 基础 Grid 容器 */
+[data-grid] {
+    display: grid;
+    --gap-value: attr(data-gap type(<number>), 3);
+    gap: calc(var(--gap-value) * var(--spacing) * 1rem);
+}
+
+/* Grid 列数 */
+[data-cols] {
+    --cols-value: attr(data-cols type(<number>), 12);
+    grid-template-columns: repeat(var(--cols-value), 1fr);
+}
+
+[data-cols="1"] {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+[data-cols="2"] {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+[data-cols="3"] {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+[data-cols="4"] {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+[data-cols="5"] {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+[data-cols="6"] {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+[data-cols="12"] {
+    grid-template-columns: repeat(12, 1fr);
+}
+
+/* Grid 行数 */
+[data-rows] {
+    --rows-value: attr(data-rows type(<number>), 1);
+    grid-template-rows: repeat(var(--rows-value), 1fr);
+}
+
+[data-rows="1"] {
+    grid-template-rows: repeat(1, 1fr);
+}
+
+[data-rows="2"] {
+    grid-template-rows: repeat(2, 1fr);
+}
+
+[data-rows="3"] {
+    grid-template-rows: repeat(3, 1fr);
+}
+
+[data-rows="4"] {
+    grid-template-rows: repeat(4, 1fr);
+}
+
+[data-rows="5"] {
+    grid-template-rows: repeat(5, 1fr);
+}
+
+[data-rows="6"] {
+    grid-template-rows: repeat(6, 1fr);
+}
+
+/* 列跨度 */
+[data-col-span] {
+    --col-span-value: attr(data-col-span type(<number>), 1);
+    grid-column: span var(--col-span-value);
+}
+
+[data-col-span="1"] {
+    grid-column: span 1;
+}
+
+[data-col-span="2"] {
+    grid-column: span 2;
+}
+
+[data-col-span="3"] {
+    grid-column: span 3;
+}
+
+[data-col-span="4"] {
+    grid-column: span 4;
+}
+
+[data-col-span="5"] {
+    grid-column: span 5;
+}
+
+[data-col-span="6"] {
+    grid-column: span 6;
+}
+
+[data-col-span="7"] {
+    grid-column: span 7;
+}
+
+[data-col-span="8"] {
+    grid-column: span 8;
+}
+
+[data-col-span="9"] {
+    grid-column: span 9;
+}
+
+[data-col-span="10"] {
+    grid-column: span 10;
+}
+
+[data-col-span="11"] {
+    grid-column: span 11;
+}
+
+[data-col-span="12"] {
+    grid-column: span 12;
+}
+
+[data-col-span="full"] {
+    grid-column: 1 / -1;
+}
+
+/* 行跨度 */
+[data-row-span] {
+    --row-span-value: attr(data-row-span type(<number>), 1);
+    grid-row: span var(--row-span-value);
+}
+
+[data-row-span="1"] {
+    grid-row: span 1;
+}
+
+[data-row-span="2"] {
+    grid-row: span 2;
+}
+
+[data-row-span="3"] {
+    grid-row: span 3;
+}
+
+[data-row-span="4"] {
+    grid-row: span 4;
+}
+
+[data-row-span="5"] {
+    grid-row: span 5;
+}
+
+[data-row-span="6"] {
+    grid-row: span 6;
+}
+
+[data-row-span="full"] {
+    grid-row: 1 / -1;
+}
+
+/* Grid 容器查询 */
+[data-responsive] {
+    container-type: inline-size;
+}
+
+/* 响应式 Grid - 小屏幕 */
+@media (min-width: 640px) {
+    [data-cols-sm="1"] {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    [data-cols-sm="2"] {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    [data-cols-sm="3"] {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    [data-cols-sm="4"] {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    [data-cols-sm="5"] {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    [data-cols-sm="6"] {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    [data-cols-sm="12"] {
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    [data-col-span-sm="1"] {
+        grid-column: span 1;
+    }
+
+    [data-col-span-sm="2"] {
+        grid-column: span 2;
+    }
+
+    [data-col-span-sm="3"] {
+        grid-column: span 3;
+    }
+
+    [data-col-span-sm="4"] {
+        grid-column: span 4;
+    }
+
+    [data-col-span-sm="5"] {
+        grid-column: span 5;
+    }
+
+    [data-col-span-sm="6"] {
+        grid-column: span 6;
+    }
+
+    [data-col-span-sm="full"] {
+        grid-column: 1 / -1;
+    }
+}
+
+/* 响应式 Grid - 中等屏幕 */
+@media (min-width: 768px) {
+    [data-cols-md="1"] {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    [data-cols-md="2"] {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    [data-cols-md="3"] {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    [data-cols-md="4"] {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    [data-cols-md="5"] {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    [data-cols-md="6"] {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    [data-cols-md="12"] {
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    [data-col-span-md="1"] {
+        grid-column: span 1;
+    }
+
+    [data-col-span-md="2"] {
+        grid-column: span 2;
+    }
+
+    [data-col-span-md="3"] {
+        grid-column: span 3;
+    }
+
+    [data-col-span-md="4"] {
+        grid-column: span 4;
+    }
+
+    [data-col-span-md="5"] {
+        grid-column: span 5;
+    }
+
+    [data-col-span-md="6"] {
+        grid-column: span 6;
+    }
+
+    [data-col-span-md="full"] {
+        grid-column: 1 / -1;
+    }
+}
+
+/* 响应式 Grid - 大屏幕 */
+@media (min-width: 1024px) {
+    [data-cols-lg="1"] {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    [data-cols-lg="2"] {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    [data-cols-lg="3"] {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    [data-cols-lg="4"] {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    [data-cols-lg="5"] {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    [data-cols-lg="6"] {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    [data-cols-lg="12"] {
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    [data-col-span-lg="1"] {
+        grid-column: span 1;
+    }
+
+    [data-col-span-lg="2"] {
+        grid-column: span 2;
+    }
+
+    [data-col-span-lg="3"] {
+        grid-column: span 3;
+    }
+
+    [data-col-span-lg="4"] {
+        grid-column: span 4;
+    }
+
+    [data-col-span-lg="5"] {
+        grid-column: span 5;
+    }
+
+    [data-col-span-lg="6"] {
+        grid-column: span 6;
+    }
+
+    [data-col-span-lg="full"] {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Container 查询 Grid */
+@container (min-width: 500px) {
+    [data-cols-container="2"] {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    [data-cols-container="3"] {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    [data-cols-container="4"] {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

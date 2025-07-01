@@ -4,7 +4,7 @@ description: 'No Build CSS 是一个无构建工具的 CSS 解决方案，旨在
 pubDate: 'Jul 01 2025'
 ---
 
-## 关于 No Build CSS
+## 关于 No Build CSS (NB CSS)
 
 - NB CSS 是一个后端程序员为自己准备的组件库，旨在提供一套简洁、易用的样式解决方案。它包含了常用的布局、组件和工具类，帮助开发者快速构建现代化的 Web 应用。
 - 使用 NB CSS 既能得到和基于框架的组件库一样简洁的写法，又无需花费时间去学习前端框架的不同语法糖以及 SSR、CSR 等概念。
@@ -76,146 +76,36 @@ nb-css/
   margin: calc(var(--m-value) * var(--spacing) * 1rem);
 }
 
-/* 方向性间距 */
-[data-px] {
-  --px-value: attr(data-px type(<number>), 0);
-  padding-left: calc(var(--px-value) * var(--spacing) * 1rem);
-  padding-right: calc(var(--px-value) * var(--spacing) * 1rem);
-}
-
-[data-py] {
-  --py-value: attr(data-py type(<number>), 0);
-  padding-top: calc(var(--py-value) * var(--spacing) * 1rem);
-  padding-bottom: calc(var(--py-value) * var(--spacing) * 1rem);
-}
-
-[data-mx] {
-  --mx-value: attr(data-mx type(<number>), 0);
-  margin-left: calc(var(--mx-value) * var(--spacing) * 1rem);
-  margin-right: calc(var(--mx-value) * var(--spacing) * 1rem);
-}
-
-[data-my] {
-  --my-value: attr(data-my type(<number>), 0);
-  margin-top: calc(var(--my-value) * var(--spacing) * 1rem);
-  margin-bottom: calc(var(--my-value) * var(--spacing) * 1rem);
-}
-
-/* 单向间距 - 支持负数 */
-[data-mt] {
-  --mt-value: attr(data-mt type(<number>), 0);
-  margin-top: calc(var(--mt-value) * var(--spacing) * 1rem);
-}
-
-[data-mr] {
-  --mr-value: attr(data-mr type(<number>), 0);
-  margin-right: calc(var(--mr-value) * var(--spacing) * 1rem);
-}
-
-[data-mb] {
-  --mb-value: attr(data-mb type(<number>), 0);
-  margin-bottom: calc(var(--mb-value) * var(--spacing) * 1rem);
-}
-
-[data-ml] {
-  --ml-value: attr(data-ml type(<number>), 0);
-  margin-left: calc(var(--ml-value) * var(--spacing) * 1rem);
-}
-
-/* 子元素间距 */
-[data-space-x] {
-  --space-x-value: attr(data-space-x type(<number>), 0);
-}
-
-[data-space-x] > * + * {
-  margin-left: calc(var(--space-x-value) * var(--spacing) * 1rem);
-}
-
-[data-space-y] {
-  --space-y-value: attr(data-space-y type(<number>), 0);
-}
-
-[data-space-y] > * + * {
-  margin-top: calc(var(--space-y-value) * var(--spacing) * 1rem);
-}
-
-/* 特殊值支持 */
-[data-m="auto"] { margin: auto; }
-[data-mx="auto"] { margin-left: auto; margin-right: auto; }
-[data-my="auto"] { margin-top: auto; margin-bottom: auto; }
-[data-mt="auto"] { margin-top: auto; }
-[data-mr="auto"] { margin-right: auto; }
-[data-mb="auto"] { margin-bottom: auto; }
-[data-ml="auto"] { margin-left: auto; }
+/* 方向性间距：px, py, mx, my, mt, mr, mb, ml */
+/* 子元素间距：space-x, space-y */
+/* 响应式间距：p-md, p-lg, m-md, m-lg 等 */
 
 /* 使用示例 */
 /* 
 <div data-p="4">内边距 16px (4 * 0.25 * 16px)</div>
 <div data-m="8">外边距 32px (8 * 0.25 * 16px)</div>
-<div data-mt="-2">负上边距 -8px (-2 * 0.25 * 16px)</div>
+<div data-mt="-2">负上边距 -8px</div>
 <div data-px="6" data-py="3">水平24px 垂直12px内边距</div>
 <div data-space-x="4">子元素水平间距16px</div>
 <div data-mx="auto">水平居中</div>
-<div data-p="1.5">内边距 6px (1.5 * 0.25 * 16px)</div>
+<div data-p="1.5">支持小数值</div>
 */
 
-/* 支持百分比间距（基于父元素） */
-[data-p-percent] {
-  --p-percent: attr(data-p-percent type(<number>), 0);
-  padding: calc(var(--p-percent) * 1%);
-}
+/* 特殊值支持 */
+[data-m="auto"] { margin: auto; }
+[data-mx="auto"] { margin-left: auto; margin-right: auto; }
 
-[data-m-percent] {
-  --m-percent: attr(data-m-percent type(<number>), 0);
-  margin: calc(var(--m-percent) * 1%);
-}
-
-/* 响应式间距 */
+/* 响应式间距 - 只覆盖变量值，不重复属性定义 */
 @media (min-width: 768px) {
-  [data-p-md] {
-    --p-md-value: attr(data-p-md type(<number>), 0);
-    padding: calc(var(--p-md-value) * var(--spacing) * 1rem);
-  }
-  
-  [data-m-md] {
-    --m-md-value: attr(data-m-md type(<number>), 0);
-    margin: calc(var(--m-md-value) * var(--spacing) * 1rem);
-  }
+  [data-p-md] { --p-value: attr(data-p-md type(<number>), 0); }
+  [data-m-md] { --m-value: attr(data-m-md type(<number>), 0); }
+  /* ... 其他方向性间距的 md 变体 */
 }
 
 @media (min-width: 1024px) {
-  [data-p-lg] {
-    --p-lg-value: attr(data-p-lg type(<number>), 0);
-    padding: calc(var(--p-lg-value) * var(--spacing) * 1rem);
-  }
-  
-  [data-m-lg] {
-    --m-lg-value: attr(data-m-lg type(<number>), 0);
-    margin: calc(var(--m-lg-value) * var(--spacing) * 1rem);
-  }
-}
-
-/* 容器查询间距 */
-@container (min-width: 500px) {
-  [data-p-container] {
-    --p-container-value: attr(data-p-container type(<number>), 0);
-    padding: calc(var(--p-container-value) * var(--spacing) * 1rem);
-  }
-}
-
-/* 间距动画 */
-[data-spacing-transition] {
-  transition: padding 0.3s ease, margin 0.3s ease;
-}
-
-/* 调试模式 - 显示间距 */
-[data-debug-spacing="true"] [data-p] {
-  background: rgba(255, 0, 0, 0.1);
-  outline: 1px dashed red;
-}
-
-[data-debug-spacing="true"] [data-m] {
-  outline: 1px dashed blue;
+  [data-p-lg] { --p-value: attr(data-p-lg type(<number>), 0); }
+  [data-m-lg] { --m-value: attr(data-m-lg type(<number>), 0); }
+  /* ... 其他方向性间距的 lg 变体 */
 }
 ```
 
@@ -591,43 +481,6 @@ button:not([data-loading="true"]) [data-loading-text] {
 </html>
 ```
 
-## 开发工具
-
-### 1. CSS 变量检查器
-```css
-/* 开发模式：显示未定义的变量 */
-[data-debug="true"] * {
-  background: red !important;
-  color: white !important;
-}
-
-[data-debug="true"] *:where(
-  [class*="var(--undefined"]
-) {
-  outline: 2px solid red;
-}
-```
-
-### 2. 组件状态可视化
-```css
-/* 显示组件边界 */
-[data-debug-components="true"] [data-card] {
-  outline: 1px dashed blue;
-}
-
-[data-debug-components="true"] [data-button] {
-  outline: 1px dashed green;
-}
-```
-
-### 3. 性能监控
-```css
-/* 标记复杂选择器 */
-[data-debug-performance="true"] {
-  --complex-selector-warning: "This selector might be slow";
-}
-```
-
 ## 文档和生态
 
 ### 文档网站结构
@@ -636,21 +489,3 @@ button:not([data-loading="true"]) [data-loading-text] {
 - **设计系统**：颜色、字体、间距规范
 - **最佳实践**：推荐的使用模式
 - **迁移指南**：从其他框架迁移
-
-### 构建工具集成
-```javascript
-// Vite 插件
-import { fountusticPlugin } from 'vite-plugin-fountustic'
-
-export default {
-  plugins: [
-    fountusticPlugin({
-      theme: 'custom',
-      purge: true,
-      debug: process.env.NODE_ENV === 'development'
-    })
-  ]
-}
-```
-
-这套设计充分体现了 "为后端开发者准备" 的理念，通过数据属性提供直观的 API，同时保持了现代 CSS 的强大功能。

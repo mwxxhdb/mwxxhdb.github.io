@@ -1,0 +1,258 @@
+/* NB CSS 完整版本 - 导入所有模块 */
+
+/* 核心文件 */
+@import url('./core/reset.css');
+@import url('./core/variables.css');
+@import url('./core/utilities.css');
+
+/* 布局系统 */
+@import url('./layout/spacing.css');
+@import url('./layout/grid.css');
+@import url('./layout/flexbox.css');
+
+/* 组件 */
+@import url('./components/buttons.css');
+@import url('./components/forms.css');
+@import url('./components/cards.css');
+
+/* 动画 */
+@import url('./animations/transitions.css');
+@import url('./animations/keyframes.css');
+
+/* 全局设置 */
+html {
+    font-family: var(--font-sans);
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+}
+
+body {
+    font-size: var(--text-base);
+    line-height: 1.5;
+}
+
+/* 全局链接样式 */
+a {
+    color: var(--color-primary);
+    transition: color var(--duration-fast) ease;
+}
+
+a:hover {
+    color: var(--primary-600);
+}
+
+/* 全局标题样式 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: calc(2 * var(--spacing) * 1rem);
+}
+
+h1 {
+    font-size: var(--text-4xl);
+}
+
+h2 {
+    font-size: var(--text-3xl);
+}
+
+h3 {
+    font-size: var(--text-2xl);
+}
+
+h4 {
+    font-size: var(--text-xl);
+}
+
+h5 {
+    font-size: var(--text-lg);
+}
+
+h6 {
+    font-size: var(--text-base);
+}
+
+/* 段落样式 */
+p {
+    margin-bottom: calc(4 * var(--spacing) * 1rem);
+}
+
+/* 列表样式 */
+ul,
+ol {
+    margin-bottom: calc(4 * var(--spacing) * 1rem);
+    padding-left: calc(6 * var(--spacing) * 1rem);
+}
+
+ul {
+    list-style-type: disc;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+li {
+    margin-bottom: calc(1 * var(--spacing) * 1rem);
+}
+
+/* 代码样式 */
+code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    background: var(--neutral-100);
+    padding: calc(1 * var(--spacing) * 1rem) calc(2 * var(--spacing) * 1rem);
+    border-radius: var(--radius-sm);
+}
+
+pre {
+    font-family: var(--font-mono);
+    background: var(--neutral-100);
+    padding: calc(4 * var(--spacing) * 1rem);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    margin-bottom: calc(4 * var(--spacing) * 1rem);
+}
+
+pre code {
+    background: none;
+    padding: 0;
+}
+
+/* 引用样式 */
+blockquote {
+    border-left: 4px solid var(--color-primary);
+    padding-left: calc(4 * var(--spacing) * 1rem);
+    margin: calc(6 * var(--spacing) * 1rem) 0;
+    font-style: italic;
+    color: var(--color-muted);
+}
+
+/* 水平分割线 */
+hr {
+    border: none;
+    height: 1px;
+    background: var(--color-border);
+    margin: calc(8 * var(--spacing) * 1rem) 0;
+}
+
+/* 表格样式 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: calc(4 * var(--spacing) * 1rem);
+}
+
+th,
+td {
+    text-align: left;
+    padding: calc(3 * var(--spacing) * 1rem);
+    border-bottom: 1px solid var(--color-border);
+}
+
+th {
+    font-weight: 600;
+    background: var(--neutral-50);
+}
+
+/* 图片样式 */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+}
+
+/* 表单元素基础样式重置 */
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+    appearance: none;
+    background-image: none;
+}
+
+select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+    background-position: right calc(2 * var(--spacing) * 1rem) center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: calc(10 * var(--spacing) * 1rem);
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--neutral-300);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neutral-400);
+}
+
+/* 选择文本样式 */
+::selection {
+    background: color-mix(in srgb, var(--color-primary) 20%, transparent);
+    color: var(--color-foreground);
+}
+
+/* 焦点可见性 */
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* 媒体查询偏好 */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* 打印样式 */
+@media print {
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    img {
+        page-break-inside: avoid;
+    }
+
+    h1,
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

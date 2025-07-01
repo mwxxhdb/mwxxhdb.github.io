@@ -1,0 +1,240 @@
+/* NB CSS 按钮组件 */
+
+/* 基础按钮样式 */
+button,
+[data-button] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--duration-fast) ease;
+    border: 1px solid transparent;
+    white-space: nowrap;
+
+    /* 默认尺寸 */
+    padding: calc(2 * var(--spacing) * 1rem) calc(4 * var(--spacing) * 1rem);
+    font-size: var(--text-sm);
+    min-height: 2.5rem;
+}
+
+/* 按钮变体 */
+[data-variant="solid"],
+button:not([data-variant]) {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+[data-variant="solid"]:hover,
+button:not([data-variant]):hover {
+    background: var(--primary-600);
+    border-color: var(--primary-600);
+}
+
+[data-variant="outline"] {
+    background: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+[data-variant="outline"]:hover {
+    background: var(--primary-50);
+}
+
+[data-variant="ghost"] {
+    background: transparent;
+    color: var(--color-primary);
+    border-color: transparent;
+}
+
+[data-variant="ghost"]:hover {
+    background: var(--primary-50);
+}
+
+[data-variant="link"] {
+    background: transparent;
+    color: var(--color-primary);
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+    min-height: auto;
+}
+
+[data-variant="link"]:hover {
+    text-decoration: underline;
+}
+
+/* 按钮颜色 */
+[data-color="primary"] {
+    --btn-color: var(--color-primary);
+    --btn-color-hover: var(--primary-600);
+    --btn-bg-light: var(--primary-50);
+}
+
+[data-color="success"] {
+    --btn-color: var(--color-success);
+    --btn-color-hover: var(--success-600);
+    --btn-bg-light: var(--success-50);
+}
+
+[data-color="warning"] {
+    --btn-color: var(--color-warning);
+    --btn-color-hover: var(--warning-600);
+    --btn-bg-light: var(--warning-50);
+}
+
+[data-color="danger"] {
+    --btn-color: var(--color-danger);
+    --btn-color-hover: var(--danger-600);
+    --btn-bg-light: var(--danger-50);
+}
+
+/* 应用颜色到变体 */
+[data-variant="solid"][data-color] {
+    background: var(--btn-color);
+    border-color: var(--btn-color);
+}
+
+[data-variant="solid"][data-color]:hover {
+    background: var(--btn-color-hover);
+    border-color: var(--btn-color-hover);
+}
+
+[data-variant="outline"][data-color] {
+    color: var(--btn-color);
+    border-color: var(--btn-color);
+}
+
+[data-variant="outline"][data-color]:hover {
+    background: var(--btn-bg-light);
+}
+
+[data-variant="ghost"][data-color] {
+    color: var(--btn-color);
+}
+
+[data-variant="ghost"][data-color]:hover {
+    background: var(--btn-bg-light);
+}
+
+/* 按钮尺寸 */
+[data-size="xs"] {
+    padding: calc(1 * var(--spacing) * 1rem) calc(2 * var(--spacing) * 1rem);
+    font-size: var(--text-xs);
+    min-height: 1.75rem;
+}
+
+[data-size="sm"] {
+    padding: calc(1.5 * var(--spacing) * 1rem) calc(3 * var(--spacing) * 1rem);
+    font-size: var(--text-sm);
+    min-height: 2rem;
+}
+
+[data-size="md"] {
+    padding: calc(2 * var(--spacing) * 1rem) calc(4 * var(--spacing) * 1rem);
+    font-size: var(--text-sm);
+    min-height: 2.5rem;
+}
+
+[data-size="lg"] {
+    padding: calc(2.5 * var(--spacing) * 1rem) calc(6 * var(--spacing) * 1rem);
+    font-size: var(--text-base);
+    min-height: 3rem;
+}
+
+[data-size="xl"] {
+    padding: calc(3 * var(--spacing) * 1rem) calc(8 * var(--spacing) * 1rem);
+    font-size: var(--text-lg);
+    min-height: 3.5rem;
+}
+
+/* 按钮形状 */
+[data-shape="square"] {
+    aspect-ratio: 1;
+    padding: calc(2 * var(--spacing) * 1rem);
+}
+
+[data-shape="circle"] {
+    aspect-ratio: 1;
+    border-radius: var(--radius-full);
+    padding: calc(2 * var(--spacing) * 1rem);
+}
+
+/* 按钮状态 */
+[data-loading="true"] {
+    position: relative;
+    color: transparent;
+}
+
+[data-loading="true"]::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    color: white;
+}
+
+[data-loading="true"][data-variant="outline"]::after,
+[data-loading="true"][data-variant="ghost"]::after {
+    color: var(--btn-color, var(--color-primary));
+}
+
+/* 禁用状态 */
+button:disabled,
+[data-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* 全宽按钮 */
+[data-full-width="true"] {
+    width: 100%;
+}
+
+/* 按钮组 */
+[data-button-group] {
+    display: inline-flex;
+}
+
+[data-button-group]>button,
+[data-button-group]>[data-button] {
+    border-radius: 0;
+    border-right-width: 0;
+}
+
+[data-button-group]>button:first-child,
+[data-button-group]>[data-button]:first-child {
+    border-top-left-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md);
+}
+
+[data-button-group]>button:last-child,
+[data-button-group]>[data-button]:last-child {
+    border-top-right-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+    border-right-width: 1px;
+}
+
+/* 按钮间距 */
+[data-button-group][data-space-x]>button+button,
+[data-button-group][data-space-x]>[data-button]+[data-button] {
+    margin-left: 0;
+}
+
+/* 旋转动画 */
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
