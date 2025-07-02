@@ -1,0 +1,789 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="zh-CN" data-theme="auto">
+  <head>
+    <BaseHead
+      title="NB CSS 演示 - 在线体验"
+      description="在线体验 NB CSS 的强大功能，实时预览各种组件和效果"
+    />
+    <link rel="stylesheet" href="/nb-css/nb-css.css" />
+    <style>
+      .demo-code {
+        background: #1e293b;
+        color: #e2e8f0;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        font-family: "Cascadia Code", "Source Code Pro", monospace;
+        overflow-x: auto;
+      }
+      .demo-preview {
+        border: 2px dashed #e2e8f0;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        min-height: 200px;
+        background: #f8fafc;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+
+    <main data-py="8">
+      <div data-container>
+        <div data-text-align="center" data-mb="12">
+          <h1 data-text="4xl" data-weight="bold" data-mb="4">
+            NB CSS 互动演示
+          </h1>
+          <p data-text="xl" data-color="muted" data-max-w="2xl" data-mx="auto">
+            实时体验 NB CSS 的各种功能，复制代码即可在您的项目中使用。
+          </p>
+        </div>
+
+        <!-- 间距系统演示 -->
+        <section data-mb="16">
+          <h2 data-text="2xl" data-weight="bold" data-mb="6">间距系统演示</h2>
+
+          <div data-grid data-cols="1" data-cols-lg="2" data-gap="8">
+            <div>
+              <h3 data-text="lg" data-weight="semibold" data-mb="4">
+                实时预览
+              </h3>
+              <div class="demo-preview" data-bg="background">
+                <div
+                  data-p="4"
+                  data-m="2"
+                  data-bg="primary-100"
+                  data-rounded="md"
+                  data-text-align="center"
+                >
+                  data-p="4" data-m="2"
+                </div>
+                <div
+                  data-px="6"
+                  data-py="3"
+                  data-mt="4"
+                  data-bg="success-100"
+                  data-rounded="md"
+                  data-text-align="center"
+                >
+                  data-px="6" data-py="3"
+                </div>
+                <div data-space-x="3" data-mt="4">
+                  <span data-bg="warning-100" data-p="2" data-rounded="sm"
+                    >项目1</span
+                  >
+                  <span data-bg="warning-100" data-p="2" data-rounded="sm"
+                    >项目2</span
+                  >
+                  <span data-bg="warning-100" data-p="2" data-rounded="sm"
+                    >项目3</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 data-text="lg" data-weight="semibold" data-mb="4">
+                HTML 代码
+              </h3>
+              <div class="demo-code">
+                &lt;div data-p="4" data-m="2" data-bg="primary-100"
+                data-rounded="md"&gt; data-p="4" data-m="2" &lt;/div&gt; &lt;div
+                data-px="6" data-py="3" data-mt="4" data-bg="success-100"&gt;
+                data-px="6" data-py="3" &lt;/div&gt; &lt;div data-space-x="3"
+                data-mt="4"&gt; &lt;span data-bg="warning-100"
+                data-p="2"&gt;项目1&lt;/span&gt; &lt;span data-bg="warning-100"
+                data-p="2"&gt;项目2&lt;/span&gt; &lt;span data-bg="warning-100"
+                data-p="2"&gt;项目3&lt;/span&gt; &lt;/div&gt;
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 按钮组合演示 -->
+        <section data-mb="16">
+          <h2 data-text="2xl" data-weight="bold" data-mb="6">按钮组合演示</h2>
+
+          <div data-grid data-cols="1" data-cols-lg="2" data-gap="8">
+            <div>
+              <h3 data-text="lg" data-weight="semibold" data-mb="4">
+                实时预览
+              </h3>
+              <div class="demo-preview" data-bg="background">
+                <div data-mb="6">
+                  <h4 data-text="md" data-weight="medium" data-mb="3">
+                    按钮组合
+                  </h4>
+                  <div data-flex data-gap="2" data-flex-wrap="true">
+                    <button
+                      data-variant="solid"
+                      data-color="primary"
+                      data-size="sm"
+                    >
+                      主要操作
+                    </button>
+                    <button
+                      data-variant="outline"
+                      data-color="primary"
+                      data-size="sm"
+                    >
+                      次要操作
+                    </button>
+                    <button
+                      data-variant="ghost"
+                      data-color="danger"
+                      data-size="sm"
+                    >
+                      删除
+                    </button>
+                  </div>
+                </div>
+
+                <div data-mb="6">
+                  <h4 data-text="md" data-weight="medium" data-mb="3">
+                    加载状态
+                  </h4>
+                  <div data-flex data-gap="2" data-flex-wrap="true">
+                    <button
+                      data-variant="solid"
+                      data-color="primary"
+                      data-loading="true"
+                    >
+                      提交中
+                    </button>
+                    <button data-variant="outline" data-color="success">
+                      完成
+                    </button>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 data-text="md" data-weight="medium" data-mb="3">
+                    尺寸对比
+                  </h4>
+                  <div
+                    data-flex
+                    data-gap="2"
+                    data-items="center"
+                    data-flex-wrap="true"
+                  >
+                    <button
+                      data-variant="solid"
+                      data-color="primary"
+                      data-size="xs">XS</button
+                    >
+                    <button
+                      data-variant="solid"
+                      data-color="primary"
+                      data-size="sm">SM</button
+                    >
+                    <button
+                      data-variant="solid"
+                      data-color="primary"
+                      data-size="md">MD</button
+                    >
+                    <button
+                      data-variant="solid"
+                      data-color="primary"
+                      data-size="lg">LG</button
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 data-text="lg" data-weight="semibold" data-mb="4">
+                HTML 代码
+              </h3>
+              <div class="demo-code">
+                &lt;!-- 按钮组合 --&gt; &lt;div data-flex data-gap="2"&gt;
+                &lt;button data-variant="solid" data-color="primary"&gt;
+                主要操作 &lt;/button&gt; &lt;button data-variant="outline"
+                data-color="primary"&gt; 次要操作 &lt;/button&gt; &lt;button
+                data-variant="ghost" data-color="danger"&gt; 删除
+                &lt;/button&gt; &lt;/div&gt; &lt;!-- 加载状态 --&gt; &lt;button
+                data-variant="solid" data-loading="true"&gt; 提交中
+                &lt;/button&gt; &lt;!-- 不同尺寸 --&gt; &lt;button
+                data-size="xs"&gt;XS&lt;/button&gt; &lt;button
+                data-size="sm"&gt;SM&lt;/button&gt; &lt;button
+                data-size="md"&gt;MD&lt;/button&gt; &lt;button
+                data-size="lg"&gt;LG&lt;/button&gt;
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 表单演示 -->
+        <section data-mb="16">
+          <h2 data-text="2xl" data-weight="bold" data-mb="6">表单演示</h2>
+
+          <div data-grid data-cols="1" data-cols-lg="2" data-gap="8">
+            <div>
+              <h3 data-text="lg" data-weight="semibold" data-mb="4">
+                实时预览
+              </h3>
+              <div class="demo-preview" data-bg="background">
+                <form data-space-y="4" data-max-w="sm">
+                  <div data-field>
+                    <label data-required>用户名</label>
+                    <input
+                      type="text"
+                      data-size="md"
+                      placeholder="请输入用户名"
+                      value="admin"
+                    />
+                    <span data-help>用户名必须唯一</span>
+                  </div>
+
+                  <div data-field>
+                    <label>邮箱</label>
+                    <input
+                      type="email"
+                      data-size="md"
+                      data-state="success"
+                      placeholder="请输入邮箱"
+                      value="admin@example.com"
+                    />
+                    <span data-success>邮箱格式正确</span>
+                  </div>
+
+                  <div data-field>
+                    <label>密码</label>
+                    <input
+                      type="password"
+                      data-size="md"
+                      data-state="error"
+                      placeholder="请输入密码"
+                    />
+                    <span data-error>密码不能为空</span>
+                  </div>
+
+                  <div data-field>
+                    <label>个人简介</label>
+                    <textarea data-size="md" placeholder="介绍一下自己..."
+                    ></textarea>
+                  </div>
+
+                  <div data-flex data-gap="2">
+                    <button
+                      type="button"
+                      data-variant="outline"
+                      data-full-width="true"
+                    >
+                      重置
+                    </button>
+                    <button
+                      type="submit"
+                      data-variant="solid"
+                      data-color="primary"
+                      data-full-width="true"
+                    >
+                      提交
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div>
+              <h3 data-text="lg" data-weight="semibold" data-mb="4">
+                HTML 代码
+              </h3>
+              <div class="demo-code">
+                &lt;form data-space-y="4"&gt; &lt;div data-field&gt; &lt;label
+                data-required&gt;用户名&lt;/label&gt; &lt;input type="text"
+                data-size="md" placeholder="请输入用户名" /&gt; &lt;span
+                data-help&gt;用户名必须唯一&lt;/span&gt; &lt;/div&gt; &lt;div
+                data-field&gt; &lt;label&gt;邮箱&lt;/label&gt; &lt;input
+                type="email" data-state="success" /&gt; &lt;span
+                data-success&gt;邮箱格式正确&lt;/span&gt; &lt;/div&gt; &lt;div
+                data-field&gt; &lt;label&gt;密码&lt;/label&gt; &lt;input
+                type="password" data-state="error" /&gt; &lt;span
+                data-error&gt;密码不能为空&lt;/span&gt; &lt;/div&gt; &lt;button
+                type="submit" data-variant="solid"&gt;提交&lt;/button&gt;
+                &lt;/form&gt;
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Grid 布局演示 -->
+        <section data-mb="16">
+          <h2 data-text="2xl" data-weight="bold" data-mb="6">Grid 布局演示</h2>
+
+          <div data-grid data-cols="1" data-cols-lg="2" data-gap="8">
+            <div>
+              <h3 data-text="lg" data-weight="semibold" data-mb="4">
+                实时预览
+              </h3>
+              <div class="demo-preview" data-bg="background">
+                <div data-mb="4">
+                  <h4 data-text="sm" data-weight="medium" data-mb="2">
+                    基础 Grid (3列)
+                  </h4>
+                  <div data-grid data-cols="3" data-gap="2">
+                    <div
+                      data-bg="primary-100"
+                      data-p="3"
+                      data-text-align="center"
+                      data-rounded="sm"
+                    >
+                      1
+                    </div>
+                    <div
+                      data-bg="primary-100"
+                      data-p="3"
+                      data-text-align="center"
+                      data-rounded="sm"
+                    >
+                      2
+                    </div>
+                    <div
+                      data-bg="primary-100"
+                      data-p="3"
+                      data-text-align="center"
+                      data-rounded="sm"
+                    >
+                      3
+                    </div>
+                    <div
+                      data-bg="primary-100"
+                      data-p="3"
+                      data-text-align="center"
+                      data-rounded="sm"
+                    >
+                      4
+                    </div>
+                    <div
+                      data-bg="primary-100"
+                      data-p="3"
+                      data-text-align="center"
+                      data-rounded="sm"
+                    >
+                      5
+                    </div>
+                    <div
+                      data-bg="primary-100"
+                      data-p="3"
+                      data-text-align="center"
+                      data-rounded="sm"
+                    >
+                      6
+                    </div>
+                  </div>
+                </div>
+
+                <div data-mb="4">
+                  <h4 data-text="sm" data-weight="medium" data-mb="2">
+                    跨列布局
+                  </h4>
+                  <div data-grid data-cols="4" data-gap="2">
+                    <div
+                      data-col-span="2"
+                      data-bg="success-100"
+                      data-p="3"
+                      data-text-align="center"
+                      data-rounded="sm"
+                    >
+                      span 2
+                    </div>
+                    <div
+                      data-bg="success-100"
+                      data-p="3"
+                      data-text-align="center"
+                      data-rounded="sm"
+                    >
+                      1
+                    </div>
+                    <div
+                      data-bg="success-100"
+                      data-p="3"
+                      data-text-align="center"
+                      data-rounded="sm"
+                    >
+                      2
+                    </div>
+                    <div
+                      data-bg="success-100"
+                      data-p="3"
+                      data-text-align="center"
+                      data-rounded="sm"
+                    >
+                      3
+                    </div>
+                    <div
+                      data-col-span="3"
+                      data-bg="success-100"
+                      data-p="3"
+                      data-text-align="center"
+                      data-rounded="sm"
+                    >
+                      span 3
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 data-text="sm" data-weight="medium" data-mb="2">
+                    响应式 Grid
+                  </h4>
+                  <div
+                    data-grid
+                    data-cols="1"
+                    data-cols-md="2"
+                    data-cols-lg="3"
+                    data-gap="2"
+                  >
+                    <div
+                      data-bg="warning-100"
+                      data-p="3"
+                      data-text-align="center"
+                      data-rounded="sm"
+                    >
+                      A
+                    </div>
+                    <div
+                      data-bg="warning-100"
+                      data-p="3"
+                      data-text-align="center"
+                      data-rounded="sm"
+                    >
+                      B
+                    </div>
+                    <div
+                      data-bg="warning-100"
+                      data-p="3"
+                      data-text-align="center"
+                      data-rounded="sm"
+                    >
+                      C
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 data-text="lg" data-weight="semibold" data-mb="4">
+                HTML 代码
+              </h3>
+              <div class="demo-code">
+                &lt;!-- 基础 Grid --&gt; &lt;div data-grid data-cols="3"
+                data-gap="2"&gt; &lt;div&gt;1&lt;/div&gt;
+                &lt;div&gt;2&lt;/div&gt; &lt;div&gt;3&lt;/div&gt; &lt;/div&gt;
+                &lt;!-- 跨列布局 --&gt; &lt;div data-grid data-cols="4"
+                data-gap="2"&gt; &lt;div data-col-span="2"&gt;span 2&lt;/div&gt;
+                &lt;div&gt;1&lt;/div&gt; &lt;div&gt;2&lt;/div&gt; &lt;/div&gt;
+                &lt;!-- 响应式 Grid --&gt; &lt;div data-grid data-cols="1"
+                data-cols-md="2" data-cols-lg="3"&gt; &lt;div&gt;A&lt;/div&gt;
+                &lt;div&gt;B&lt;/div&gt; &lt;div&gt;C&lt;/div&gt; &lt;/div&gt;
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 卡片和悬停效果演示 -->
+        <section data-mb="16">
+          <h2 data-text="2xl" data-weight="bold" data-mb="6">
+            卡片和悬停效果演示
+          </h2>
+
+          <div data-grid data-cols="1" data-cols-lg="2" data-gap="8">
+            <div>
+              <h3 data-text="lg" data-weight="semibold" data-mb="4">
+                实时预览
+              </h3>
+              <div class="demo-preview" data-bg="background">
+                <div data-grid data-cols="1" data-cols-md="2" data-gap="4">
+                  <div
+                    data-card
+                    data-shadow="md"
+                    data-hover="lift"
+                    data-transition="all"
+                  >
+                    <div data-card-header>
+                      <h4 data-weight="semibold">悬停提升</h4>
+                    </div>
+                    <div data-card-body>
+                      <p data-text="sm" data-color="muted">
+                        鼠标悬停时会有提升效果
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    data-card
+                    data-shadow="md"
+                    data-hover="scale"
+                    data-transition="all"
+                  >
+                    <div data-card-header>
+                      <h4 data-weight="semibold">悬停缩放</h4>
+                    </div>
+                    <div data-card-body>
+                      <p data-text="sm" data-color="muted">
+                        鼠标悬停时会有缩放效果
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    data-card
+                    data-shadow="md"
+                    data-hover="glow"
+                    data-transition="all"
+                  >
+                    <div data-card-header>
+                      <h4 data-weight="semibold">悬停发光</h4>
+                    </div>
+                    <div data-card-body>
+                      <p data-text="sm" data-color="muted">
+                        鼠标悬停时会有发光效果
+                      </p>
+                    </div>
+                  </div>
+
+                  <div data-card data-shadow="md" data-clickable="true">
+                    <div data-card-body data-text-align="center">
+                      <span data-text="2xl" data-mb="2">🎯</span>
+                      <h4 data-weight="semibold" data-mb="2">可点击卡片</h4>
+                      <p data-text="sm" data-color="muted">
+                        整个卡片都可以点击
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 data-text="lg" data-weight="semibold" data-mb="4">
+                HTML 代码
+              </h3>
+              <div class="demo-code">
+                &lt;!-- 悬停提升效果 --&gt; &lt;div data-card data-shadow="md"
+                data-hover="lift"&gt; &lt;div data-card-header&gt;
+                &lt;h4&gt;悬停提升&lt;/h4&gt; &lt;/div&gt; &lt;div
+                data-card-body&gt; &lt;p&gt;鼠标悬停时会有提升效果&lt;/p&gt;
+                &lt;/div&gt; &lt;/div&gt; &lt;!-- 悬停缩放效果 --&gt; &lt;div
+                data-card data-hover="scale"&gt; &lt;!-- 内容 --&gt;
+                &lt;/div&gt; &lt;!-- 悬停发光效果 --&gt; &lt;div data-card
+                data-hover="glow"&gt; &lt;!-- 内容 --&gt; &lt;/div&gt; &lt;!--
+                可点击卡片 --&gt; &lt;div data-card data-clickable="true"&gt;
+                &lt;!-- 内容 --&gt; &lt;/div&gt;
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 工具类组合演示 -->
+        <section data-mb="16">
+          <h2 data-text="2xl" data-weight="bold" data-mb="6">工具类组合演示</h2>
+
+          <div data-grid data-cols="1" data-cols-lg="2" data-gap="8">
+            <div>
+              <h3 data-text="lg" data-weight="semibold" data-mb="4">
+                实时预览
+              </h3>
+              <div class="demo-preview" data-bg="background">
+                <div data-space-y="4">
+                  <div
+                    data-p="4"
+                    data-bg="primary-50"
+                    data-rounded="lg"
+                    data-border="true"
+                    data-border-color="primary"
+                  >
+                    <h4
+                      data-text="lg"
+                      data-weight="semibold"
+                      data-color="primary"
+                      data-mb="2"
+                    >
+                      主要信息
+                    </h4>
+                    <p data-text="sm" data-color="muted">
+                      这是一个使用多个工具类组合的示例
+                    </p>
+                  </div>
+
+                  <div
+                    data-flex
+                    data-justify="between"
+                    data-items="center"
+                    data-p="3"
+                    data-bg="success-50"
+                    data-rounded="md"
+                    data-border="true"
+                    data-border-color="success"
+                  >
+                    <div>
+                      <span
+                        data-text="sm"
+                        data-weight="medium"
+                        data-color="success">成功状态</span
+                      >
+                    </div>
+                    <div>
+                      <span
+                        data-bg="success"
+                        data-color="white"
+                        data-px="2"
+                        data-py="1"
+                        data-text="xs"
+                        data-rounded="full">NEW</span
+                      >
+                    </div>
+                  </div>
+
+                  <div data-grid data-cols="3" data-gap="2">
+                    <div
+                      data-text-align="center"
+                      data-p="3"
+                      data-bg="neutral-100"
+                      data-rounded="md"
+                    >
+                      <div data-text="xl" data-mb="1">📊</div>
+                      <div data-text="xs" data-color="muted">图表</div>
+                    </div>
+                    <div
+                      data-text-align="center"
+                      data-p="3"
+                      data-bg="neutral-100"
+                      data-rounded="md"
+                    >
+                      <div data-text="xl" data-mb="1">📝</div>
+                      <div data-text="xs" data-color="muted">文档</div>
+                    </div>
+                    <div
+                      data-text-align="center"
+                      data-p="3"
+                      data-bg="neutral-100"
+                      data-rounded="md"
+                    >
+                      <div data-text="xl" data-mb="1">⚙️</div>
+                      <div data-text="xs" data-color="muted">设置</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 data-text="lg" data-weight="semibold" data-mb="4">
+                HTML 代码
+              </h3>
+              <div class="demo-code">
+                &lt;!-- 主要信息卡片 --&gt; &lt;div data-p="4"
+                data-bg="primary-50" data-rounded="lg" data-border="true"
+                data-border-color="primary"&gt; &lt;h4 data-text="lg"
+                data-weight="semibold" data-color="primary"&gt; 主要信息
+                &lt;/h4&gt; &lt;p data-text="sm" data-color="muted"&gt;
+                这是一个使用多个工具类组合的示例 &lt;/p&gt; &lt;/div&gt; &lt;!--
+                状态栏 --&gt; &lt;div data-flex data-justify="between"
+                data-items="center" data-p="3" data-bg="success-50"
+                data-rounded="md"&gt; &lt;span
+                data-color="success"&gt;成功状态&lt;/span&gt; &lt;span
+                data-bg="success" data-color="white" data-px="2" data-py="1"
+                data-rounded="full"&gt;NEW&lt;/span&gt; &lt;/div&gt; &lt;!--
+                图标网格 --&gt; &lt;div data-grid data-cols="3" data-gap="2"&gt;
+                &lt;div data-text-align="center" data-p="3"&gt; &lt;div
+                data-text="xl"&gt;📊&lt;/div&gt; &lt;div data-text="xs"
+                data-color="muted"&gt;图表&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 快速复制区域 -->
+        <section data-py="16" data-bg="neutral-50" data-rounded="lg">
+          <div data-text-align="center">
+            <h2 data-text="2xl" data-weight="bold" data-mb="6">开始使用</h2>
+            <p data-color="muted" data-mb="8" data-max-w="2xl" data-mx="auto">
+              复制以下代码，立即开始使用 NB CSS 构建您的项目。
+            </p>
+
+            <div
+              data-card
+              data-p="6"
+              data-max-w="4xl"
+              data-mx="auto"
+              data-bg="background"
+            >
+              <h3
+                data-text="lg"
+                data-weight="semibold"
+                data-mb="4"
+                data-text-align="left"
+              >
+                基础模板
+              </h3>
+              <div class="demo-code" data-text-align="left">
+                &lt;!DOCTYPE html&gt; &lt;html lang="zh-CN"
+                data-theme="auto"&gt; &lt;head&gt; &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width,
+                initial-scale=1.0"&gt; &lt;title&gt;我的 NB CSS
+                项目&lt;/title&gt; &lt;link rel="stylesheet"
+                href="/nb-css/nb-css.css"&gt; &lt;/head&gt; &lt;body&gt; &lt;div
+                data-container data-py="8"&gt; &lt;h1 data-text="4xl"
+                data-weight="bold" data-mb="6"&gt; 欢迎使用 NB CSS &lt;/h1&gt;
+                &lt;div data-grid data-cols="1" data-cols-md="2"
+                data-gap="6"&gt; &lt;div data-card data-p="6"
+                data-shadow="md"&gt; &lt;h2 data-text="xl"
+                data-weight="semibold" data-mb="3"&gt; 卡片标题 &lt;/h2&gt;
+                &lt;p data-color="muted" data-mb="4"&gt; 这是一个使用 NB CSS
+                创建的卡片组件 &lt;/p&gt; &lt;button data-variant="solid"
+                data-color="primary"&gt; 了解更多 &lt;/button&gt; &lt;/div&gt;
+                &lt;div data-card data-p="6" data-shadow="md"&gt; &lt;h2
+                data-text="xl" data-weight="semibold" data-mb="3"&gt; 另一个卡片
+                &lt;/h2&gt; &lt;p data-color="muted" data-mb="4"&gt;
+                简单、直观、易用的样式系统 &lt;/p&gt; &lt;button
+                data-variant="outline" data-color="primary"&gt; 查看详情
+                &lt;/button&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt;
+                &lt;/body&gt; &lt;/html&gt;
+              </div>
+              <div data-mt="4" data-text-align="center">
+                <button
+                  data-variant="solid"
+                  data-color="primary"
+                  onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)"
+                >
+                  复制代码
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <Footer />
+
+    <script>
+      // 简单的复制功能
+      document.addEventListener("click", function (e) {
+        if (e.target.textContent.includes("复制代码")) {
+          const codeElement =
+            e.target.closest(".demo-code") || e.target.previousElementSibling;
+          if (codeElement) {
+            navigator.clipboard
+              .writeText(codeElement.textContent.trim())
+              .then(() => {
+                const originalText = e.target.textContent;
+                e.target.textContent = "已复制!";
+                setTimeout(() => {
+                  e.target.textContent = originalText;
+                }, 2000);
+              });
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

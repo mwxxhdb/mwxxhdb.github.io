@@ -6,58 +6,506 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN" data-theme="auto">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead
+      title="NB CSS - 为后端开发者设计的 CSS 框架"
+      description="零学习成本，纯 CSS 实现，现代化设计的组件库"
+    />
+    <link rel="stylesheet" href="/nb-css/nb-css.css" />
   </head>
   <body>
     <Header />
-    <main>
-      <h1>🧑‍🚀 测试!</h1>
-      <p>
-        Welcome to the official <a href="https://astro.build/">Astro</a> blog starter
-        template. This template serves as a lightweight, minimally-styled starting
-        point for anyone looking to build a personal website, blog, or portfolio
-        with Astro.
-      </p>
-      <p>
-        This template comes with a few integrations already configured in your
-        <code>astro.config.mjs</code> file. You can customize your setup with
-        <a href="https://astro.build/integrations">Astro Integrations</a> to add
-        tools like Tailwind, React, or Vue to your project.
-      </p>
-      <p>Here are a few ideas on how to get started with the template:</p>
-      <ul>
-        <li>Edit this page in <code>src/pages/index.astro</code></li>
-        <li>
-          Edit the site header items in <code>src/components/Header.astro</code>
-        </li>
-        <li>
-          Add your name to the footer in <code>src/components/Footer.astro</code
+
+    <!-- Hero 区域 -->
+    <section data-bg="primary-50" data-py="20">
+      <div data-container>
+        <div data-text-align="center" data-mb="12">
+          <h1 data-text="5xl" data-weight="bold" data-mb="6">NB CSS</h1>
+          <p
+            data-text="xl"
+            data-color="muted"
+            data-mb="8"
+            data-max-w="2xl"
+            data-mx="auto"
           >
-        </li>
-        <li>
-          Check out the included blog posts in <code>src/content/blog/</code>
-        </li>
-        <li>
-          Customize the blog post page layout in <code
-            >src/layouts/BlogPost.astro</code
+            专为后端开发者设计的 CSS 框架。零学习成本，纯 CSS 实现，现代化设计。
+          </p>
+          <div
+            data-flex
+            data-justify="center"
+            data-gap="4"
+            data-flex-wrap="true"
           >
-        </li>
-      </ul>
-      <p>
-        Have fun! If you get stuck, remember to
-        <a href="https://docs.astro.build/">read the docs</a>
-        or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-      </p>
-      <p>
-        Looking for a blog template with a bit more personality? Check out
-        <a href="https://github.com/Charca/astro-blog-template"
-          >astro-blog-template</a
+            <a
+              href="#快速开始"
+              data-button
+              data-variant="solid"
+              data-color="primary"
+              data-size="lg"
+            >
+              立即开始
+            </a>
+            <a
+              href="/nbcss/examples"
+              data-button
+              data-variant="outline"
+              data-color="primary"
+              data-size="lg"
+            >
+              查看示例
+            </a>
+            <a
+              href="/nbcss/docs"
+              data-button
+              data-variant="ghost"
+              data-color="primary"
+              data-size="lg"
+            >
+              文档
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 特性展示 -->
+    <section data-py="16">
+      <div data-container>
+        <h2
+          data-text="3xl"
+          data-weight="bold"
+          data-text-align="center"
+          data-mb="12"
         >
-        by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-      </p>
-    </main>
+          核心特性
+        </h2>
+        <div
+          data-grid
+          data-cols="1"
+          data-cols-md="2"
+          data-cols-lg="3"
+          data-gap="8"
+        >
+          <div
+            data-card
+            data-shadow="md"
+            data-hover="lift"
+            data-text-align="center"
+            data-p="6"
+          >
+            <div
+              data-w="16"
+              data-h="16"
+              data-bg="primary-100"
+              data-rounded="full"
+              data-flex
+              data-items="center"
+              data-justify="center"
+              data-mx="auto"
+              data-mb="4"
+            >
+              <span data-text="2xl">🚀</span>
+            </div>
+            <h3 data-text="xl" data-weight="semibold" data-mb="3">
+              零学习成本
+            </h3>
+            <p data-color="muted">
+              直观的 data 属性，无需学习复杂的类名。后端开发者一看就懂。
+            </p>
+          </div>
+
+          <div
+            data-card
+            data-shadow="md"
+            data-hover="lift"
+            data-text-align="center"
+            data-p="6"
+          >
+            <div
+              data-w="16"
+              data-h="16"
+              data-bg="success-100"
+              data-rounded="full"
+              data-flex
+              data-items="center"
+              data-justify="center"
+              data-mx="auto"
+              data-mb="4"
+            >
+              <span data-text="2xl">💡</span>
+            </div>
+            <h3 data-text="xl" data-weight="semibold" data-mb="3">
+              纯 CSS 实现
+            </h3>
+            <p data-color="muted">
+              无需 JavaScript，所有交互通过 CSS 完成，减少前端代码复杂性。
+            </p>
+          </div>
+
+          <div
+            data-card
+            data-shadow="md"
+            data-hover="lift"
+            data-text-align="center"
+            data-p="6"
+          >
+            <div
+              data-w="16"
+              data-h="16"
+              data-bg="warning-100"
+              data-rounded="full"
+              data-flex
+              data-items="center"
+              data-justify="center"
+              data-mx="auto"
+              data-mb="4"
+            >
+              <span data-text="2xl">⚡</span>
+            </div>
+            <h3 data-text="xl" data-weight="semibold" data-mb="3">现代化</h3>
+            <p data-color="muted">
+              使用最新 CSS 特性，现代浏览器优化，不考虑旧版本兼容性。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 快速开始 -->
+    <section id="快速开始" data-py="16" data-bg="neutral-50">
+      <div data-container>
+        <h2
+          data-text="3xl"
+          data-weight="bold"
+          data-text-align="center"
+          data-mb="12"
+        >
+          快速开始
+        </h2>
+        <div
+          data-grid
+          data-cols="1"
+          data-cols-lg="2"
+          data-gap="8"
+          data-items="start"
+        >
+          <div>
+            <h3 data-text="xl" data-weight="semibold" data-mb="4">
+              1. 引入 CSS 文件
+            </h3>
+            <pre
+              data-bg="background"
+              data-p="4"
+              data-rounded="md"
+              data-overflow-x="auto"><code>&lt;link rel="stylesheet" href="/nb-css/nb-css.css"&gt;</code></pre>
+
+            <h3 data-text="xl" data-weight="semibold" data-mb="4" data-mt="6">
+              2. 开始使用
+            </h3>
+            <pre
+              data-bg="background"
+              data-p="4"
+              data-rounded="md"
+              data-overflow-x="auto"><code>&lt;div data-p="4" data-m="8"&gt;
+  &lt;button data-variant="solid" data-color="primary"&gt;
+    点击我
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+
+          <div data-card data-p="6" data-bg="background">
+            <h4 data-text="lg" data-weight="semibold" data-mb="4">实时预览</h4>
+            <div data-p="4" data-m="8" data-border="true" data-rounded="md">
+              <button data-variant="solid" data-color="primary" data-mb="3">
+                点击我
+              </button>
+              <p data-color="muted">这个按钮使用了 NB CSS 的按钮组件样式</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 组件预览 -->
+    <section data-py="16">
+      <div data-container>
+        <h2
+          data-text="3xl"
+          data-weight="bold"
+          data-text-align="center"
+          data-mb="12"
+        >
+          组件预览
+        </h2>
+
+        <!-- 按钮组件 -->
+        <div data-mb="12">
+          <h3 data-text="2xl" data-weight="semibold" data-mb="6">按钮</h3>
+          <div data-card data-p="6" data-bg="background">
+            <div data-mb="4">
+              <h4 data-text="lg" data-weight="medium" data-mb="3">按钮变体</h4>
+              <div data-flex data-gap="3" data-flex-wrap="true">
+                <button data-variant="solid" data-color="primary">Solid</button>
+                <button data-variant="outline" data-color="primary"
+                  >Outline</button
+                >
+                <button data-variant="ghost" data-color="primary">Ghost</button>
+                <button data-variant="link" data-color="primary">Link</button>
+              </div>
+            </div>
+
+            <div data-mb="4">
+              <h4 data-text="lg" data-weight="medium" data-mb="3">按钮颜色</h4>
+              <div data-flex data-gap="3" data-flex-wrap="true">
+                <button data-variant="solid" data-color="primary"
+                  >Primary</button
+                >
+                <button data-variant="solid" data-color="success"
+                  >Success</button
+                >
+                <button data-variant="solid" data-color="warning"
+                  >Warning</button
+                >
+                <button data-variant="solid" data-color="danger">Danger</button>
+              </div>
+            </div>
+
+            <div>
+              <h4 data-text="lg" data-weight="medium" data-mb="3">按钮尺寸</h4>
+              <div
+                data-flex
+                data-gap="3"
+                data-items="center"
+                data-flex-wrap="true"
+              >
+                <button data-variant="solid" data-color="primary" data-size="xs"
+                  >Extra Small</button
+                >
+                <button data-variant="solid" data-color="primary" data-size="sm"
+                  >Small</button
+                >
+                <button data-variant="solid" data-color="primary" data-size="md"
+                  >Medium</button
+                >
+                <button data-variant="solid" data-color="primary" data-size="lg"
+                  >Large</button
+                >
+                <button data-variant="solid" data-color="primary" data-size="xl"
+                  >Extra Large</button
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 表单组件 -->
+        <div data-mb="12">
+          <h3 data-text="2xl" data-weight="semibold" data-mb="6">表单</h3>
+          <div data-card data-p="6" data-bg="background">
+            <form data-gap="4" data-max-w="md">
+              <div data-field>
+                <label data-required>用户名</label>
+                <input type="text" data-size="md" placeholder="请输入用户名" />
+                <span data-help>用户名必须是唯一的</span>
+              </div>
+
+              <div data-field>
+                <label>邮箱</label>
+                <input
+                  type="email"
+                  data-size="md"
+                  data-state="success"
+                  placeholder="请输入邮箱"
+                />
+                <span data-success>邮箱格式正确</span>
+              </div>
+
+              <div data-field>
+                <label>密码</label>
+                <input
+                  type="password"
+                  data-size="md"
+                  data-state="error"
+                  placeholder="请输入密码"
+                />
+                <span data-error>密码不能为空</span>
+              </div>
+
+              <div data-field>
+                <label>个人简介</label>
+                <textarea data-size="md" placeholder="介绍一下自己..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                data-variant="solid"
+                data-color="primary"
+                data-full-width="true"
+              >
+                提交
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- 卡片组件 -->
+        <div data-mb="12">
+          <h3 data-text="2xl" data-weight="semibold" data-mb="6">卡片</h3>
+          <div data-grid data-cols="1" data-cols-md="2" data-gap="6">
+            <div data-card data-shadow="md" data-hover="lift">
+              <div data-card-header>
+                <h4 data-weight="semibold">基础卡片</h4>
+                <button data-variant="ghost" data-size="sm">更多</button>
+              </div>
+              <div data-card-body>
+                <p data-color="muted">
+                  这是一个基础的卡片组件，包含头部、主体和底部区域。
+                </p>
+              </div>
+              <div data-card-footer data-justify="between">
+                <span data-text="sm" data-color="muted">2024-01-01</span>
+                <div data-flex data-gap="2">
+                  <button data-variant="outline" data-size="sm">取消</button>
+                  <button data-variant="solid" data-size="sm">确认</button>
+                </div>
+              </div>
+            </div>
+
+            <div data-card data-shadow="md" data-hover="scale">
+              <div data-card-body>
+                <h4 data-weight="semibold" data-mb="3">简洁卡片</h4>
+                <p data-color="muted" data-mb="4">
+                  这是一个简洁的卡片组件，只有主体内容，适合展示简单信息。
+                </p>
+                <button
+                  data-variant="solid"
+                  data-color="primary"
+                  data-size="sm"
+                >
+                  了解更多
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 间距系统展示 -->
+    <section data-py="16" data-bg="neutral-50">
+      <div data-container>
+        <h2
+          data-text="3xl"
+          data-weight="bold"
+          data-text-align="center"
+          data-mb="12"
+        >
+          间距系统
+        </h2>
+        <div data-grid data-cols="1" data-cols-lg="2" data-gap="8">
+          <div>
+            <h3 data-text="xl" data-weight="semibold" data-mb="4">
+              基于数值的间距
+            </h3>
+            <p data-color="muted" data-mb="6">
+              使用 <code>data-p</code> 和 <code>data-m</code> 属性设置内边距和外边距。
+              数值基于 <code>--spacing: 0.25</code> 变量计算。
+            </p>
+            <div data-card data-p="4" data-bg="background">
+              <pre><code>&lt;div data-p="4" data-m="8"&gt;
+  16px 内边距，32px 外边距
+&lt;/div&gt;
+
+&lt;div data-px="6" data-py="3"&gt;
+  水平 24px，垂直 12px 内边距  
+&lt;/div&gt;
+
+&lt;div data-mt="-2"&gt;
+  负上边距 -8px
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <div>
+            <h3 data-text="xl" data-weight="semibold" data-mb="4">
+              响应式间距
+            </h3>
+            <p data-color="muted" data-mb="6">
+              使用响应式后缀在不同屏幕尺寸下应用不同的间距。
+            </p>
+            <div data-card data-p="4" data-bg="background">
+              <pre><code>&lt;div data-p="2" data-p-md="4" data-p-lg="6"&gt;
+  移动端 8px，平板 16px，桌面 24px
+&lt;/div&gt;
+
+&lt;div data-space-x="2" data-space-x-md="4"&gt;
+  子元素响应式水平间距
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 导航链接 -->
+    <section data-py="16">
+      <div data-container>
+        <div data-text-align="center">
+          <h2 data-text="3xl" data-weight="bold" data-mb="8">深入了解</h2>
+          <div
+            data-flex
+            data-justify="center"
+            data-gap="6"
+            data-flex-wrap="true"
+          >
+            <a
+              href="/nbcss/docs"
+              data-card
+              data-p="6"
+              data-text-align="center"
+              data-hover="lift"
+              data-transition="all"
+            >
+              <h3 data-text="xl" data-weight="semibold" data-mb="2">
+                📚 完整文档
+              </h3>
+              <p data-color="muted">查看详细的 API 文档和使用指南</p>
+            </a>
+
+            <a
+              href="/nbcss/examples"
+              data-card
+              data-p="6"
+              data-text-align="center"
+              data-hover="lift"
+              data-transition="all"
+            >
+              <h3 data-text="xl" data-weight="semibold" data-mb="2">
+                🎨 更多示例
+              </h3>
+              <p data-color="muted">探索完整的组件和布局示例</p>
+            </a>
+
+            <a
+              href="/blog/nbcss-design"
+              data-card
+              data-p="6"
+              data-text-align="center"
+              data-hover="lift"
+              data-transition="all"
+            >
+              <h3 data-text="xl" data-weight="semibold" data-mb="2">
+                💡 设计理念
+              </h3>
+              <p data-color="muted">了解 NB CSS 的设计思路和架构</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <Footer />
   </body>
 </html>

@@ -1,0 +1,268 @@
+/* NB CSS 表格组件 */
+
+/* 基础表格样式 */
+[data-table] {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-background);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+/* 表格头部 */
+[data-table] thead {
+    background: var(--neutral-50);
+}
+
+[data-table] thead th {
+    padding: calc(3 * var(--spacing) * 1rem) calc(4 * var(--spacing) * 1rem);
+    text-align: left;
+    font-weight: 600;
+    font-size: var(--text-sm);
+    color: var(--color-foreground);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* 表格主体 */
+[data-table] tbody tr {
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color var(--duration-fast) ease;
+}
+
+[data-table] tbody tr:hover {
+    background: var(--neutral-50);
+}
+
+[data-table] tbody tr:last-child {
+    border-bottom: none;
+}
+
+[data-table] tbody td {
+    padding: calc(3 * var(--spacing) * 1rem) calc(4 * var(--spacing) * 1rem);
+    font-size: var(--text-sm);
+    color: var(--color-foreground);
+    vertical-align: middle;
+}
+
+/* 表格变体 */
+[data-table][data-variant="borderless"] {
+    box-shadow: none;
+}
+
+[data-table][data-variant="borderless"] thead th,
+[data-table][data-variant="borderless"] tbody tr {
+    border: none;
+}
+
+[data-table][data-variant="striped"] tbody tr:nth-child(even) {
+    background: var(--neutral-50);
+}
+
+[data-table][data-variant="compact"] thead th,
+[data-table][data-variant="compact"] tbody td {
+    padding: calc(2 * var(--spacing) * 1rem) calc(3 * var(--spacing) * 1rem);
+}
+
+/* 表格尺寸 */
+[data-table][data-size="sm"] thead th,
+[data-table][data-size="sm"] tbody td {
+    padding: calc(2 * var(--spacing) * 1rem) calc(3 * var(--spacing) * 1rem);
+    font-size: var(--text-xs);
+}
+
+[data-table][data-size="lg"] thead th,
+[data-table][data-size="lg"] tbody td {
+    padding: calc(4 * var(--spacing) * 1rem) calc(6 * var(--spacing) * 1rem);
+    font-size: var(--text-base);
+}
+
+/* 可选择行 */
+[data-table] tbody tr[data-selectable] {
+    cursor: pointer;
+}
+
+[data-table] tbody tr[data-selected] {
+    background: var(--primary-50);
+    color: var(--color-primary);
+}
+
+/* 排序列 */
+[data-table] thead th[data-sortable] {
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+[data-table] thead th[data-sortable]:hover {
+    background: var(--neutral-100);
+}
+
+[data-table] thead th[data-sortable]::after {
+    content: "⇅";
+    position: absolute;
+    right: calc(2 * var(--spacing) * 1rem);
+    opacity: 0.5;
+    font-size: var(--text-xs);
+}
+
+[data-table] thead th[data-sort="asc"]::after {
+    content: "↑";
+    opacity: 1;
+}
+
+[data-table] thead th[data-sort="desc"]::after {
+    content: "↓";
+    opacity: 1;
+}
+
+/* 表格容器 */
+[data-table-container] {
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+}
+
+[data-table-container] [data-table] {
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+/* 表格加载状态 */
+[data-table][data-loading] {
+    position: relative;
+}
+
+[data-table][data-loading]::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 空状态 */
+[data-table-empty] {
+    text-align: center;
+    padding: calc(12 * var(--spacing) * 1rem);
+    color: var(--color-muted);
+}
+
+[data-table-empty] img,
+[data-table-empty] svg {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto calc(4 * var(--spacing) * 1rem);
+    opacity: 0.5;
+}
+
+/* 表格分页 */
+[data-table-pagination] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(4 * var(--spacing) * 1rem) calc(6 * var(--spacing) * 1rem);
+    border-top: 1px solid var(--color-border);
+    background: var(--neutral-50);
+}
+
+[data-table-pagination] [data-pagination-info] {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+}
+
+[data-table-pagination] [data-pagination-controls] {
+    display: flex;
+    align-items: center;
+    gap: calc(2 * var(--spacing) * 1rem);
+}
+
+/* 响应式表格 */
+@media (max-width: 768px) {
+    [data-table][data-responsive] {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    [data-table][data-responsive] thead {
+        display: none;
+    }
+
+    [data-table][data-responsive] tbody,
+    [data-table][data-responsive] tr,
+    [data-table][data-responsive] td {
+        display: block;
+        width: 100%;
+    }
+
+    [data-table][data-responsive] tr {
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        margin-bottom: calc(4 * var(--spacing) * 1rem);
+        padding: calc(4 * var(--spacing) * 1rem);
+    }
+
+    [data-table][data-responsive] td {
+        border: none;
+        padding: calc(2 * var(--spacing) * 1rem) 0;
+        position: relative;
+        padding-left: 30%;
+    }
+
+    [data-table][data-responsive] td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        top: calc(2 * var(--spacing) * 1rem);
+        font-weight: 600;
+        color: var(--color-muted);
+        font-size: var(--text-xs);
+        text-transform: uppercase;
+    }
+}
+
+/* 表格操作列 */
+[data-table-actions] {
+    display: flex;
+    align-items: center;
+    gap: calc(2 * var(--spacing) * 1rem);
+    justify-content: flex-end;
+}
+
+/* 状态徽章在表格中 */
+[data-table] [data-status] {
+    display: inline-flex;
+    align-items: center;
+    padding: calc(1 * var(--spacing) * 1rem) calc(2 * var(--spacing) * 1rem);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: 500;
+}
+
+[data-table] [data-status="active"] {
+    background: var(--success-100);
+    color: var(--success-700);
+}
+
+[data-table] [data-status="inactive"] {
+    background: var(--neutral-100);
+    color: var(--neutral-700);
+}
+
+[data-table] [data-status="pending"] {
+    background: var(--warning-100);
+    color: var(--warning-700);
+}
+
+[data-table] [data-status="error"] {
+    background: var(--danger-100);
+    color: var(--danger-700);
+}
