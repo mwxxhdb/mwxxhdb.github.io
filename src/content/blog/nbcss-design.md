@@ -10,6 +10,7 @@ pubDate: 'Jul 01 2025'
 - 使用 NB CSS 既能得到和基于框架的组件库一样简洁的写法，又无需花费时间去学习前端框架的不同语法糖以及 SSR、CSR 等概念。
 - NB CSS 不考虑浏览器兼容性，会使用最新的 CSS 特性和语法，适合现代浏览器环境。
 - 非必要的前提下，不依赖 JavaScript，交互效果通过 CSS 实现，减少了前端代码的复杂性。
+- NB CSS 尽量使用 CSS 计算得到对应的样式，让定制主体只需修改较少的参数，便能得到不同的样式效果。
 
 ## 设计理念
 
@@ -21,10 +22,11 @@ pubDate: 'Jul 01 2025'
 5. **类型安全**：通过 CSS 属性选择器提供 “类型检查”
 
 ### 技术特色
+- **统一标识**：使用 `data-nb` 属性统一标识组件类型，避免冲突
 - **数据驱动**：通过 `data-*` 属性控制样式和行为
 - **响应式设计**：内置断点系统和容器查询
 - **主题系统**：CSS 变量驱动的主题切换
-- **组件化**：自定义 HTML 元素 + CSS 的组合
+- **组件化**：语义化 HTML + CSS 的组合
 
 ## 架构设计
 
@@ -149,17 +151,22 @@ nb-css/
 ### 1. 按钮系统
 ```html
 <!-- 基础按钮 -->
-<button data-variant="solid" data-color="primary" data-size="md">
+<button data-nb="button" data-variant="solid" data-color="primary" data-size="md">
   点击我
 </button>
 
+<!-- 链接按钮 -->
+<a href="#" role="button" data-nb="button" data-variant="outline" data-color="primary">
+  链接按钮
+</a>
+
 <!-- 图标按钮 -->
-<button data-shape="circle" data-variant="ghost">
+<button data-nb="button" data-shape="circle" data-variant="ghost">
   <i class="icon-search"></i>
 </button>
 
 <!-- 加载状态 -->
-<button data-loading="true" data-variant="solid">
+<button data-nb="button" data-loading="true" data-variant="solid">
   <span data-loading-text>加载中...</span>
   <span data-default-text>提交</span>
 </button>
@@ -167,19 +174,28 @@ nb-css/
 
 ```css
 /* 按钮实现 */
-button[data-variant="solid"] {
+[data-nb="button"][data-variant="solid"],
+button[data-variant="solid"],
+a[role="button"][data-variant="solid"] {
   background: var(--color-primary);
   color: white;
   border: none;
   border-radius: var(--radius-md);
   padding: calc(2 * var(--spacing) * 1rem) calc(4 * var(--spacing) * 1rem);
   transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
+[data-nb="button"][data-loading="true"] [data-default-text],
 button[data-loading="true"] [data-default-text] {
   display: none;
 }
 
+[data-nb="button"]:not([data-loading="true"]) [data-loading-text],
 button:not([data-loading="true"]) [data-loading-text] {
   display: none;
 }
@@ -188,20 +204,20 @@ button:not([data-loading="true"]) [data-loading-text] {
 ### 2. 表单系统
 ```html
 <!-- 智能表单 -->
-<form data-layout="vertical" data-gap="4">
-  <div data-field>
+<form data-nb="form" data-layout="vertical" data-gap="4">
+  <div data-nb="field">
     <label data-required>用户名</label>
     <input type="text" data-size="md" data-state="default" />
     <span data-help>请输入用户名</span>
   </div>
   
-  <div data-field>
+  <div data-nb="field">
     <label>密码</label>
     <input type="password" data-size="md" data-state="error" />
     <span data-error>密码不能为空</span>
   </div>
   
-  <button type="submit" data-variant="solid" data-full-width>
+  <button type="submit" data-nb="button" data-variant="solid" data-full-width>
     登录
   </button>
 </form>
@@ -210,10 +226,10 @@ button:not([data-loading="true"]) [data-loading-text] {
 ### 3. 卡片系统
 ```html
 <!-- 多功能卡片 -->
-<div data-card data-shadow="md" data-hover="lift">
+<div data-nb="card" data-shadow="md" data-hover="lift">
   <div data-card-header>
     <h3 data-title>卡片标题</h3>
-    <button data-variant="ghost" data-size="sm">更多</button>
+    <button data-nb="button" data-variant="ghost" data-size="sm">更多</button>
   </div>
   
   <div data-card-body>
@@ -223,8 +239,8 @@ button:not([data-loading="true"]) [data-loading-text] {
   <div data-card-footer data-justify="space-between">
     <span data-text="muted">2024-01-01</span>
     <div data-space-x="2">
-      <button data-variant="outline" data-size="sm">取消</button>
-      <button data-variant="solid" data-size="sm">确认</button>
+      <button data-nb="button" data-variant="outline" data-size="sm">取消</button>
+      <button data-nb="button" data-variant="solid" data-size="sm">确认</button>
     </div>
   </div>
 </div>
@@ -233,7 +249,7 @@ button:not([data-loading="true"]) [data-loading-text] {
 ### 4. 导航系统
 ```html
 <!-- 自适应导航 -->
-<nav data-nav data-layout="horizontal" data-responsive>
+<nav data-nb="nav" data-layout="horizontal" data-responsive>
   <div data-nav-brand>
     <img src="logo.png" alt="Logo" />
   </div>
@@ -245,8 +261,8 @@ button:not([data-loading="true"]) [data-loading-text] {
   </ul>
   
   <div data-nav-actions>
-    <button data-variant="outline">登录</button>
-    <button data-variant="solid">注册</button>
+    <button data-nb="button" data-variant="outline">登录</button>
+    <button data-nb="button" data-variant="solid">注册</button>
   </div>
 </nav>
 ```
@@ -256,11 +272,11 @@ button:not([data-loading="true"]) [data-loading-text] {
 <!-- 纯 CSS 模态框 -->
 <input type="checkbox" id="modal-trigger" hidden />
 
-<label for="modal-trigger" data-button data-variant="solid">
+<label for="modal-trigger" data-nb="button" data-variant="solid">
   打开模态框
 </label>
 
-<div data-modal>
+<div data-nb="modal">
   <div data-modal-overlay></div>
   <div data-modal-content>
     <div data-modal-header>
@@ -276,7 +292,7 @@ button:not([data-loading="true"]) [data-loading-text] {
 
 ```css
 /* 模态框实现 */
-[data-modal] {
+[data-nb="modal"] {
   position: fixed;
   inset: 0;
   z-index: 1000;
@@ -285,7 +301,7 @@ button:not([data-loading="true"]) [data-loading-text] {
   transition: all 0.3s ease;
 }
 
-#modal-trigger:checked ~ [data-modal] {
+#modal-trigger:checked ~ [data-nb="modal"] {
   opacity: 1;
   visibility: visible;
 }
@@ -413,16 +429,16 @@ button:not([data-loading="true"]) [data-loading-text] {
 </head>
 <body data-font="system" data-bg="neutral-50">
   <!-- 导航栏 -->
-  <nav data-nav data-sticky data-bg="white" data-shadow="sm">
+  <nav data-nb="nav" data-sticky data-bg="white" data-shadow="sm">
     <div data-container>
       <div data-flex data-justify="between" data-items="center">
         <div data-nav-brand>
-          <h1 data-text="xl" data-weight="bold">Fountustic</h1>
+          <h1 data-text="xl" data-weight="bold">NB CSS</h1>
         </div>
         <div data-space-x="4">
           <a href="#" data-link>首页</a>
           <a href="#" data-link>文档</a>
-          <button data-variant="solid" data-size="sm">开始使用</button>
+          <button data-nb="button" data-variant="solid" data-size="sm">开始使用</button>
         </div>
       </div>
     </div>
@@ -438,10 +454,10 @@ button:not([data-loading="true"]) [data-loading-text] {
         零学习成本，纯 CSS 实现，现代化设计
       </p>
       <div data-space-x="4">
-        <button data-variant="solid" data-size="lg">
+        <button data-nb="button" data-variant="solid" data-size="lg">
           立即开始
         </button>
-        <button data-variant="outline" data-size="lg">
+        <button data-nb="button" data-variant="outline" data-size="lg">
           查看文档
         </button>
       </div>
@@ -449,7 +465,7 @@ button:not([data-loading="true"]) [data-loading-text] {
 
     <!-- 特性展示 -->
     <section data-grid data-cols="1 md:3" data-gap="8">
-      <div data-card data-text="center" data-p="6">
+      <div data-nb="card" data-text="center" data-p="6">
         <div data-w="12" data-h="12" data-bg="primary-100" data-rounded="full" 
              data-flex data-items="center" data-justify="center" data-mx="auto" data-mb="4">
           🚀
@@ -458,7 +474,7 @@ button:not([data-loading="true"]) [data-loading-text] {
         <p data-color="muted">直观的 data 属性，无需学习复杂的类名</p>
       </div>
       
-      <div data-card data-text="center" data-p="6">
+      <div data-nb="card" data-text="center" data-p="6">
         <div data-w="12" data-h="12" data-bg="success-100" data-rounded="full" 
              data-flex data-items="center" data-justify="center" data-mx="auto" data-mb="4">
           💡
@@ -467,7 +483,7 @@ button:not([data-loading="true"]) [data-loading-text] {
         <p data-color="muted">无需 JavaScript，所有交互通过 CSS 完成</p>
       </div>
       
-      <div data-card data-text="center" data-p="6">
+      <div data-nb="card" data-text="center" data-p="6">
         <div data-w="12" data-h="12" data-bg="warning-100" data-rounded="full" 
              data-flex data-items="center" data-justify="center" data-mx="auto" data-mb="4">
           ⚡

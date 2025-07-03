@@ -1,240 +1,508 @@
-/* NB CSS 按钮组件 */
+/* NB CSS 按钮组件 - 使用 data-nb="button" 统一标识 */
 
-/* 基础按钮样式 */
-button,
-[data-button] {
+/* 基础按钮样式 - 支持 button、input[type="button/submit/reset"] 和 a[role="button"] */
+[data-nb="button"],
+button[data-variant],
+input[type="button"][data-variant],
+input[type="submit"][data-variant],
+input[type="reset"][data-variant],
+a[role="button"][data-variant] {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-md);
+    gap: calc(2 * var(--spacing) * 1rem);
+    font-family: inherit;
     font-weight: 500;
     text-decoration: none;
-    cursor: pointer;
-    transition: all var(--duration-fast) ease;
     border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    transition: all var(--duration-fast) ease;
+    cursor: pointer;
+    user-select: none;
     white-space: nowrap;
+    vertical-align: middle;
+    outline: none;
 
     /* 默认尺寸 */
-    padding: calc(2 * var(--spacing) * 1rem) calc(4 * var(--spacing) * 1rem);
+    padding: calc(2.5 * var(--spacing) * 1rem) calc(4 * var(--spacing) * 1rem);
     font-size: var(--text-sm);
-    min-height: 2.5rem;
+    line-height: 1.25;
+}
+
+/* 移除链接的默认样式 */
+a[role="button"] {
+    color: inherit;
 }
 
 /* 按钮变体 */
-[data-variant="solid"],
-button:not([data-variant]) {
+
+/* Solid 变体 */
+[data-nb="button"][data-variant="solid"],
+button[data-variant="solid"],
+input[type="button"][data-variant="solid"],
+input[type="submit"][data-variant="solid"],
+input[type="reset"][data-variant="solid"],
+a[role="button"][data-variant="solid"] {
     background: var(--color-primary);
     color: white;
     border-color: var(--color-primary);
 }
 
-[data-variant="solid"]:hover,
-button:not([data-variant]):hover {
+[data-nb="button"][data-variant="solid"]:hover,
+button[data-variant="solid"]:hover,
+input[type="button"][data-variant="solid"]:hover,
+input[type="submit"][data-variant="solid"]:hover,
+input[type="reset"][data-variant="solid"]:hover,
+a[role="button"][data-variant="solid"]:hover {
     background: var(--primary-600);
     border-color: var(--primary-600);
+    transform: translateY(-1px);
 }
 
-[data-variant="outline"] {
+[data-nb="button"][data-variant="solid"]:active,
+button[data-variant="solid"]:active,
+input[type="button"][data-variant="solid"]:active,
+input[type="submit"][data-variant="solid"]:active,
+input[type="reset"][data-variant="solid"]:active,
+a[role="button"][data-variant="solid"]:active {
+    transform: translateY(0);
+}
+
+/* Outline 变体 */
+[data-nb="button"][data-variant="outline"],
+button[data-variant="outline"],
+input[type="button"][data-variant="outline"],
+input[type="submit"][data-variant="outline"],
+input[type="reset"][data-variant="outline"],
+a[role="button"][data-variant="outline"] {
     background: transparent;
     color: var(--color-primary);
     border-color: var(--color-primary);
 }
 
-[data-variant="outline"]:hover {
+[data-nb="button"][data-variant="outline"]:hover,
+button[data-variant="outline"]:hover,
+input[type="button"][data-variant="outline"]:hover,
+input[type="submit"][data-variant="outline"]:hover,
+input[type="reset"][data-variant="outline"]:hover,
+a[role="button"][data-variant="outline"]:hover {
     background: var(--primary-50);
+    border-color: var(--primary-600);
+    color: var(--primary-600);
 }
 
-[data-variant="ghost"] {
+/* Ghost 变体 */
+[data-nb="button"][data-variant="ghost"],
+button[data-variant="ghost"],
+input[type="button"][data-variant="ghost"],
+input[type="submit"][data-variant="ghost"],
+input[type="reset"][data-variant="ghost"],
+a[role="button"][data-variant="ghost"] {
     background: transparent;
     color: var(--color-primary);
     border-color: transparent;
 }
 
-[data-variant="ghost"]:hover {
+[data-nb="button"][data-variant="ghost"]:hover,
+button[data-variant="ghost"]:hover,
+input[type="button"][data-variant="ghost"]:hover,
+input[type="submit"][data-variant="ghost"]:hover,
+input[type="reset"][data-variant="ghost"]:hover,
+a[role="button"][data-variant="ghost"]:hover {
     background: var(--primary-50);
+    color: var(--primary-600);
 }
 
-[data-variant="link"] {
+/* Link 变体 */
+[data-nb="button"][data-variant="link"],
+button[data-variant="link"],
+input[type="button"][data-variant="link"],
+input[type="submit"][data-variant="link"],
+input[type="reset"][data-variant="link"],
+a[role="button"][data-variant="link"] {
     background: transparent;
     color: var(--color-primary);
     border: none;
-    padding-left: 0;
-    padding-right: 0;
-    min-height: auto;
+    padding: 0;
+    font-weight: 400;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
-[data-variant="link"]:hover {
-    text-decoration: underline;
+[data-nb="button"][data-variant="link"]:hover,
+button[data-variant="link"]:hover,
+input[type="button"][data-variant="link"]:hover,
+input[type="submit"][data-variant="link"]:hover,
+input[type="reset"][data-variant="link"]:hover,
+a[role="button"][data-variant="link"]:hover {
+    color: var(--primary-600);
+    text-decoration: none;
 }
 
 /* 按钮颜色 */
-[data-color="primary"] {
+
+/* Primary 颜色（默认） */
+[data-nb="button"][data-color="primary"],
+button[data-color="primary"],
+input[data-color="primary"],
+a[role="button"][data-color="primary"] {
     --btn-color: var(--color-primary);
-    --btn-color-hover: var(--primary-600);
-    --btn-bg-light: var(--primary-50);
+    --btn-color-50: var(--primary-50);
+    --btn-color-600: var(--primary-600);
 }
 
-[data-color="success"] {
+/* Success 颜色 */
+[data-nb="button"][data-color="success"],
+button[data-color="success"],
+input[data-color="success"],
+a[role="button"][data-color="success"] {
     --btn-color: var(--color-success);
-    --btn-color-hover: var(--success-600);
-    --btn-bg-light: var(--success-50);
+    --btn-color-50: var(--success-50);
+    --btn-color-600: var(--success-600);
 }
 
-[data-color="warning"] {
+[data-nb="button"][data-color="success"][data-variant="solid"],
+button[data-color="success"][data-variant="solid"],
+input[data-color="success"][data-variant="solid"],
+a[role="button"][data-color="success"][data-variant="solid"] {
+    background: var(--color-success);
+    border-color: var(--color-success);
+}
+
+[data-nb="button"][data-color="success"][data-variant="solid"]:hover,
+button[data-color="success"][data-variant="solid"]:hover,
+input[data-color="success"][data-variant="solid"]:hover,
+a[role="button"][data-color="success"][data-variant="solid"]:hover {
+    background: var(--success-600);
+    border-color: var(--success-600);
+}
+
+[data-nb="button"][data-color="success"][data-variant="outline"],
+button[data-color="success"][data-variant="outline"],
+input[data-color="success"][data-variant="outline"],
+a[role="button"][data-color="success"][data-variant="outline"] {
+    color: var(--color-success);
+    border-color: var(--color-success);
+}
+
+[data-nb="button"][data-color="success"][data-variant="outline"]:hover,
+button[data-color="success"][data-variant="outline"]:hover,
+input[data-color="success"][data-variant="outline"]:hover,
+a[role="button"][data-color="success"][data-variant="outline"]:hover {
+    background: var(--success-50);
+    color: var(--success-600);
+    border-color: var(--success-600);
+}
+
+[data-nb="button"][data-color="success"][data-variant="ghost"],
+button[data-color="success"][data-variant="ghost"],
+input[data-color="success"][data-variant="ghost"],
+a[role="button"][data-color="success"][data-variant="ghost"] {
+    color: var(--color-success);
+}
+
+[data-nb="button"][data-color="success"][data-variant="ghost"]:hover,
+button[data-color="success"][data-variant="ghost"]:hover,
+input[data-color="success"][data-variant="ghost"]:hover,
+a[role="button"][data-color="success"][data-variant="ghost"]:hover {
+    background: var(--success-50);
+    color: var(--success-600);
+}
+
+/* Warning 颜色 */
+[data-nb="button"][data-color="warning"],
+button[data-color="warning"],
+input[data-color="warning"],
+a[role="button"][data-color="warning"] {
     --btn-color: var(--color-warning);
-    --btn-color-hover: var(--warning-600);
-    --btn-bg-light: var(--warning-50);
+    --btn-color-50: var(--warning-50);
+    --btn-color-600: var(--warning-600);
 }
 
-[data-color="danger"] {
-    --btn-color: var(--color-danger);
-    --btn-color-hover: var(--danger-600);
-    --btn-bg-light: var(--danger-50);
-}
-
-/* 应用颜色到变体 */
-[data-variant="solid"][data-color] {
-    background: var(--btn-color);
-    border-color: var(--btn-color);
-}
-
-[data-variant="solid"][data-color]:hover {
-    background: var(--btn-color-hover);
-    border-color: var(--btn-color-hover);
-}
-
-[data-variant="outline"][data-color] {
-    color: var(--btn-color);
-    border-color: var(--btn-color);
-}
-
-[data-variant="outline"][data-color]:hover {
-    background: var(--btn-bg-light);
-}
-
-[data-variant="ghost"][data-color] {
-    color: var(--btn-color);
-}
-
-[data-variant="ghost"][data-color]:hover {
-    background: var(--btn-bg-light);
-}
-
-/* 按钮尺寸 */
-[data-size="xs"] {
-    padding: calc(1 * var(--spacing) * 1rem) calc(2 * var(--spacing) * 1rem);
-    font-size: var(--text-xs);
-    min-height: 1.75rem;
-}
-
-[data-size="sm"] {
-    padding: calc(1.5 * var(--spacing) * 1rem) calc(3 * var(--spacing) * 1rem);
-    font-size: var(--text-sm);
-    min-height: 2rem;
-}
-
-[data-size="md"] {
-    padding: calc(2 * var(--spacing) * 1rem) calc(4 * var(--spacing) * 1rem);
-    font-size: var(--text-sm);
-    min-height: 2.5rem;
-}
-
-[data-size="lg"] {
-    padding: calc(2.5 * var(--spacing) * 1rem) calc(6 * var(--spacing) * 1rem);
-    font-size: var(--text-base);
-    min-height: 3rem;
-}
-
-[data-size="xl"] {
-    padding: calc(3 * var(--spacing) * 1rem) calc(8 * var(--spacing) * 1rem);
-    font-size: var(--text-lg);
-    min-height: 3.5rem;
-}
-
-/* 按钮形状 */
-[data-shape="square"] {
-    aspect-ratio: 1;
-    padding: calc(2 * var(--spacing) * 1rem);
-}
-
-[data-shape="circle"] {
-    aspect-ratio: 1;
-    border-radius: var(--radius-full);
-    padding: calc(2 * var(--spacing) * 1rem);
-}
-
-/* 按钮状态 */
-[data-loading="true"] {
-    position: relative;
-    color: transparent;
-}
-
-[data-loading="true"]::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1rem;
-    height: 1rem;
-    border: 2px solid transparent;
-    border-top-color: currentColor;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+[data-nb="button"][data-color="warning"][data-variant="solid"],
+button[data-color="warning"][data-variant="solid"],
+input[data-color="warning"][data-variant="solid"],
+a[role="button"][data-color="warning"][data-variant="solid"] {
+    background: var(--color-warning);
+    border-color: var(--color-warning);
     color: white;
 }
 
-[data-loading="true"][data-variant="outline"]::after,
-[data-loading="true"][data-variant="ghost"]::after {
-    color: var(--btn-color, var(--color-primary));
+[data-nb="button"][data-color="warning"][data-variant="solid"]:hover,
+button[data-color="warning"][data-variant="solid"]:hover,
+input[data-color="warning"][data-variant="solid"]:hover,
+a[role="button"][data-color="warning"][data-variant="solid"]:hover {
+    background: var(--warning-600);
+    border-color: var(--warning-600);
 }
 
+[data-nb="button"][data-color="warning"][data-variant="outline"],
+button[data-color="warning"][data-variant="outline"],
+input[data-color="warning"][data-variant="outline"],
+a[role="button"][data-color="warning"][data-variant="outline"] {
+    color: var(--color-warning);
+    border-color: var(--color-warning);
+}
+
+[data-nb="button"][data-color="warning"][data-variant="outline"]:hover,
+button[data-color="warning"][data-variant="outline"]:hover,
+input[data-color="warning"][data-variant="outline"]:hover,
+a[role="button"][data-color="warning"][data-variant="outline"]:hover {
+    background: var(--warning-50);
+    color: var(--warning-600);
+    border-color: var(--warning-600);
+}
+
+[data-nb="button"][data-color="warning"][data-variant="ghost"],
+button[data-color="warning"][data-variant="ghost"],
+input[data-color="warning"][data-variant="ghost"],
+a[role="button"][data-color="warning"][data-variant="ghost"] {
+    color: var(--color-warning);
+}
+
+[data-nb="button"][data-color="warning"][data-variant="ghost"]:hover,
+button[data-color="warning"][data-variant="ghost"]:hover,
+input[data-color="warning"][data-variant="ghost"]:hover,
+a[role="button"][data-color="warning"][data-variant="ghost"]:hover {
+    background: var(--warning-50);
+    color: var(--warning-600);
+}
+
+/* Danger 颜色 */
+[data-nb="button"][data-color="danger"],
+button[data-color="danger"],
+input[data-color="danger"],
+a[role="button"][data-color="danger"] {
+    --btn-color: var(--color-danger);
+    --btn-color-50: var(--danger-50);
+    --btn-color-600: var(--danger-600);
+}
+
+[data-nb="button"][data-color="danger"][data-variant="solid"],
+button[data-color="danger"][data-variant="solid"],
+input[data-color="danger"][data-variant="solid"],
+a[role="button"][data-color="danger"][data-variant="solid"] {
+    background: var(--color-danger);
+    border-color: var(--color-danger);
+}
+
+[data-nb="button"][data-color="danger"][data-variant="solid"]:hover,
+button[data-color="danger"][data-variant="solid"]:hover,
+input[data-color="danger"][data-variant="solid"]:hover,
+a[role="button"][data-color="danger"][data-variant="solid"]:hover {
+    background: var(--danger-600);
+    border-color: var(--danger-600);
+}
+
+[data-nb="button"][data-color="danger"][data-variant="outline"],
+button[data-color="danger"][data-variant="outline"],
+input[data-color="danger"][data-variant="outline"],
+a[role="button"][data-color="danger"][data-variant="outline"] {
+    color: var(--color-danger);
+    border-color: var(--color-danger);
+}
+
+[data-nb="button"][data-color="danger"][data-variant="outline"]:hover,
+button[data-color="danger"][data-variant="outline"]:hover,
+input[data-color="danger"][data-variant="outline"]:hover,
+a[role="button"][data-color="danger"][data-variant="outline"]:hover {
+    background: var(--danger-50);
+    color: var(--danger-600);
+    border-color: var(--danger-600);
+}
+
+[data-nb="button"][data-color="danger"][data-variant="ghost"],
+button[data-color="danger"][data-variant="ghost"],
+input[data-color="danger"][data-variant="ghost"],
+a[role="button"][data-color="danger"][data-variant="ghost"] {
+    color: var(--color-danger);
+}
+
+[data-nb="button"][data-color="danger"][data-variant="ghost"]:hover,
+button[data-color="danger"][data-variant="ghost"]:hover,
+input[data-color="danger"][data-variant="ghost"]:hover,
+a[role="button"][data-color="danger"][data-variant="ghost"]:hover {
+    background: var(--danger-50);
+    color: var(--danger-600);
+}
+
+/* 按钮尺寸 */
+
+/* Extra Small */
+[data-nb="button"][data-size="xs"],
+button[data-size="xs"],
+input[data-size="xs"],
+a[role="button"][data-size="xs"] {
+    padding: calc(1.5 * var(--spacing) * 1rem) calc(2.5 * var(--spacing) * 1rem);
+    font-size: var(--text-xs);
+    border-radius: var(--radius-sm);
+}
+
+/* Small */
+[data-nb="button"][data-size="sm"],
+button[data-size="sm"],
+input[data-size="sm"],
+a[role="button"][data-size="sm"] {
+    padding: calc(2 * var(--spacing) * 1rem) calc(3 * var(--spacing) * 1rem);
+    font-size: var(--text-xs);
+}
+
+/* Medium (默认) */
+[data-nb="button"][data-size="md"],
+button[data-size="md"],
+input[data-size="md"],
+a[role="button"][data-size="md"] {
+    padding: calc(2.5 * var(--spacing) * 1rem) calc(4 * var(--spacing) * 1rem);
+    font-size: var(--text-sm);
+}
+
+/* Large */
+[data-nb="button"][data-size="lg"],
+button[data-size="lg"],
+input[data-size="lg"],
+a[role="button"][data-size="lg"] {
+    padding: calc(3 * var(--spacing) * 1rem) calc(6 * var(--spacing) * 1rem);
+    font-size: var(--text-base);
+}
+
+/* Extra Large */
+[data-nb="button"][data-size="xl"],
+button[data-size="xl"],
+input[data-size="xl"],
+a[role="button"][data-size="xl"] {
+    padding: calc(4 * var(--spacing) * 1rem) calc(8 * var(--spacing) * 1rem);
+    font-size: var(--text-lg);
+}
+
+/* 按钮状态 */
+
 /* 禁用状态 */
+[data-nb="button"]:disabled,
 button:disabled,
-[data-disabled="true"] {
+input:disabled,
+a[role="button"][aria-disabled="true"] {
     opacity: 0.5;
     cursor: not-allowed;
     pointer-events: none;
 }
 
+/* 加载状态 */
+[data-nb="button"][data-loading="true"],
+button[data-loading="true"],
+input[data-loading="true"],
+a[role="button"][data-loading="true"] {
+    position: relative;
+    color: transparent;
+    pointer-events: none;
+}
+
+[data-nb="button"][data-loading="true"]::after,
+button[data-loading="true"]::after,
+input[data-loading="true"]::after,
+a[role="button"][data-loading="true"]::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1rem;
+    height: 1rem;
+    margin: -0.5rem 0 0 -0.5rem;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: button-spin 1s linear infinite;
+    color: inherit;
+}
+
+@keyframes button-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* 全宽按钮 */
-[data-full-width="true"] {
+[data-nb="button"][data-full-width="true"],
+button[data-full-width="true"],
+input[data-full-width="true"],
+a[role="button"][data-full-width="true"] {
     width: 100%;
+}
+
+/* 圆形按钮 */
+[data-nb="button"][data-shape="circle"],
+button[data-shape="circle"],
+input[data-shape="circle"],
+a[role="button"][data-shape="circle"] {
+    border-radius: var(--radius-full);
+    aspect-ratio: 1;
+    padding: calc(2.5 * var(--spacing) * 1rem);
+}
+
+[data-nb="button"][data-shape="circle"][data-size="xs"],
+button[data-shape="circle"][data-size="xs"],
+input[data-shape="circle"][data-size="xs"],
+a[role="button"][data-shape="circle"][data-size="xs"] {
+    padding: calc(1.5 * var(--spacing) * 1rem);
+}
+
+[data-nb="button"][data-shape="circle"][data-size="sm"],
+button[data-shape="circle"][data-size="sm"],
+input[data-shape="circle"][data-size="sm"],
+a[role="button"][data-shape="circle"][data-size="sm"] {
+    padding: calc(2 * var(--spacing) * 1rem);
+}
+
+[data-nb="button"][data-shape="circle"][data-size="lg"],
+button[data-shape="circle"][data-size="lg"],
+input[data-shape="circle"][data-size="lg"],
+a[role="button"][data-shape="circle"][data-size="lg"] {
+    padding: calc(3 * var(--spacing) * 1rem);
+}
+
+[data-nb="button"][data-shape="circle"][data-size="xl"],
+button[data-shape="circle"][data-size="xl"],
+input[data-shape="circle"][data-size="xl"],
+a[role="button"][data-shape="circle"][data-size="xl"] {
+    padding: calc(4 * var(--spacing) * 1rem);
+}
+
+/* 焦点状态 */
+[data-nb="button"]:focus-visible,
+button:focus-visible,
+input:focus-visible,
+a[role="button"]:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }
 
 /* 按钮组 */
 [data-button-group] {
     display: inline-flex;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
 }
 
-[data-button-group]>button,
-[data-button-group]>[data-button] {
+[data-button-group] [data-nb="button"],
+[data-button-group] button {
     border-radius: 0;
     border-right-width: 0;
+    box-shadow: none;
 }
 
-[data-button-group]>button:first-child,
-[data-button-group]>[data-button]:first-child {
+[data-button-group] [data-nb="button"]:last-child,
+[data-button-group] button:last-child {
+    border-right-width: 1px;
+}
+
+[data-button-group] [data-nb="button"]:first-child,
+[data-button-group] button:first-child {
     border-top-left-radius: var(--radius-md);
     border-bottom-left-radius: var(--radius-md);
 }
 
-[data-button-group]>button:last-child,
-[data-button-group]>[data-button]:last-child {
+[data-button-group] [data-nb="button"]:last-child,
+[data-button-group] button:last-child {
     border-top-right-radius: var(--radius-md);
     border-bottom-right-radius: var(--radius-md);
-    border-right-width: 1px;
-}
-
-/* 按钮间距 */
-[data-button-group][data-space-x]>button+button,
-[data-button-group][data-space-x]>[data-button]+[data-button] {
-    margin-left: 0;
-}
-
-/* 旋转动画 */
-@keyframes spin {
-    to {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
 }

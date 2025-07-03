@@ -1,140 +1,299 @@
-/* NB CSS 表格组件 */
+/* NB CSS 表格组件 - 使用 data-nb="table" 统一标识 */
 
 /* 基础表格样式 */
-[data-table] {
+[data-nb="table"],
+table[data-variant] {
     width: 100%;
     border-collapse: collapse;
+    border-spacing: 0;
     background: var(--color-background);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
 }
 
 /* 表格头部 */
-[data-table] thead {
+[data-nb="table"] thead,
+table[data-variant] thead {
     background: var(--neutral-50);
 }
 
-[data-table] thead th {
+[data-nb="table"] th,
+table[data-variant] th {
     padding: calc(3 * var(--spacing) * 1rem) calc(4 * var(--spacing) * 1rem);
     text-align: left;
     font-weight: 600;
-    font-size: var(--text-sm);
     color: var(--color-foreground);
     border-bottom: 1px solid var(--color-border);
+    font-size: var(--text-sm);
 }
 
 /* 表格主体 */
-[data-table] tbody tr {
+[data-nb="table"] td,
+table[data-variant] td {
+    padding: calc(3 * var(--spacing) * 1rem) calc(4 * var(--spacing) * 1rem);
     border-bottom: 1px solid var(--color-border);
+    font-size: var(--text-sm);
+    color: var(--color-foreground);
+}
+
+/* 表格行 */
+[data-nb="table"] tbody tr,
+table[data-variant] tbody tr {
     transition: background-color var(--duration-fast) ease;
 }
 
-[data-table] tbody tr:hover {
+[data-nb="table"] tbody tr:hover,
+table[data-variant] tbody tr:hover {
     background: var(--neutral-50);
 }
 
-[data-table] tbody tr:last-child {
+[data-nb="table"] tbody tr:last-child td,
+table[data-variant] tbody tr:last-child td {
     border-bottom: none;
 }
 
-[data-table] tbody td {
-    padding: calc(3 * var(--spacing) * 1rem) calc(4 * var(--spacing) * 1rem);
-    font-size: var(--text-sm);
-    color: var(--color-foreground);
-    vertical-align: middle;
-}
-
 /* 表格变体 */
-[data-table][data-variant="borderless"] {
+
+/* 简洁表格 */
+[data-nb="table"][data-variant="simple"],
+table[data-variant="simple"] {
     box-shadow: none;
+    border-radius: 0;
 }
 
-[data-table][data-variant="borderless"] thead th,
-[data-table][data-variant="borderless"] tbody tr {
-    border: none;
+[data-nb="table"][data-variant="simple"] thead,
+table[data-variant="simple"] thead {
+    background: transparent;
 }
 
-[data-table][data-variant="striped"] tbody tr:nth-child(even) {
-    background: var(--neutral-50);
+[data-nb="table"][data-variant="simple"] th,
+table[data-variant="simple"] th {
+    border-bottom: 2px solid var(--color-border);
+    background: transparent;
 }
 
-[data-table][data-variant="compact"] thead th,
-[data-table][data-variant="compact"] tbody td {
-    padding: calc(2 * var(--spacing) * 1rem) calc(3 * var(--spacing) * 1rem);
-}
-
-/* 表格尺寸 */
-[data-table][data-size="sm"] thead th,
-[data-table][data-size="sm"] tbody td {
+/* 紧凑表格 */
+[data-nb="table"][data-variant="compact"] th,
+table[data-variant="compact"] th,
+[data-nb="table"][data-variant="compact"] td,
+table[data-variant="compact"] td {
     padding: calc(2 * var(--spacing) * 1rem) calc(3 * var(--spacing) * 1rem);
     font-size: var(--text-xs);
 }
 
-[data-table][data-size="lg"] thead th,
-[data-table][data-size="lg"] tbody td {
-    padding: calc(4 * var(--spacing) * 1rem) calc(6 * var(--spacing) * 1rem);
-    font-size: var(--text-base);
+/* 宽松表格 */
+[data-nb="table"][data-variant="spacious"] th,
+table[data-variant="spacious"] th,
+[data-nb="table"][data-variant="spacious"] td,
+table[data-variant="spacious"] td {
+    padding: calc(5 * var(--spacing) * 1rem) calc(6 * var(--spacing) * 1rem);
 }
 
-/* 可选择行 */
-[data-table] tbody tr[data-selectable] {
-    cursor: pointer;
+/* 条纹表格 */
+[data-nb="table"][data-striped] tbody tr:nth-child(even),
+table[data-striped] tbody tr:nth-child(even) {
+    background: var(--neutral-25);
 }
 
-[data-table] tbody tr[data-selected] {
-    background: var(--primary-50);
-    color: var(--color-primary);
+/* 边框表格 */
+[data-nb="table"][data-bordered],
+table[data-bordered] {
+    border: 1px solid var(--color-border);
 }
 
-/* 排序列 */
-[data-table] thead th[data-sortable] {
+[data-nb="table"][data-bordered] th,
+table[data-bordered] th,
+[data-nb="table"][data-bordered] td,
+table[data-bordered] td {
+    border-right: 1px solid var(--color-border);
+}
+
+[data-nb="table"][data-bordered] th:last-child,
+table[data-bordered] th:last-child,
+[data-nb="table"][data-bordered] td:last-child,
+table[data-bordered] td:last-child {
+    border-right: none;
+}
+
+/* 可排序表格 */
+[data-nb="table"] th[data-sortable],
+table th[data-sortable] {
     cursor: pointer;
     position: relative;
     user-select: none;
 }
 
-[data-table] thead th[data-sortable]:hover {
+[data-nb="table"] th[data-sortable]:hover,
+table th[data-sortable]:hover {
     background: var(--neutral-100);
 }
 
-[data-table] thead th[data-sortable]::after {
-    content: "⇅";
+[data-nb="table"] th[data-sortable]::after,
+table th[data-sortable]::after {
+    content: "↕";
     position: absolute;
     right: calc(2 * var(--spacing) * 1rem);
+    top: 50%;
+    transform: translateY(-50%);
     opacity: 0.5;
     font-size: var(--text-xs);
 }
 
-[data-table] thead th[data-sort="asc"]::after {
+[data-nb="table"] th[data-sort="asc"]::after,
+table th[data-sort="asc"]::after {
     content: "↑";
     opacity: 1;
 }
 
-[data-table] thead th[data-sort="desc"]::after {
+[data-nb="table"] th[data-sort="desc"]::after,
+table th[data-sort="desc"]::after {
     content: "↓";
     opacity: 1;
+}
+
+/* 表格尺寸 */
+[data-nb="table"][data-size="xs"] th,
+table[data-size="xs"] th,
+[data-nb="table"][data-size="xs"] td,
+table[data-size="xs"] td {
+    padding: calc(1.5 * var(--spacing) * 1rem) calc(2 * var(--spacing) * 1rem);
+    font-size: var(--text-xs);
+}
+
+[data-nb="table"][data-size="sm"] th,
+table[data-size="sm"] th,
+[data-nb="table"][data-size="sm"] td,
+table[data-size="sm"] td {
+    padding: calc(2 * var(--spacing) * 1rem) calc(3 * var(--spacing) * 1rem);
+    font-size: var(--text-xs);
+}
+
+[data-nb="table"][data-size="lg"] th,
+table[data-size="lg"] th,
+[data-nb="table"][data-size="lg"] td,
+table[data-size="lg"] td {
+    padding: calc(4 * var(--spacing) * 1rem) calc(6 * var(--spacing) * 1rem);
+    font-size: var(--text-base);
+}
+
+[data-nb="table"][data-size="xl"] th,
+table[data-size="xl"] th,
+[data-nb="table"][data-size="xl"] td,
+table[data-size="xl"] td {
+    padding: calc(5 * var(--spacing) * 1rem) calc(8 * var(--spacing) * 1rem);
+    font-size: var(--text-lg);
+}
+
+/* 响应式表格 */
+[data-nb="table"][data-responsive],
+table[data-responsive] {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+
+    [data-nb="table"][data-responsive],
+    table[data-responsive] {
+        font-size: var(--text-xs);
+    }
+
+    [data-nb="table"][data-responsive] th,
+    table[data-responsive] th,
+    [data-nb="table"][data-responsive] td,
+    table[data-responsive] td {
+        padding: calc(2 * var(--spacing) * 1rem);
+    }
 }
 
 /* 表格容器 */
 [data-table-container] {
     overflow-x: auto;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     border: 1px solid var(--color-border);
 }
 
-[data-table-container] [data-table] {
-    border: none;
-    box-shadow: none;
+[data-table-container] [data-nb="table"],
+[data-table-container] table {
+    margin: 0;
     border-radius: 0;
+    box-shadow: none;
+}
+
+/* 表格标题 */
+[data-table-caption] {
+    padding: calc(4 * var(--spacing) * 1rem);
+    background: var(--neutral-50);
+    border-bottom: 1px solid var(--color-border);
+    font-weight: 600;
+    text-align: left;
+}
+
+/* 表格页脚 */
+[data-table-footer] {
+    padding: calc(4 * var(--spacing) * 1rem);
+    background: var(--neutral-50);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--text-sm);
+}
+
+/* 分页控件 */
+[data-table-pagination] {
+    display: flex;
+    align-items: center;
+    gap: calc(2 * var(--spacing) * 1rem);
+}
+
+[data-table-pagination] button {
+    padding: calc(1.5 * var(--spacing) * 1rem) calc(3 * var(--spacing) * 1rem);
+    border: 1px solid var(--color-border);
+    background: var(--color-background);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    cursor: pointer;
+    transition: all var(--duration-fast) ease;
+}
+
+[data-table-pagination] button:hover:not(:disabled) {
+    background: var(--neutral-50);
+    border-color: var(--color-primary);
+}
+
+[data-table-pagination] button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+[data-table-pagination] button[data-active] {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+/* 表格选择 */
+[data-nb="table"] input[type="checkbox"],
+table input[type="checkbox"] {
+    margin: 0;
+}
+
+[data-nb="table"] tr[data-selected],
+table tr[data-selected] {
+    background: var(--primary-50) !important;
 }
 
 /* 表格加载状态 */
-[data-table][data-loading] {
+[data-nb="table"][data-loading],
+table[data-loading] {
     position: relative;
+    pointer-events: none;
 }
 
-[data-table][data-loading]::after {
+[data-nb="table"][data-loading]::after,
+table[data-loading]::after {
     content: "";
     position: absolute;
     top: 0;
@@ -148,6 +307,28 @@
     justify-content: center;
 }
 
+[data-nb="table"][data-loading]::before,
+table[data-loading]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2rem;
+    height: 2rem;
+    margin: -1rem 0 0 -1rem;
+    border: 2px solid var(--neutral-300);
+    border-top: 2px solid var(--color-primary);
+    border-radius: 50%;
+    animation: table-spin 1s linear infinite;
+    z-index: 1;
+}
+
+@keyframes table-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* 空状态 */
 [data-table-empty] {
     text-align: center;
@@ -155,114 +336,10 @@
     color: var(--color-muted);
 }
 
-[data-table-empty] img,
-[data-table-empty] svg {
+[data-table-empty] svg,
+[data-table-empty] img {
     width: 4rem;
     height: 4rem;
     margin: 0 auto calc(4 * var(--spacing) * 1rem);
     opacity: 0.5;
-}
-
-/* 表格分页 */
-[data-table-pagination] {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: calc(4 * var(--spacing) * 1rem) calc(6 * var(--spacing) * 1rem);
-    border-top: 1px solid var(--color-border);
-    background: var(--neutral-50);
-}
-
-[data-table-pagination] [data-pagination-info] {
-    font-size: var(--text-sm);
-    color: var(--color-muted);
-}
-
-[data-table-pagination] [data-pagination-controls] {
-    display: flex;
-    align-items: center;
-    gap: calc(2 * var(--spacing) * 1rem);
-}
-
-/* 响应式表格 */
-@media (max-width: 768px) {
-    [data-table][data-responsive] {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-
-    [data-table][data-responsive] thead {
-        display: none;
-    }
-
-    [data-table][data-responsive] tbody,
-    [data-table][data-responsive] tr,
-    [data-table][data-responsive] td {
-        display: block;
-        width: 100%;
-    }
-
-    [data-table][data-responsive] tr {
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-md);
-        margin-bottom: calc(4 * var(--spacing) * 1rem);
-        padding: calc(4 * var(--spacing) * 1rem);
-    }
-
-    [data-table][data-responsive] td {
-        border: none;
-        padding: calc(2 * var(--spacing) * 1rem) 0;
-        position: relative;
-        padding-left: 30%;
-    }
-
-    [data-table][data-responsive] td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        top: calc(2 * var(--spacing) * 1rem);
-        font-weight: 600;
-        color: var(--color-muted);
-        font-size: var(--text-xs);
-        text-transform: uppercase;
-    }
-}
-
-/* 表格操作列 */
-[data-table-actions] {
-    display: flex;
-    align-items: center;
-    gap: calc(2 * var(--spacing) * 1rem);
-    justify-content: flex-end;
-}
-
-/* 状态徽章在表格中 */
-[data-table] [data-status] {
-    display: inline-flex;
-    align-items: center;
-    padding: calc(1 * var(--spacing) * 1rem) calc(2 * var(--spacing) * 1rem);
-    border-radius: var(--radius-full);
-    font-size: var(--text-xs);
-    font-weight: 500;
-}
-
-[data-table] [data-status="active"] {
-    background: var(--success-100);
-    color: var(--success-700);
-}
-
-[data-table] [data-status="inactive"] {
-    background: var(--neutral-100);
-    color: var(--neutral-700);
-}
-
-[data-table] [data-status="pending"] {
-    background: var(--warning-100);
-    color: var(--warning-700);
-}
-
-[data-table] [data-status="error"] {
-    background: var(--danger-100);
-    color: var(--danger-700);
 }

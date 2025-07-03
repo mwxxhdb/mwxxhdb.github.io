@@ -1,7 +1,7 @@
-/* NB CSS 导航组件 */
+/* NB CSS 导航组件 - 使用 data-nb="nav" 统一标识 */
 
 /* 基础导航容器 */
-[data-nav] {
+[data-nb="nav"] {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -67,46 +67,46 @@
 }
 
 /* 响应式导航 */
-[data-nav][data-responsive] {
+[data-nb="nav"][data-responsive] {
     container-type: inline-size;
 }
 
 @container (max-width: 768px) {
-    [data-nav][data-responsive] {
+    [data-nb="nav"][data-responsive] {
         flex-direction: column;
         gap: calc(4 * var(--spacing) * 1rem);
     }
 
-    [data-nav][data-responsive] [data-nav-menu] {
+    [data-nb="nav"][data-responsive] [data-nav-menu] {
         flex-direction: column;
         width: 100%;
         gap: 0;
     }
 
-    [data-nav][data-responsive] [data-nav-menu] a {
+    [data-nb="nav"][data-responsive] [data-nav-menu] a {
         width: 100%;
         text-align: center;
     }
 }
 
 /* 垂直导航 */
-[data-nav][data-layout="vertical"] {
+[data-nb="nav"][data-layout="vertical"] {
     flex-direction: column;
     align-items: stretch;
     padding: calc(6 * var(--spacing) * 1rem);
 }
 
-[data-nav][data-layout="vertical"] [data-nav-menu] {
+[data-nb="nav"][data-layout="vertical"] [data-nav-menu] {
     flex-direction: column;
     gap: calc(2 * var(--spacing) * 1rem);
 }
 
-[data-nav][data-layout="vertical"] [data-nav-menu] a {
+[data-nb="nav"][data-layout="vertical"] [data-nav-menu] a {
     width: 100%;
 }
 
 /* 粘性导航 */
-[data-nav][data-sticky] {
+[data-nb="nav"][data-sticky] {
     position: sticky;
     top: 0;
     z-index: var(--z-sticky);
@@ -115,7 +115,7 @@
 }
 
 /* 固定导航 */
-[data-nav][data-fixed] {
+[data-nb="nav"][data-fixed] {
     position: fixed;
     top: 0;
     left: 0;
