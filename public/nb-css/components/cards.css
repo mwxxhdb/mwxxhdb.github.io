@@ -62,7 +62,7 @@
 }
 
 /* 卡片头部 */
-[data-card-header] {
+[data-nb="card-header"] {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -71,32 +71,32 @@
     background: var(--neutral-50);
 }
 
-[data-card-header] h1,
-[data-card-header] h2,
-[data-card-header] h3,
-[data-card-header] h4,
-[data-card-header] h5,
-[data-card-header] h6 {
+[data-nb="card-header"] h1,
+[data-nb="card-header"] h2,
+[data-nb="card-header"] h3,
+[data-nb="card-header"] h4,
+[data-nb="card-header"] h5,
+[data-nb="card-header"] h6 {
     margin: 0;
     font-weight: 600;
 }
 
 /* 卡片主体 */
-[data-card-body] {
+[data-nb="card-body"] {
     flex: 1;
     padding: calc(6 * var(--spacing) * 1rem);
 }
 
-[data-card-body]>*:first-child {
+[data-nb="card-body"]>*:first-child {
     margin-top: 0;
 }
 
-[data-card-body]>*:last-child {
+[data-nb="card-body"]>*:last-child {
     margin-bottom: 0;
 }
 
 /* 卡片底部 */
-[data-card-footer] {
+[data-nb="card-footer"] {
     display: flex;
     align-items: center;
     padding: calc(6 * var(--spacing) * 1rem);
@@ -104,46 +104,46 @@
     background: var(--neutral-50);
 }
 
-[data-card-footer][data-justify="start"] {
+[data-nb="card-footer"][data-justify="start"] {
     justify-content: flex-start;
 }
 
-[data-card-footer][data-justify="center"] {
+[data-nb="card-footer"][data-justify="center"] {
     justify-content: center;
 }
 
-[data-card-footer][data-justify="end"] {
+[data-nb="card-footer"][data-justify="end"] {
     justify-content: flex-end;
 }
 
-[data-card-footer][data-justify="between"] {
+[data-nb="card-footer"][data-justify="between"] {
     justify-content: space-between;
 }
 
-[data-card-footer][data-justify="around"] {
+[data-nb="card-footer"][data-justify="around"] {
     justify-content: space-around;
 }
 
-[data-card-footer][data-justify="evenly"] {
+[data-nb="card-footer"][data-justify="evenly"] {
     justify-content: space-evenly;
 }
 
 /* 卡片图片 */
-[data-card-image] {
+[data-nb="card-image"] {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
 
-[data-card-image][data-aspect="square"] {
+[data-nb="card-image"][data-aspect="square"] {
     aspect-ratio: 1 / 1;
 }
 
-[data-card-image][data-aspect="video"] {
+[data-nb="card-image"][data-aspect="video"] {
     aspect-ratio: 16 / 9;
 }
 
-[data-card-image][data-aspect="portrait"] {
+[data-nb="card-image"][data-aspect="portrait"] {
     aspect-ratio: 3 / 4;
 }
 
@@ -155,16 +155,16 @@
 }
 
 /* 紧凑卡片 */
-[data-nb="card"][data-variant="compact"] [data-card-header],
-[data-nb="card"][data-variant="compact"] [data-card-body],
-[data-nb="card"][data-variant="compact"] [data-card-footer] {
+[data-nb="card"][data-variant="compact"] [data-nb="card-header"],
+[data-nb="card"][data-variant="compact"] [data-nb="card-body"],
+[data-nb="card"][data-variant="compact"] [data-nb="card-footer"] {
     padding: calc(4 * var(--spacing) * 1rem);
 }
 
 /* 宽松卡片 */
-[data-nb="card"][data-variant="spacious"] [data-card-header],
-[data-nb="card"][data-variant="spacious"] [data-card-body],
-[data-nb="card"][data-variant="spacious"] [data-card-footer] {
+[data-nb="card"][data-variant="spacious"] [data-nb="card-header"],
+[data-nb="card"][data-variant="spacious"] [data-nb="card-body"],
+[data-nb="card"][data-variant="spacious"] [data-nb="card-footer"] {
     padding: calc(8 * var(--spacing) * 1rem);
 }
 
@@ -190,13 +190,13 @@
     flex-direction: row;
 }
 
-[data-nb="card"][data-layout="horizontal"] [data-card-image] {
+[data-nb="card"][data-layout="horizontal"] [data-nb="card-image"] {
     width: 200px;
     height: auto;
     flex-shrink: 0;
 }
 
-[data-nb="card"][data-layout="horizontal"] [data-card-body] {
+[data-nb="card"][data-layout="horizontal"] [data-nb="card-body"] {
     flex: 1;
 }
 
@@ -206,7 +206,7 @@
         flex-direction: column;
     }
 
-    [data-nb="card"][data-layout="horizontal"] [data-card-image] {
+    [data-nb="card"][data-layout="horizontal"] [data-nb="card-image"] {
         width: 100%;
     }
 }

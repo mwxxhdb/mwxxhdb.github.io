@@ -227,16 +227,16 @@ button:not([data-loading="true"]) [data-loading-text] {
 ```html
 <!-- 多功能卡片 -->
 <div data-nb="card" data-shadow="md" data-hover="lift">
-  <div data-card-header>
+  <div data-nb="card-header">
     <h3 data-title>卡片标题</h3>
     <button data-nb="button" data-variant="ghost" data-size="sm">更多</button>
   </div>
   
-  <div data-card-body>
+  <div data-nb="card-body">
     <p>卡片内容...</p>
   </div>
   
-  <div data-card-footer data-justify="space-between">
+  <div data-nb="card-footer" data-justify="space-between">
     <span data-text="muted">2024-01-01</span>
     <div data-space-x="2">
       <button data-nb="button" data-variant="outline" data-size="sm">取消</button>
@@ -497,11 +497,105 @@ button:not([data-loading="true"]) [data-loading-text] {
 </html>
 ```
 
-## 文档和生态
+## 使用示例更新
 
-### 文档网站结构
-- **快速开始**：5分钟上手指南
-- **组件库**：所有组件的使用示例
-- **设计系统**：颜色、字体、间距规范
-- **最佳实践**：推荐的使用模式
-- **迁移指南**：从其他框架迁移
+### 统一标识符语法
+
+```html
+<!-- 旧语法 - 多个冲突的标识符 -->
+<div data-card data-shadow="md">
+  <div data-card-header>...</div>
+  <div data-card-body">...</div>
+</div>
+
+<!-- 新语法 - 统一的 data-nb 标识符 -->
+<div data-nb="card" data-shadow="md">
+  <div data-nb="card-header">...</div>
+  <div data-nb="card-body">...</div>
+</div>
+```
+
+### 按钮交互效果展示
+
+所有按钮现在都支持丰富的交互状态：
+
+```html
+<!-- 不同变体的按钮都有完整的交互效果 -->
+<button data-nb="button" data-variant="solid" data-color="primary">
+  Solid 按钮 - 支持 hover、active、focus
+</button>
+
+<a href="#" role="button" data-nb="button" data-variant="outline" data-color="danger">
+  链接按钮 - 同样支持完整交互
+</a>
+
+<input type="submit" data-nb="button" data-variant="ghost" data-color="success" value="提交按钮">
+```
+
+### 交互状态特性
+
+1. **悬停效果**：
+   - 颜色变化
+   - 轻微上移动画（solid 变体）
+   - 背景色变化（outline/ghost 变体）
+
+2. **激活状态**：
+   - 内阴影效果增强点击感
+   - 颜色进一步加深
+   - 位置轻微下移
+
+3. **焦点状态**：
+   - 清晰的 outline 轮廓
+   - 彩色光晕效果
+   - 符合无障碍访问标准
+
+4. **禁用状态**：
+   - 透明度降低至 50%
+   - 禁用所有交互效果
+   - 光标变为 not-allowed
+
+### 组件组合示例
+
+```html
+<!-- 完整的卡片与表单组合 -->
+<article data-nb="card" data-shadow="lg" data-hover="lift">
+  <header data-nb="card-header">
+    <h2>用户注册</h2>
+    <button data-nb="button" data-variant="ghost" data-size="sm" data-shape="circle">
+      ×
+    </button>
+  </header>
+  
+  <main data-nb="card-body">
+    <form data-nb="form" data-gap="4">
+      <div data-nb="field">
+        <label data-required>邮箱地址</label>
+        <input type="email" data-size="md" required>
+        <span data-help>请输入有效的邮箱地址</span>
+      </div>
+      
+      <div data-nb="field">
+        <label data-required>密码</label>
+        <input type="password" data-size="md" required>
+        <span data-help>密码至少 8 位字符</span>
+      </div>
+    </form>
+  </main>
+  
+  <footer data-nb="card-footer" data-justify="between">
+    <a href="/login" role="button" data-nb="button" data-variant="link">
+      已有账号？登录
+    </a>
+    <div data-space-x="3">
+      <button data-nb="button" data-variant="outline">
+        取消
+      </button>
+      <button data-nb="button" data-variant="solid" data-color="primary">
+        注册
+      </button>
+    </div>
+  </footer>
+</article>
+```
+
+这套新的设计理念让 NB CSS 更加健壮和易用，完全符合"零学习成本、无冲突、语义化"的设计目标！

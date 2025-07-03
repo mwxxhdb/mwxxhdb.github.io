@@ -66,6 +66,20 @@ input[type="submit"][data-variant="solid"]:active,
 input[type="reset"][data-variant="solid"]:active,
 a[role="button"][data-variant="solid"]:active {
     transform: translateY(0);
+    background: var(--primary-700);
+    border-color: var(--primary-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-variant="solid"]:focus-visible,
+button[data-variant="solid"]:focus-visible,
+input[type="button"][data-variant="solid"]:focus-visible,
+input[type="submit"][data-variant="solid"]:focus-visible,
+input[type="reset"][data-variant="solid"]:focus-visible,
+a[role="button"][data-variant="solid"]:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 20%, transparent);
 }
 
 /* Outline 变体 */
@@ -91,6 +105,29 @@ a[role="button"][data-variant="outline"]:hover {
     color: var(--primary-600);
 }
 
+[data-nb="button"][data-variant="outline"]:active,
+button[data-variant="outline"]:active,
+input[type="button"][data-variant="outline"]:active,
+input[type="submit"][data-variant="outline"]:active,
+input[type="reset"][data-variant="outline"]:active,
+a[role="button"][data-variant="outline"]:active {
+    background: var(--primary-100);
+    border-color: var(--primary-700);
+    color: var(--primary-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-variant="outline"]:focus-visible,
+button[data-variant="outline"]:focus-visible,
+input[type="button"][data-variant="outline"]:focus-visible,
+input[type="submit"][data-variant="outline"]:focus-visible,
+input[type="reset"][data-variant="outline"]:focus-visible,
+a[role="button"][data-variant="outline"]:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
 /* Ghost 变体 */
 [data-nb="button"][data-variant="ghost"],
 button[data-variant="ghost"],
@@ -111,6 +148,28 @@ input[type="reset"][data-variant="ghost"]:hover,
 a[role="button"][data-variant="ghost"]:hover {
     background: var(--primary-50);
     color: var(--primary-600);
+}
+
+[data-nb="button"][data-variant="ghost"]:active,
+button[data-variant="ghost"]:active,
+input[type="button"][data-variant="ghost"]:active,
+input[type="submit"][data-variant="ghost"]:active,
+input[type="reset"][data-variant="ghost"]:active,
+a[role="button"][data-variant="ghost"]:active {
+    background: var(--primary-100);
+    color: var(--primary-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-variant="ghost"]:focus-visible,
+button[data-variant="ghost"]:focus-visible,
+input[type="button"][data-variant="ghost"]:focus-visible,
+input[type="submit"][data-variant="ghost"]:focus-visible,
+input[type="reset"][data-variant="ghost"]:focus-visible,
+a[role="button"][data-variant="ghost"]:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    background: var(--primary-50);
 }
 
 /* Link 变体 */
@@ -137,6 +196,26 @@ input[type="reset"][data-variant="link"]:hover,
 a[role="button"][data-variant="link"]:hover {
     color: var(--primary-600);
     text-decoration: none;
+}
+
+[data-nb="button"][data-variant="link"]:active,
+button[data-variant="link"]:active,
+input[type="button"][data-variant="link"]:active,
+input[type="submit"][data-variant="link"]:active,
+input[type="reset"][data-variant="link"]:active,
+a[role="button"][data-variant="link"]:active {
+    color: var(--primary-700);
+}
+
+[data-nb="button"][data-variant="link"]:focus-visible,
+button[data-variant="link"]:focus-visible,
+input[type="button"][data-variant="link"]:focus-visible,
+input[type="submit"][data-variant="link"]:focus-visible,
+input[type="reset"][data-variant="link"]:focus-visible,
+a[role="button"][data-variant="link"]:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
 }
 
 /* 按钮颜色 */
@@ -177,6 +256,24 @@ a[role="button"][data-color="success"][data-variant="solid"]:hover {
     border-color: var(--success-600);
 }
 
+[data-nb="button"][data-color="success"][data-variant="solid"]:active,
+button[data-color="success"][data-variant="solid"]:active,
+input[data-color="success"][data-variant="solid"]:active,
+a[role="button"][data-color="success"][data-variant="solid"]:active {
+    background: var(--success-700);
+    border-color: var(--success-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-color="success"][data-variant="solid"]:focus-visible,
+button[data-color="success"][data-variant="solid"]:focus-visible,
+input[data-color="success"][data-variant="solid"]:focus-visible,
+a[role="button"][data-color="success"][data-variant="solid"]:focus-visible {
+    outline: 2px solid var(--color-success);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-success) 20%, transparent);
+}
+
 [data-nb="button"][data-color="success"][data-variant="outline"],
 button[data-color="success"][data-variant="outline"],
 input[data-color="success"][data-variant="outline"],
@@ -194,6 +291,25 @@ a[role="button"][data-color="success"][data-variant="outline"]:hover {
     border-color: var(--success-600);
 }
 
+[data-nb="button"][data-color="success"][data-variant="outline"]:active,
+button[data-color="success"][data-variant="outline"]:active,
+input[data-color="success"][data-variant="outline"]:active,
+a[role="button"][data-color="success"][data-variant="outline"]:active {
+    background: var(--success-100);
+    color: var(--success-700);
+    border-color: var(--success-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-color="success"][data-variant="outline"]:focus-visible,
+button[data-color="success"][data-variant="outline"]:focus-visible,
+input[data-color="success"][data-variant="outline"]:focus-visible,
+a[role="button"][data-color="success"][data-variant="outline"]:focus-visible {
+    outline: 2px solid var(--color-success);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-success) 20%, transparent);
+}
+
 [data-nb="button"][data-color="success"][data-variant="ghost"],
 button[data-color="success"][data-variant="ghost"],
 input[data-color="success"][data-variant="ghost"],
@@ -207,6 +323,24 @@ input[data-color="success"][data-variant="ghost"]:hover,
 a[role="button"][data-color="success"][data-variant="ghost"]:hover {
     background: var(--success-50);
     color: var(--success-600);
+}
+
+[data-nb="button"][data-color="success"][data-variant="ghost"]:active,
+button[data-color="success"][data-variant="ghost"]:active,
+input[data-color="success"][data-variant="ghost"]:active,
+a[role="button"][data-color="success"][data-variant="ghost"]:active {
+    background: var(--success-100);
+    color: var(--success-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-color="success"][data-variant="ghost"]:focus-visible,
+button[data-color="success"][data-variant="ghost"]:focus-visible,
+input[data-color="success"][data-variant="ghost"]:focus-visible,
+a[role="button"][data-color="success"][data-variant="ghost"]:focus-visible {
+    outline: 2px solid var(--color-success);
+    outline-offset: 2px;
+    background: var(--success-50);
 }
 
 /* Warning 颜色 */
@@ -236,6 +370,24 @@ a[role="button"][data-color="warning"][data-variant="solid"]:hover {
     border-color: var(--warning-600);
 }
 
+[data-nb="button"][data-color="warning"][data-variant="solid"]:active,
+button[data-color="warning"][data-variant="solid"]:active,
+input[data-color="warning"][data-variant="solid"]:active,
+a[role="button"][data-color="warning"][data-variant="solid"]:active {
+    background: var(--warning-700);
+    border-color: var(--warning-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-color="warning"][data-variant="solid"]:focus-visible,
+button[data-color="warning"][data-variant="solid"]:focus-visible,
+input[data-color="warning"][data-variant="solid"]:focus-visible,
+a[role="button"][data-color="warning"][data-variant="solid"]:focus-visible {
+    outline: 2px solid var(--color-warning);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-warning) 20%, transparent);
+}
+
 [data-nb="button"][data-color="warning"][data-variant="outline"],
 button[data-color="warning"][data-variant="outline"],
 input[data-color="warning"][data-variant="outline"],
@@ -253,6 +405,25 @@ a[role="button"][data-color="warning"][data-variant="outline"]:hover {
     border-color: var(--warning-600);
 }
 
+[data-nb="button"][data-color="warning"][data-variant="outline"]:active,
+button[data-color="warning"][data-variant="outline"]:active,
+input[data-color="warning"][data-variant="outline"]:active,
+a[role="button"][data-color="warning"][data-variant="outline"]:active {
+    background: var(--warning-100);
+    color: var(--warning-700);
+    border-color: var(--warning-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-color="warning"][data-variant="outline"]:focus-visible,
+button[data-color="warning"][data-variant="outline"]:focus-visible,
+input[data-color="warning"][data-variant="outline"]:focus-visible,
+a[role="button"][data-color="warning"][data-variant="outline"]:focus-visible {
+    outline: 2px solid var(--color-warning);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-warning) 20%, transparent);
+}
+
 [data-nb="button"][data-color="warning"][data-variant="ghost"],
 button[data-color="warning"][data-variant="ghost"],
 input[data-color="warning"][data-variant="ghost"],
@@ -266,6 +437,24 @@ input[data-color="warning"][data-variant="ghost"]:hover,
 a[role="button"][data-color="warning"][data-variant="ghost"]:hover {
     background: var(--warning-50);
     color: var(--warning-600);
+}
+
+[data-nb="button"][data-color="warning"][data-variant="ghost"]:active,
+button[data-color="warning"][data-variant="ghost"]:active,
+input[data-color="warning"][data-variant="ghost"]:active,
+a[role="button"][data-color="warning"][data-variant="ghost"]:active {
+    background: var(--warning-100);
+    color: var(--warning-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-color="warning"][data-variant="ghost"]:focus-visible,
+button[data-color="warning"][data-variant="ghost"]:focus-visible,
+input[data-color="warning"][data-variant="ghost"]:focus-visible,
+a[role="button"][data-color="warning"][data-variant="ghost"]:focus-visible {
+    outline: 2px solid var(--color-warning);
+    outline-offset: 2px;
+    background: var(--warning-50);
 }
 
 /* Danger 颜色 */
@@ -294,6 +483,24 @@ a[role="button"][data-color="danger"][data-variant="solid"]:hover {
     border-color: var(--danger-600);
 }
 
+[data-nb="button"][data-color="danger"][data-variant="solid"]:active,
+button[data-color="danger"][data-variant="solid"]:active,
+input[data-color="danger"][data-variant="solid"]:active,
+a[role="button"][data-color="danger"][data-variant="solid"]:active {
+    background: var(--danger-700);
+    border-color: var(--danger-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-color="danger"][data-variant="solid"]:focus-visible,
+button[data-color="danger"][data-variant="solid"]:focus-visible,
+input[data-color="danger"][data-variant="solid"]:focus-visible,
+a[role="button"][data-color="danger"][data-variant="solid"]:focus-visible {
+    outline: 2px solid var(--color-danger);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-danger) 20%, transparent);
+}
+
 [data-nb="button"][data-color="danger"][data-variant="outline"],
 button[data-color="danger"][data-variant="outline"],
 input[data-color="danger"][data-variant="outline"],
@@ -309,6 +516,25 @@ a[role="button"][data-color="danger"][data-variant="outline"]:hover {
     background: var(--danger-50);
     color: var(--danger-600);
     border-color: var(--danger-600);
+}
+
+[data-nb="button"][data-color="danger"][data-variant="outline"]:active,
+button[data-color="danger"][data-variant="outline"]:active,
+input[data-color="danger"][data-variant="outline"]:active,
+a[role="button"][data-color="danger"][data-variant="outline"]:active {
+    background: var(--danger-100);
+    color: var(--danger-700);
+    border-color: var(--danger-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-color="danger"][data-variant="outline"]:focus-visible,
+button[data-color="danger"][data-variant="outline"]:focus-visible,
+input[data-color="danger"][data-variant="outline"]:focus-visible,
+a[role="button"][data-color="danger"][data-variant="outline"]:focus-visible {
+    outline: 2px solid var(--color-danger);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-danger) 20%, transparent);
 }
 
 [data-nb="button"][data-color="danger"][data-variant="ghost"],
@@ -466,16 +692,31 @@ a[role="button"][data-shape="circle"][data-size="xl"] {
     padding: calc(4 * var(--spacing) * 1rem);
 }
 
-/* 焦点状态 */
-[data-nb="button"]:focus-visible,
-button:focus-visible,
-input:focus-visible,
-a[role="button"]:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
+/* 通用交互样式 */
+[data-nb="button"]:active,
+button[data-variant]:active,
+input[data-variant]:active,
+a[role="button"][data-variant]:active {
+    transform: translateY(1px);
 }
 
-/* 按钮组 */
+/* 禁用状态下不显示交互效果 */
+[data-nb="button"]:disabled:active,
+button:disabled:active,
+input:disabled:active,
+a[role="button"][aria-disabled="true"]:active {
+    transform: none;
+}
+
+/* 圆形按钮特殊处理 */
+[data-nb="button"][data-shape="circle"]:active,
+button[data-shape="circle"]:active,
+input[data-shape="circle"]:active,
+a[role="button"][data-shape="circle"]:active {
+    transform: scale(0.95);
+}
+
+/* 禁用状态 */
 [data-button-group] {
     display: inline-flex;
     border-radius: var(--radius-md);
@@ -505,4 +746,116 @@ a[role="button"]:focus-visible {
 [data-button-group] button:last-child {
     border-top-right-radius: var(--radius-md);
     border-bottom-right-radius: var(--radius-md);
+}
+
+/* Warning 颜色交互样式 */
+[data-nb="button"][data-color="warning"][data-variant="solid"]:active,
+button[data-color="warning"][data-variant="solid"]:active,
+input[data-color="warning"][data-variant="solid"]:active,
+a[role="button"][data-color="warning"][data-variant="solid"]:active {
+    background: var(--warning-700);
+    border-color: var(--warning-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-color="warning"][data-variant="solid"]:focus-visible,
+button[data-color="warning"][data-variant="solid"]:focus-visible,
+input[data-color="warning"][data-variant="solid"]:focus-visible,
+a[role="button"][data-color="warning"][data-variant="solid"]:focus-visible {
+    outline: 2px solid var(--color-warning);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-warning) 20%, transparent);
+}
+
+[data-nb="button"][data-color="warning"][data-variant="outline"]:active,
+button[data-color="warning"][data-variant="outline"]:active,
+input[data-color="warning"][data-variant="outline"]:active,
+a[role="button"][data-color="warning"][data-variant="outline"]:active {
+    background: var(--warning-100);
+    color: var(--warning-700);
+    border-color: var(--warning-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-color="warning"][data-variant="outline"]:focus-visible,
+button[data-color="warning"][data-variant="outline"]:focus-visible,
+input[data-color="warning"][data-variant="outline"]:focus-visible,
+a[role="button"][data-color="warning"][data-variant="outline"]:focus-visible {
+    outline: 2px solid var(--color-warning);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-warning) 20%, transparent);
+}
+
+[data-nb="button"][data-color="warning"][data-variant="ghost"]:active,
+button[data-color="warning"][data-variant="ghost"]:active,
+input[data-color="warning"][data-variant="ghost"]:active,
+a[role="button"][data-color="warning"][data-variant="ghost"]:active {
+    background: var(--warning-100);
+    color: var(--warning-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-color="warning"][data-variant="ghost"]:focus-visible,
+button[data-color="warning"][data-variant="ghost"]:focus-visible,
+input[data-color="warning"][data-variant="ghost"]:focus-visible,
+a[role="button"][data-color="warning"][data-variant="ghost"]:focus-visible {
+    outline: 2px solid var(--color-warning);
+    outline-offset: 2px;
+    background: var(--warning-50);
+}
+
+/* Danger 颜色交互样式 */
+[data-nb="button"][data-color="danger"][data-variant="solid"]:active,
+button[data-color="danger"][data-variant="solid"]:active,
+input[data-color="danger"][data-variant="solid"]:active,
+a[role="button"][data-color="danger"][data-variant="solid"]:active {
+    background: var(--danger-700);
+    border-color: var(--danger-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-color="danger"][data-variant="solid"]:focus-visible,
+button[data-color="danger"][data-variant="solid"]:focus-visible,
+input[data-color="danger"][data-variant="solid"]:focus-visible,
+a[role="button"][data-color="danger"][data-variant="solid"]:focus-visible {
+    outline: 2px solid var(--color-danger);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-danger) 20%, transparent);
+}
+
+[data-nb="button"][data-color="danger"][data-variant="outline"]:active,
+button[data-color="danger"][data-variant="outline"]:active,
+input[data-color="danger"][data-variant="outline"]:active,
+a[role="button"][data-color="danger"][data-variant="outline"]:active {
+    background: var(--danger-100);
+    color: var(--danger-700);
+    border-color: var(--danger-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-color="danger"][data-variant="outline"]:focus-visible,
+button[data-color="danger"][data-variant="outline"]:focus-visible,
+input[data-color="danger"][data-variant="outline"]:focus-visible,
+a[role="button"][data-color="danger"][data-variant="outline"]:focus-visible {
+    outline: 2px solid var(--color-danger);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-danger) 20%, transparent);
+}
+
+[data-nb="button"][data-color="danger"][data-variant="ghost"]:active,
+button[data-color="danger"][data-variant="ghost"]:active,
+input[data-color="danger"][data-variant="ghost"]:active,
+a[role="button"][data-color="danger"][data-variant="ghost"]:active {
+    background: var(--danger-100);
+    color: var(--danger-700);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-nb="button"][data-color="danger"][data-variant="ghost"]:focus-visible,
+button[data-color="danger"][data-variant="ghost"]:focus-visible,
+input[data-color="danger"][data-variant="ghost"]:focus-visible,
+a[role="button"][data-color="danger"][data-variant="ghost"]:focus-visible {
+    outline: 2px solid var(--color-danger);
+    outline-offset: 2px;
+    background: var(--danger-50);
 }
