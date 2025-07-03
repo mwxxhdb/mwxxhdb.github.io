@@ -38,8 +38,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
             data-flex-wrap="true"
           >
             <a
+              role="button"
               href="#快速开始"
-              data-button
               data-variant="solid"
               data-color="primary"
               data-size="lg"
@@ -47,8 +47,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
               立即开始
             </a>
             <a
+              role="button"
               href="/nbcss/examples"
-              data-button
               data-variant="outline"
               data-color="primary"
               data-size="lg"
@@ -56,8 +56,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
               查看示例
             </a>
             <a
+              role="button"
               href="/nbcss/docs"
-              data-button
               data-variant="ghost"
               data-color="primary"
               data-size="lg"
@@ -88,7 +88,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
           data-gap="8"
         >
           <div
-            data-card
+            data-nb="card"
             data-shadow="md"
             data-hover="lift"
             data-text-align="center"
@@ -116,7 +116,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
           </div>
 
           <div
-            data-card
+            data-nb="card"
             data-shadow="md"
             data-hover="lift"
             data-text-align="center"
@@ -144,7 +144,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
           </div>
 
           <div
-            data-card
+            data-nb="card"
             data-shadow="md"
             data-hover="lift"
             data-text-align="center"
@@ -214,7 +214,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 &lt;/div&gt;</code></pre>
           </div>
 
-          <div data-card data-p="6" data-bg="background">
+          <div data-nb="card" data-p="6" data-bg="background">
             <h4 data-text="lg" data-weight="semibold" data-mb="4">实时预览</h4>
             <div data-p="4" data-m="8" data-border="true" data-rounded="md">
               <button data-variant="solid" data-color="primary" data-mb="3">
@@ -242,7 +242,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
         <!-- 按钮组件 -->
         <div data-mb="12">
           <h3 data-text="2xl" data-weight="semibold" data-mb="6">按钮</h3>
-          <div data-card data-p="6" data-bg="background">
+          <div data-nb="card" data-p="6" data-bg="background">
             <div data-mb="4">
               <h4 data-text="lg" data-weight="medium" data-mb="3">按钮变体</h4>
               <div data-flex data-gap="3" data-flex-wrap="true">
@@ -302,7 +302,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
         <!-- 表单组件 -->
         <div data-mb="12">
           <h3 data-text="2xl" data-weight="semibold" data-mb="6">表单</h3>
-          <div data-card data-p="6" data-bg="background">
+          <div data-nb="card" data-p="6" data-bg="background">
             <form data-gap="4" data-max-w="md">
               <div data-field>
                 <label data-required>用户名</label>
@@ -354,7 +354,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
         <div data-mb="12">
           <h3 data-text="2xl" data-weight="semibold" data-mb="6">卡片</h3>
           <div data-grid data-cols="1" data-cols-md="2" data-gap="6">
-            <div data-card data-shadow="md" data-hover="lift">
+            <div data-nb="card" data-shadow="md" data-hover="lift">
               <div data-card-header>
                 <h4 data-weight="semibold">基础卡片</h4>
                 <button data-variant="ghost" data-size="sm">更多</button>
@@ -373,7 +373,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
               </div>
             </div>
 
-            <div data-card data-shadow="md" data-hover="scale">
+            <div data-nb="card" data-shadow="md" data-hover="scale">
               <div data-card-body>
                 <h4 data-weight="semibold" data-mb="3">简洁卡片</h4>
                 <p data-color="muted" data-mb="4">
@@ -413,7 +413,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
               使用 <code>data-p</code> 和 <code>data-m</code> 属性设置内边距和外边距。
               数值基于 <code>--spacing: 0.25</code> 变量计算。
             </p>
-            <div data-card data-p="4" data-bg="background">
+            <div data-nb="card" data-p="4" data-bg="background">
               <pre><code>&lt;div data-p="4" data-m="8"&gt;
   16px 内边距，32px 外边距
 &lt;/div&gt;
@@ -435,7 +435,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
             <p data-color="muted" data-mb="6">
               使用响应式后缀在不同屏幕尺寸下应用不同的间距。
             </p>
-            <div data-card data-p="4" data-bg="background">
+            <div data-nb="card" data-p="4" data-bg="background">
               <pre><code>&lt;div data-p="2" data-p-md="4" data-p-lg="6"&gt;
   移动端 8px，平板 16px，桌面 24px
 &lt;/div&gt;
@@ -462,7 +462,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
           >
             <a
               href="/nbcss/docs"
-              data-card
+              data-nb="card"
               data-p="6"
               data-text-align="center"
               data-hover="lift"
@@ -476,7 +476,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 
             <a
               href="/nbcss/examples"
-              data-card
+              data-nb="card"
               data-p="6"
               data-text-align="center"
               data-hover="lift"
@@ -490,7 +490,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 
             <a
               href="/blog/nbcss-design"
-              data-card
+              data-nb="card"
               data-p="6"
               data-text-align="center"
               data-hover="lift"
