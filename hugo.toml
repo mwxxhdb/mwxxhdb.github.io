@@ -1,0 +1,12 @@
+baseURL = 'https://mumaniu.cn/'
+languageCode = 'zh-cn'
+title = 'My New Hugo Site'
+theme = 'FixIt'
+defaultContentLanguage = 'zh-cn'
+hasCJKLanguage = true
+[markup]
+  _merge = "shallow"
+[outputs]
+  _merge = "shallow"
+[taxonomies]
+  _merge = "shallow"
