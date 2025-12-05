@@ -1,9 +1,10 @@
 baseURL = 'https://mumaniu.cn/'
 languageCode = 'zh-cn'
-title = 'My New Hugo Site'
+title = '牧码牛的博客'
 theme = 'FixIt'
 defaultContentLanguage = 'zh-cn'
 hasCJKLanguage = true
+mainSections = ['posts']
 [markup]
   _merge = "shallow"
 [outputs]
