@@ -19,3 +19,6 @@ Thumbs.db
 .vscode/
 *.sublime-project
 *.sublime-workspace
+
+# Hugo 为 IDE 自动生成，含本机模块缓存绝对路径
+assets/jsconfig.json

@@ -18,16 +18,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      DART_SASS_VERSION: 1.93.2
+      DART_SASS_VERSION: 1.104.0
       GO_VERSION: 1.25.3
-      HUGO_VERSION: 0.152.2
+      HUGO_VERSION: 0.165.0
       NODE_VERSION: 22.20.0
       TZ: Europe/Oslo
     steps:
       - name: Checkout
         uses: actions/checkout@v5
         with:
-          submodules: recursive
           fetch-depth: 0
       - name: Setup Go
         uses: actions/setup-go@v5
@@ -81,7 +80,6 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
       - name: Cache save
         id: cache-save
