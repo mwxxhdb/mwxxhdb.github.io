@@ -16,3 +16,122 @@ mainSections = ['posts']
 [module]
   [[module.imports]]
     path = "github.com/hugo-fixit/FixIt"
+
+# -----------------------------------------------------------------------------
+# 图片处理（配合 Page Bundle：图片与文章放在同一目录，用相对路径引用）
+# -----------------------------------------------------------------------------
+[imaging]
+quality = 82
+resampleFilter = "Lanczos"
+
+[imaging.exif]
+# 剥离拍摄时间与 GPS 定位，避免生活照泄露家庭位置信息
+disableDate = true
+disableLatLong = true
+
+# -----------------------------------------------------------------------------
+# Mermaid：换成国内可达的 CDN，并锁定版本
+# 主题默认用 https://cdn.jsdelivr.net/npm/mermaid/...（不带版本号），有两个问题：
+#   1. jsDelivr 在国内不稳定，加载失败时页面上只剩 mermaid 源码
+#   2. 不锁版本 = 永远拉最新，mermaid 破坏性更新会直接让图挂掉（block-beta 尤其）
+# npmmirror 是阿里维护的 npm 官方镜像，实测入口与 chunk 均 ~0.2s（jsDelivr ~0.9s），
+# Content-Type 为 text/javascript、CORS 正常，满足 ESM 动态 import 的要求。
+# 升级 mermaid 时改下面这个版本号即可。
+# -----------------------------------------------------------------------------
+[params.mermaid]
+cdn = "https://registry.npmmirror.com/mermaid/11.17.2/files/dist/mermaid.esm.min.mjs"
+
+# -----------------------------------------------------------------------------
+# 评论：Giscus（数据存在本仓库的 GitHub Discussions 里，无需任何服务器）
+# 前置条件：仓库 public + 已开启 Discussions + 已安装 giscus App
+# 注意：FixIt v1 alpha 的 params 层级已扁平化（params.page.* → params.*），
+# 但 giscus 子键必须用 camelCase——主题自带 hugo.toml 写的是 snake_case，
+# 而模板读的是 .RepoId/.CategoryId 等，属主题 alpha 阶段的 bug，以模板为准。
+# -----------------------------------------------------------------------------
+[params.comment]
+enable = true
+
+[params.comment.giscus]
+enable = true
+repo = "mwxxhdb/mwxxhdb.github.io"
+repoId = "R_kgDOLQYBgQ"
+category = "Announcements"
+categoryId = "DIC_kwDOLQYBgc4CdGnx"
+origin = "https://giscus.app"
+# 用文章路径作为 discussion 的匹配键，改标题不会丢评论
+mapping = "pathname"
+strict = "1"
+lang = "zh-CN"
+reactionsEnabled = "1"
+emitMetadata = "0"
+inputPosition = "bottom"
+lightTheme = "light"
+darkTheme = "dark"
+lazyLoad = true
+
+# -----------------------------------------------------------------------------
+# 外观：亮暗双模式 WCAG AAA 配色（暖调纸感 / 深邃暗色）
+#
+# 全部 14 个文本场景在亮色与暗色下均满足 AAA（对比度 ≥ 7:1）。
+# 设计取舍：
+#   - 正文只按主背景定色，代码高亮行等特殊底色反过来适配正文，
+#     避免正文被推成纯黑/纯白（纯白正文在暗色底上有光晕，久读更累）。
+#   - 正文 11:1 > 引用 8.3:1 > 次要 7.9:1 > 链接 7.3:1，
+#     刻意拉开梯度，否则 AAA 会把所有文字压成同一个视觉层级。
+#   - 边框是非文本元素，AAA(1.4.6) 不作要求，保持柔和不强推到 3:1。
+# 改任何色值都要重算对比度，14 个场景各有不同底色。
+# -----------------------------------------------------------------------------
+[params.appearance]
+
+# ---------- 亮色 ----------
+global_background_color = "#faf8f4"
+global_font_color = "#3b3731"
+global_font_secondary_color = "#524d45"
+global_border_color = "#e6e0d6"
+global_link_color = "#3b3731"
+global_link_hover_color = "#723e52"
+single_link_color = "#3d556a"
+single_link_hover_color = "#723e52"
+header_background_color = "#f4f0e8"
+search_background_color = "#f3efe7"
+menu_border_color = "#6b63581f"
+selection_color = "rgba(166, 124, 82, 0.20)"
+code_color = "#3b3731"
+code_background_color = "#f6f2ea"
+code_header_color = "#4d473f"
+code_header_background_color = "#ece6da"
+code_highlight_color = "#f7edcf"
+table_background_color = "#faf9f5"
+table_thead_color = "#f1ece2"
+table_border_color = "#d5cbba"
+blockquote_color = "#504a42"
+pagination_link_color = "#595144"
+pagination_link_hover_color = "#3b3731"
+
+# ---------- 暗色 ----------
+# 底色整体压深（主题默认 #1f252d → #1a1e25），给文字留出层次空间，
+# 这样正文不必推到纯白就能达 AAA。
+global_background_color_dark = "#1a1e25"
+global_font_color_dark = "#ccd3dc"
+global_font_secondary_color_dark = "#b2b8be"
+global_border_color_dark = "#333a44"
+global_link_color_dark = "#ccd3dc"
+global_link_hover_color_dark = "#df95bd"
+single_link_color_dark = "#4eb6e8"
+single_link_hover_color_dark = "#df95bd"
+header_background_color_dark = "#13171d"
+search_background_color_dark = "#232932"
+menu_active_color_dark = "#ccd3dc"
+selection_color_dark = "rgba(50, 112, 194, 0.40)"
+code_color_dark = "#ccd3dc"
+code_background_color_dark = "#212730"
+code_header_color_dark = "#9ba9b7"
+code_header_background_color_dark = "#141920"
+# 原为 rgba 半透明叠加，改实色以便精确核算对比度
+code_highlight_color_dark = "#463c1f"
+table_background_color_dark = "#20262e"
+table_thead_color_dark = "#2c333d"
+table_border_color_dark = "#3d4552"
+blockquote_color_dark = "#b1b7bd"
+pagination_link_color_dark = "#b3bdcb"
+pagination_link_hover_color_dark = "#ccd3dc"
