@@ -1,9 +1,9 @@
 {
-  "latest": "0.1.1",
-  "sha256": "5401291bdb057623d27d625217aa0c0b4046d2a88bfd34073e671a872fb099d3",
+  "latest": "0.2.0",
+  "sha256": "2915be24063d4f29081c8b06cc5807d99470045161f6b4afb20d9425a96951af",
   "minNative": 2,
-  "native": 3,
-  "notes": "比拼时伤害数字移到卡片顶部，不再遮挡角色；玩法说明里显示版本号",
+  "native": 4,
+  "notes": "三国杀题材改版：曹操、刘备、孙权、张角四位主公，魏蜀吴群 60 名武将，三连合成升星，金币利息，20 格备战区",
   "apkPage": "https://github.com/mwxxhdb/huaxia-heroes-releases/releases/latest",
-  "url": "https://mumaniu.cn/games/huaxia/bundles/huaxia-0.1.1.zip"
+  "url": "https://mumaniu.cn/games/huaxia/bundles/huaxia-0.2.0.zip"
 }
