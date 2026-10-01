@@ -1,9 +1,9 @@
 {
-  "latest": "0.2.1",
-  "sha256": "3e35cb868777e1a38f7b5b42e961d154700ebd9496c4139f7e2c05ee2c52ea21",
+  "latest": "0.2.2",
+  "sha256": "850d721d16fd6ed6eb3739f0171363aa40766003e0642ca73ef5dbed22c24469",
   "minNative": 2,
-  "native": 5,
-  "notes": "安卓返回键可以退出游戏；商店随等级提高高级武将出现概率；去掉金币利息",
+  "native": 6,
+  "notes": "每个势力 18 名武将（每级 3 名，新增 12 名）；卡面换上清代《三国演义》绣像",
   "apkPage": "https://github.com/mwxxhdb/huaxia-heroes-releases/releases/latest",
-  "url": "https://mumaniu.cn/games/huaxia/bundles/huaxia-0.2.1.zip?v=3e35cb868777"
+  "url": "https://mumaniu.cn/games/huaxia/bundles/huaxia-0.2.2.zip?v=850d721d16fd"
 }
