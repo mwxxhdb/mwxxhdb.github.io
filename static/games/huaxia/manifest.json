@@ -1,9 +1,9 @@
 {
-  "latest": "0.2.2",
-  "sha256": "850d721d16fd6ed6eb3739f0171363aa40766003e0642ca73ef5dbed22c24469",
+  "latest": "0.2.3",
+  "sha256": "3fdd6ea5f824ed6aa261c036c551c4b126a7aea21b1b83afc5f9bce613753c0a",
   "minNative": 2,
-  "native": 6,
-  "notes": "每个势力 18 名武将（每级 3 名，新增 12 名）；卡面换上清代《三国演义》绣像",
+  "native": 7,
+  "notes": "首页显示更新进度，检查完更新才能开始游戏，新版本下载后立即生效",
   "apkPage": "https://github.com/mwxxhdb/huaxia-heroes-releases/releases/latest",
-  "url": "https://mumaniu.cn/games/huaxia/bundles/huaxia-0.2.2.zip?v=850d721d16fd"
+  "url": "https://mumaniu.cn/games/huaxia/bundles/huaxia-0.2.3.zip?v=3fdd6ea5f824"
 }
